@@ -1,199 +1,286 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <!--Metadata-->
-    <meta charset="UTF-8">
-    <meta name="description" content="Welcome to MediaPlay Discord!">
-    <meta name="keywords" content="MediaPlay Discord, Discord, Community">
-    <meta name="author" content="MediaPlay Discord">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="description" content="Welcome to MediaPlay Discord!">
+  <meta name="keywords" content="MediaPlay Discord, Discord, Community">
+  <meta name="author" content="Linerly">
+  <meta name="theme-color" content="#00B0F0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home · MediaPlay Discord</title>
 
     <!--Favicon-->
-    <link rel="icon" href="https://mediaplay-discord.github.io/assets/MPD-Favicon.ico" type="image/x-icon">
-    
-    <!--Page Title-->
-    <title>Home · MediaPlay Discord</title>
-            
-    <!--Some custom icons for navbar, please do not remove or else it'll look weird-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <!--Font (Montserrat)-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Montserrat', sans-serif;
-      }
-    </style>
+  <link rel="icon" href="https://mediaplay-discord.github.io/assets/MPD-Favicon.ico" type="image/x-icon">
+
+    <!--Google Fonts for website's font-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+
+    <!--Scroll Bar Styling (using Linerly's CSS styling)-->
+  <link rel="stylesheet" href="https://linerly.github.io/css/scrollBar.css">
+
+    <!--iFrame Alignment and <hr> Styling-->
+  <style> 
+    iframe {
+        display: block;
+        margin: 0 auto;
+        border: 0;
+    }
+    hr {
+        border: 4px solid gray;
+        border-radius: 8px;
+        width:75%;
+        text-align:center;
+        margin:auto;
+    }
+  </style>
 
     <!--Navbar Styling-->
-    <style>
-      body {margin:0;font-family:Montserrat}
-      
-      .topnav {
-        overflow: hidden;
-        background-color: #333;
-      }
-      
-      .topnav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-      }
-      
-      .active {
-        background-color: #137aad;
-        color: white;
-      }
-      
-      .topnav .icon {
-        display: none;
-      }
-      
-      .dropdown {
-        float: left;
-        overflow: hidden;
-      }
-      
-      .dropdown .dropbtn {
-        font-size: 17px;    
-        border: none;
-        outline: none;
-        color: white;
-        padding: 14px 16px;
-        background-color: inherit;
-        font-family: inherit;
-        margin: 0;
-      }
-      
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-      }
-      
-      .dropdown-content a {
-        float: none;
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-      }
-      
-      .topnav a:hover, .dropdown:hover .dropbtn {
-        background-color: #555;
-        color: white;
-      }
-      
-      .dropdown-content a:hover {
-        background-color: #ddd;
-        color: black;
-      }
-      
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-      
-      @media screen and (max-width: 600px) {
-        .topnav a:not(:first-child), .dropdown .dropbtn {
-          display: none;
-        }
-        .topnav a.icon {
-          float: right;
-          display: block;
-        }
-      }
-      
-      @media screen and (max-width: 600px) {
-        .topnav.responsive {position: relative;}
-        .topnav.responsive .icon {
-          position: absolute;
-          right: 0;
-          top: 0;
-        }
-        .topnav.responsive a {
-          float: none;
-          display: block;
-          text-align: left;
-        }
-        .topnav.responsive .dropdown {float: none;}
-        .topnav.responsive .dropdown-content {position: relative;}
-        .topnav.responsive .dropdown .dropbtn {
-          display: block;
-          width: 100%;
-          text-align: left;
-        }
-      </style>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
 
-      <!--Scroll bar styling, for now it's using Linerly's CSS styling-->
-      <link rel="stylesheet" href="https://linerly.github.io/css/scrollBar.css">
-    
-      <!--Background color-->
-      <style>  
-        body  {
-          background-color: #ffffff;
-        }
-      </style>
-  </head>
-  
-  <body>
-    
-    <!--Navbar-->
-    <div class="topnav" id="myTopnav">
-      <a href="https://mediaplay-discord.github.io" class="active">Home</a>
-      <a href="https://discord.gg/5Tdke6dsaP" class="active">Discord Server</a>
-      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myNavbar()">&#9776;</a>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      height: 60px;
+      background-color: #333333;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container .logo {
+      max-width: 250px;
+      padding: 0 10px;
+      overflow: hidden;
+    }
+
+    .container .logo a {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 60px;
+    }
+
+    .container .logo a img {
+      max-width: 100%;
+      max-height: 60px;
+    }
+
+    .container .navbar {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      padding: 0 10px;
+    }
+
+    .container .navbar ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container .navbar ul li a {
+      text-decoration: none;
+      color: #999999;
+      font-size: 14px;
+      text-transform: uppercase;
+      display: block;
+      height: 60px;
+      line-height: 60px;
+      cursor: pointer;
+      padding: 0 10px;
+    }
+
+    .container .navbar ul li a:hover {
+      color: #ffffff;
+      background-color: rgba(23, 23, 23, 0.9);
+    }
+
+    .container .navbar ul .close {
+      display: none;
+      text-align: right;
+      padding: 10px;
+    }
+
+    .container .navbar ul .close span {
+      font-size: 40px;
+      display: inline-block;
+      border: 1px solid #cccccc;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .container .navbar .icon-bar {
+      padding: 18px 8px;
+      width: 50px;
+      height: 60px;
+      display: none;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .container .navbar .icon-bar i {
+      background-color: #ffffff;
+      height: 2px;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .container {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+
+      .container .logo {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
+
+      .container .navbar {
+        -webkit-box-flex: 0;
+        -ms-flex: 0;
+        flex: 0;
+      }
+
+      .container .navbar ul {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        position: fixed;
+        left: 100%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        background: #ffffff;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        -webkit-transition: left .3s;
+        -o-transition: left .3s;
+        transition: left .3s;
+      }
+
+      .container .navbar ul li a {
+        padding: 10px;
+        font-size: 16px;
+        height: auto;
+        line-height: normal;
+        color: #0D1347;
+      }
+
+      .container .navbar ul .close {
+        display: block;
+      }
+
+      .container .navbar .icon-bar {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+
+      .container .navbar ._Menus-show {
+        left: 0;
+      }
+    }
+
+    .body {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <a href="#"><img src="https://mediaplay-discord.github.io/assets/MPD-Logo-with-Text.png" alt="logo"></a>
     </div>
- 
-    <!--Navbar JavaScript-->
-    <script>
-      function myNavbar() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-          x.className += " responsive";
-        } else {
-          x.className = "topnav";
-        }
-      }
-      </script>
+<div class="navbar">
 
-    <!--Page Content-->    
-      <p style="text-align: center; font-size: 128px;"><strong>MediaPlay Discord</strong></p>
-      <p style="text-align: center; font-size: 32px;">Welcome to our website!</p>
-    
-   <hr style="width:50%;text-align:center;margin:auto;">
- 
-    <!--iFrame Alignment and <hr> styling-->
-        <style> 
-          iframe {
-              display: block;
-              margin: 0 auto;
-              border: 0;
-          }
-          hr {
-              border: 2px solid white;
-              border-radius: 2px;
-          }
-        </style>
-  
-    <p style="text-align: center; font-size: 32px;">Join our Discord server!</p>
-    
+<div class="icon-bar" onclick="Show()">
+    <i></i>
+    <i></i>
+    <i></i>
+</div>
+
+<ul id="nav-lists">
+    <li class="close"><span onclick="Hide()">×</span></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Community</a></li>
+    <li><a href="#">Leaderboard</a></li>
+    <li><a href="#">Server</a></li>
+</ul>
+
+</div>
+</div>
+<div class="body">
+  <h1 style="text-align: center; font-size: 3em;"><strong>MediaPlay Discord</strong></p>
+  <h2 style="text-align: center; font-size: 1.875em;">Welcome to our website!</p>
+
+  <hr>
+
+  <h2 style="text-align: center; font-size: 1.875em;">Join our Discord server!</p>
   <div>
-    <iframe src="https://discord.com/widget?id=699994812517974057&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      <iframe src="https://discord.com/widget?id=699994812517974057&amp;theme=dark" width="50%" height="50%" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
   </div>
+</div>
 
-  <hr style="width:50%;text-align:center;margin:auto;">
+<script>
+  var navList = document.getElementById("nav-lists");
+  function Show() {
+  navList.classList.add("_Menus-show");
+  }
 
-  <p style="text-align: center; font-size: 32px;">More things will be added soon, here's a guide dog for now: 🦮</p>
+  function Hide(){
+  navList.classList.remove("_Menus-show");
+  }
+</script>
 
-  <!--Wait... Did you actually look at the source code? Have a cookie! 🍪-->
-  </body>
+</body>
 </html>
