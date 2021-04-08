@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Metadata-->
+  <meta charset="UTF-8">
+  <meta name="description" content="Welcome to MediaPlay Discord!">
+  <meta name="keywords" content="MediaPlay Discord, Discord, Community">
+  <meta name="author" content="Linerly">
+  <meta name="theme-color" content="#00B0F0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home · MediaPlay Discord</title>
+
+    <!--Favicon-->
+  <link rel="icon" href="https://mediaplay-discord.github.io/assets/MPD-Favicon.ico" type="image/x-icon">
+
+   <!--Message for showing if JS is disabled-->
+  <noscript>
+	<style>
+		figure noscript {
+			top: 0;
+			left: 0;
+			position: absolute;
+		}
+	</style>
+
+	<style>
+			#enable-js {
+				margin: 0;
+				padding: 12px 15px;
+				background-color: #FFC107;
+				color: #000;
+				text-align: center;
+				font-family: 'Montserrat', sans-serif;
+				font-size: 13px;
+			}
+		</style>
+		<p id="enable-js">🦮 Sorry, some parts of the website didn't load correctly. Make sure to enable JavaScript in your browser.</p>
+  </noscript>
+    <!--Google Fonts for website's font-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+
+    <!--Scroll Bar Styling (using Linerly's CSS styling)-->
+  <link rel="stylesheet" href="https://linerly.github.io/css/scrollBar.css">
+
+    <!--iFrame Alignment and <hr> Styling-->
+  <style>
+    iframe {
+        display: block;
+        margin: 0 auto;
+        border: 0;
+    }
+    hr {
+        border: 4px solid gray;
+        border-radius: 8px;
+        width:75%;
+        text-align:center;
+        margin:auto;
+    }
+  </style>
+
+    <!--Navbar Styling-->
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      height: 60px;
+      background-color: #333333;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container .logo {
+      max-width: 250px;
+      padding: 0 10px;
+      overflow: hidden;
+    }
+
+    .container .logo a {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      height: 60px;
+    }
+
+    .container .logo a img {
+      max-width: 100%;
+      max-height: 60px;
+    }
+
+    .container .navbar {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      padding: 0 10px;
+    }
+
+    .container .navbar ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container .navbar ul li a {
+      text-decoration: none;
+      color: #999999;
+      font-size: 14px;
+      text-transform: uppercase;
+      display: block;
+      height: 60px;
+      line-height: 60px;
+      cursor: pointer;
+      padding: 0 10px;
+    }
+
+    .container .navbar ul li a:hover {
+      color: #ffffff;
+      background-color: rgba(23, 23, 23, 0.9);
+    }
+
+    .container .navbar ul .close {
+      display: none;
+      text-align: right;
+      padding: 10px;
+    }
+
+    .container .navbar ul .close span {
+      font-size: 40px;
+      display: inline-block;
+      border: 1px solid #cccccc;
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    .container .navbar .icon-bar {
+      padding: 18px 8px;
+      width: 50px;
+      height: 60px;
+      display: none;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .container .navbar .icon-bar i {
+      background-color: #ffffff;
+      height: 2px;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .container {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+
+      .container .logo {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+      }
+
+      .container .navbar {
+        -webkit-box-flex: 0;
+        -ms-flex: 0;
+        flex: 0;
+      }
+
+      .container .navbar ul {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        position: fixed;
+        left: 100%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        background: #ffffff;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        -webkit-transition: left .3s;
+        -o-transition: left .3s;
+        transition: left .3s;
+      }
+
+      .container .navbar ul li a {
+        padding: 10px;
+        font-size: 16px;
+        height: auto;
+        line-height: normal;
+        color: #0D1347;
+      }
+
+      .container .navbar ul .close {
+        display: block;
+      }
+
+      .container .navbar .icon-bar {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+
+      .container .navbar ._Menus-show {
+        left: 0;
+      }
+    }
+
+    .body {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+  </style>
+
+    <!--Slideshow/Carousel Theming-->
+  <style>
+      * {box-sizing: border-box}
+      body {font-family: 'Montserrat', sans-serif; margin:0}
+      .mySlides {display: none}
+      img {vertical-align: middle;}
+
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      /* Next & previous buttons */
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+      }
+
+      /* Caption text */
+      .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active, .dot:hover {
+        background-color: #717171;
+      }
+
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @-webkit-keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+      }
+
+      @keyframes fade {
+        from {opacity: .4}
+        to {opacity: 1}
+      }
+
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+      }
+
+      .slideshow-image {
+        border-radius: 15px;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+      }
+  </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <a href="#"><img src="https://mediaplay-discord.github.io/assets/MPD-Logo-with-Text.png" alt="logo"></a>
+    </div>
+<div class="navbar">
+
+<div class="icon-bar" onclick="Show()">
+    <i></i>
+    <i></i>
+    <i></i>
+</div>
+
+<ul style="z-index:1"id="nav-lists">
+    <li class="close"><span onclick="Hide()">×</span></li>
+    <li><a href="https://mediaplay-discord.github.io/">Home</a></li>
+    <li><a href="https://mediaplay-discord.github.io/community">Community</a></li>
+    <li><a href="https://arcanebot.xyz/leaderboard/MPD">Leaderboard</a></li>
+    <li><a href="https://mediaplay-discord.github.io/servers">Servers</a></li>
+</ul>
+
+</div>
+</div>
+
+<br>
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext">1/3</div>
+    <img class="slideshow-image" loading="lazy" src="https://i.imgur.com/HqCZsoI.png?width=768&height=432" style="width:100%">
+    <div class="text">MPD Family 1 Picture</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2/3</div>
+    <img class="slideshow-image" loading="lazy" src="https://i.imgur.com/UfTnYWG.png?width=768&height=432" style="width:100%">
+    <div class="text">MPD Family 2 Picture</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3/3</div>
+    <img class="slideshow-image" loading="lazy" src="https://i.imgur.com/sac1yU3.png?width=768&height=432" style="width:100%">
+    <div class="text">MPD Family 3 Picture</div>
+  </div>
+
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span> 
+  </div>
+
+<div class="body">
+
+  <h1 style="text-align: center; font-size: 3em;"><strong>MediaPlay Discord</strong></p>
+  <h2 style="text-align: center; font-size: 1.875em;">Welcome to our website!</p>
+
+  <hr>
+
+  <h2 style="text-align: center; font-size: 1.875em;">Join our Discord server!</p>
+  <div>
+      <iframe src="https://discord.com/widget?id=699994812517974057&amp;theme=dark" width="50%" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </div>
+</div>
+
+<script>
+  var navList = document.getElementById("nav-lists");
+  function Show() {
+  navList.classList.add("_Menus-show");
+  }
+
+  function Hide(){
+  navList.classList.remove("_Menus-show");
+  }
+</script>
+
+<p style="text-align: center; font-size:0.95em;">Psst... MPD will be 1 year old soon! <br> <a href="https://discord.gg/5Tdke6dsaP" target="_blank">Join our Discord server and celebrate!</a></p>
+
+</body>
+</html>
