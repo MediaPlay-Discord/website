@@ -82,7 +82,7 @@
 
     .container {
       height: 60px;
-      background-color: #333333;
+      background-color: #0D1347;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -95,8 +95,8 @@
     }
 
     .container .logo {
-      max-width: 250px;
-      padding: 0 10px;
+      max-width: 350px;
+      padding: 0 15px;
       overflow: hidden;
     }
 
@@ -154,7 +154,7 @@
 
     .container .navbar ul li a:hover {
       color: #ffffff;
-      background-color: rgba(23, 23, 23, 0.9);
+      background-color: #00B0F0;
     }
 
     .container .navbar ul .close {
@@ -191,7 +191,7 @@
       height: 2px;
     }
 
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 800px) {
       .container {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -279,7 +279,7 @@
     width: auto;
     margin-top: -22px;
     padding: 16px;
-    color: #222428;
+    color: #ffffff;
     font-weight: bold;
     font-size: 30px;
     transition: .6s ease;
@@ -287,23 +287,23 @@
   }
 
   .next {
-    right: -65px;
-    border-radius: 3px 3px 3px 3px
+    right: 10px;
+    border-radius: 50px 50px 50px 50px
   }
 
   .prev {
-    left: -65px;
-    border-radius: 3px 3px 3px 3px
+    left: 10px;
+    border-radius: 50px 50px 50px 50px
   }
 
   .prev:hover,
   .next:hover {
-    color: #ffffff;
+    color: #707070;
     background-color: rgba(0, 0, 0, 0.8)
   }
 
   .text {
-    color: #ffffff;
+    color: #000000;
     font-size: 15px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -311,7 +311,7 @@
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: #222428
+    background-color: #717171
   }
 
   .numbertext {
@@ -457,8 +457,8 @@ resume = () =>{
     </div>  
   </div>
   
-  <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
-  <a class="next" onclick='plusSlides(1)'>&#10095;</a>
+  <img src="./assets/MPD-Button-Left.png" width="30%" height="30%" class="prev" onclick='plusSlides(-1)'>
+  <img src="./assets/MPD-Button-Right.png" width="30%" height="30%" class="next" onclick='plusSlides(1)'>
 </div>
 
 <br>
