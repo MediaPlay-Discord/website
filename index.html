@@ -287,13 +287,29 @@
   }
 
   .next {
-    right: 10px;
+    right: 15px;
     border-radius: 50px 50px 50px 50px
   }
 
   .prev {
-    left: 10px;
+    left: 15px;
     border-radius: 50px 50px 50px 50px
+  }
+
+  @media only screen and (max-width: 800px) {
+    .next {
+      right: 10px;
+      border-radius: 50px 50px 50px 50px;
+      width: 17%;
+      height: 30%
+    }
+
+    .prev {
+      left: 10px;
+      border-radius: 50px 50px 50px 50px;
+      width: 17%;
+      height: 30%
+    }
   }
 
   .prev:hover,
@@ -457,8 +473,8 @@ resume = () =>{
     </div>  
   </div>
   
-  <img src="./assets/MPD-Button-Left.png" width="30%" height="30%" class="prev" onclick='plusSlides(-1)'>
-  <img src="./assets/MPD-Button-Right.png" width="30%" height="30%" class="next" onclick='plusSlides(1)'>
+  <img src="./assets/MPD-Button-Left.png" width="15%" height="15%" class="prev" onclick='plusSlides(-1)'>
+  <img src="./assets/MPD-Button-Right.png" width="15%" height="15%" class="next" onclick='plusSlides(1)'>
 </div>
 
 <br>
