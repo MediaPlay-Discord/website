@@ -260,115 +260,88 @@
 
     <!--Slideshow/Carousel Theming-->
   <style>
-      * {box-sizing: border-box}
-      body {font-family: 'Montserrat', sans-serif; margin:0}
-      .mySlides {display: none}
-      img {vertical-align: middle;}
+  .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+  }
 
-      /* Slideshow container */
-      .slideshow-container {
-        max-width: 1000px;
-        position: relative;
-        margin: auto;
-      }
+  .mySlides {
+    display: none;
+    max-height: 800px;
+  }
 
-      /* Next & previous buttons */
-      .prev, .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        padding: 16px;
-        margin-top: -22px;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-      }
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: #222428;
+    font-weight: bold;
+    font-size: 30px;
+    transition: .6s ease;
+    border-radius: 0 3px 3px 0
+  }
 
-      /* Position the "next button" to the right */
-      .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-      }
+  .next {
+    right: -65px;
+    border-radius: 3px 3px 3px 3px
+  }
 
-      /* On hover, add a black background color with a little bit see-through */
-      .prev:hover, .next:hover {
-        background-color: rgba(0,0,0,0.8);
-      }
+  .prev {
+    left: -65px;
+    border-radius: 3px 3px 3px 3px
+  }
 
-      /* Caption text */
-      .text {
-        color: #f2f2f2;
-        font-size: 15px;
-        padding: 8px 12px;
-        position: absolute;
-        bottom: 8px;
-        width: 100%;
-        text-align: center;
-      }
+  .prev:hover,
+  .next:hover {
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8)
+  }
 
-      /* Number text (1/3 etc) */
-      .numbertext {
-        color: #f2f2f2;
-        font-size: 12px;
-        padding: 8px 12px;
-        position: absolute;
-        top: 0;
-      }
+  .text {
+    color: #ffffff;
+    font-size: 15px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #222428
+  }
 
-      /* The dots/bullets/indicators */
-      .dot {
-        cursor: pointer;
-        height: 15px;
-        width: 15px;
-        margin: 0 2px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.6s ease;
-      }
+  .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0
+  }
 
-      .active, .dot:hover {
-        background-color: #717171;
-      }
+  .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color .6s ease
+  }
 
-      /* Fading animation */
-      .fade {
-        -webkit-animation-name: fade;
-        -webkit-animation-duration: 1.5s;
-        animation-name: fade;
-        animation-duration: 1.5s;
-      }
-
-      @-webkit-keyframes fade {
-        from {opacity: .4}
-        to {opacity: 1}
-      }
-
-      @keyframes fade {
-        from {opacity: .4}
-        to {opacity: 1}
-      }
-
-      /* On smaller screens, decrease text size */
-      @media only screen and (max-width: 300px) {
-        .prev, .next,.text {font-size: 11px}
-      }
-
-      .slideshow-image {
-        border-radius: 15px;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-      }
+  .active,
+  .dot:hover {
+    background-color: #717171
+  }
   </style>
 </head>
 <body>
 
+  <!--Navbar-->
 <div class="container">
     <div class="logo">
         <a href="#"><img src="https://mediaplay-discord.github.io/assets/MPD-Logo-with-Text.png" alt="logo"></a>
@@ -394,71 +367,108 @@
 
 <br>
 
-<div class="slideshow-container">
-  <div class="mySlides fade">
-    <div class="numbertext">1/4</div>
-    <img class="slideshow-image" loading="lazy" src="https://mediaplay-discord.github.io/assets/MPD-Family-1-Picture-Compressed.webp?width=768&height=432" style="width:100%">
-    <div class="text">MPD Family 1 Picture</div>
-  </div>
+<!--Slideshow/Carousel JS code-->
+<script>
+  var slideIndex = 1;
 
-  <div class="mySlides fade">
-    <div class="numbertext">2/4</div>
-    <img class="slideshow-image" loading="lazy" src="https://mediaplay-discord.github.io/assets/MPD-Family-2-Picture-Compressed.webp?width=768&height=432" style="width:100%">
-    <div class="text">MPD Family 2 Picture</div> 
-  </div>
+var myTimer;
 
-  <div class="mySlides fade">
-    <div class="numbertext">3/4</div>
-    <img class="slideshow-image" loading="lazy" src="https://mediaplay-discord.github.io/assets/MPD-Family-3-Picture-Compressed.webp?width=768&height=432" style="width:100%">
-    <div class="text">MPD Family 3 Picture</div>
+var slideshowContainer;
 
-  <div class="mySlides fade">
-      <div class="numbertext">4/4</div>
-      <img class="slideshow-image" loading="lazy" src="https://mediaplay-discord.github.io/assets/MPD-Family-4-Picture-Compressed.webp?width=768&height=432" style="width:100%">
-      <div class="text">MPD Family 4 Picture</div>
-  </div>
-
-  <script>
-    var slideIndex = 1;
+window.addEventListener("load",function() {
     showSlides(slideIndex);
+    myTimer = setInterval(function(){plusSlides(1)}, 4000);
+  
+    slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+   slideshowContainer.addEventListener('mouseenter', pause)
+    slideshowContainer.addEventListener('mouseleave', resume)
+})
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
+// Previous and next buttons
+function plusSlides(n){
+  clearInterval(myTimer);
+  if (n < 0){
+    showSlides(slideIndex -= 1);
+  } else {
+   showSlides(slideIndex += 1); 
+  }
+  
+  if (n === -1){
+    myTimer = setInterval(function(){plusSlides(n + 2)}, 4000);
+  } else {
+    myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
+  }
+}
 
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
+// Controls the current slide and resets interval if needed
+function currentSlide(n){
+  clearInterval(myTimer);
+  myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
+  showSlides(slideIndex = n);
+}
 
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " active";
-    }
-    </script>
+function showSlides(n){
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
 
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+pause = () => {
+  clearInterval(myTimer);
+}
 
+resume = () =>{
+  clearInterval(myTimer);
+  myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
+}
+</script>
+
+
+<div class="slideshow-container">
+  <div class="slideshow-inner">
+    <div class="mySlides fade">
+      <img  src='./assets/MPD-Family-1-Picture-Compressed.webp' style='width: 100%;' alt="MPD Family 1 picture"/>
+      <div class="text">MPD Family 1</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <img  src='./assets/MPD-Family-2-Picture-Compressed.webp' style='width: 100%;' alt="MPD Family 2 picture"/>
+      <div class="text">MPD Family 2</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <img  src='./assets/MPD-Family-3-Picture-Compressed.webp' style='width: 100%;' alt="MPD Family 3 picture"/>
+      <div class="text">MPD Family 3</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <img  src='./assets/MPD-Family-4-Picture-Compressed.webp' style='width: 100%;' alt="MPD Family 4 picture"/>
+      <div class="text">MPD Family 4</div>
+    </div>  
   </div>
-  <br>
+  
+  <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
+  <a class="next" onclick='plusSlides(1)'>&#10095;</a>
+</div>
 
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span> 
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span> 
-    <span class="dot" onclick="currentSlide(4)"></span> 
-  </div>
+<br>
+
+<div style='text-align: center;'>
+  <span class="dot" onclick='currentSlide(1)'></span>
+  <span class="dot" onclick='currentSlide(2)'></span>
+  <span class="dot" onclick='currentSlide(3)'></span>
+  <span class="dot" onclick='currentSlide(4)'></span>
+</div>
 
 <div class="body">
 <script>
@@ -482,11 +492,13 @@
   <iframe src="https://discord.com/widget?id=699994812517974057&amp;theme=dark" width="50%" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </div>
 
-<p style="text-align: center; font-size:0.95em;">We're 1 year old now! <br> The celebration isn't over yet, we have a special event happening on our Discord server! <a href="https://discord.gg/5Tdke6dsaP" target="_blank">Join our Discord server!</a></p>
+<p style="text-align: center; font-size:0.95em;">We're 1 year old now. <br> <a href="https://discord.gg/5Tdke6dsaP" target="_blank">Join our Discord server and celebrate!</a></p>
 
 <hr>
 
-<p style="text-align: center; font-size: 0.8em;"><a href="https://mediaplay-discord.fandom.com" target="_blank">Consider visiting the MediaPlay Discord wiki as well!</a></p>
+<p style="text-align: center; font-size: 0.8em;"><a href="https://mediaplay-discord.fandom.com" target="_blank">Consider visiting the MediaPlay Discord wiki as well.</a></p>
+
+<p style="text-align: center; font-size: 0.5em;"><a href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io" target="_blank">Source Code</a> | <a href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io/commits" target="_blank">Website Builds</a> | <a href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM" target="_blank">MPD Dictionary</a></p>
 </div>
 </body>
 </html>
