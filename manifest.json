@@ -1,0 +1,10 @@
+{
+  "name": "MediaPlay Discord",
+  "short_name": "MPD",
+  "theme_color": "#00b0f0",
+  "background_color": "#0d1347",
+  "display": "minimal-ui",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/"
+}
