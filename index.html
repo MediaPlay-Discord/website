@@ -72,7 +72,7 @@
         border: 0;
     }
     hr {
-        border: 4px solid gray;
+        border: 4px solid #009ed8;
         border-radius: 8px;
         width:75%;
         text-align:center;
@@ -93,6 +93,7 @@
       font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #00B0F0;
     }
 
     .container {
@@ -276,7 +277,7 @@
     <!--Slideshow/Carousel Theming-->
   <style>
   .slideshow-container {
-    max-width: 1000px;
+    max-width: clamp(250px, 75%, 850px);
     position: relative;
     margin: auto;
   }
@@ -290,7 +291,7 @@
   .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: clamp(38.5%, 50%, 45%);
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -311,7 +312,7 @@
     border-radius: 50px 50px 50px 50px
   }
 
-  @media only screen and (max-width: 800px) {
+  @media only screen and (max-width: 900px) {
     .next {
       right: 10px;
       border-radius: 50px 50px 50px 50px;
@@ -334,7 +335,7 @@
   }
 
   .text {
-    color: #000000;
+    color: #ffffff;
     font-size: 15px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -342,15 +343,7 @@
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: #717171
-  }
-
-  .numbertext {
-      color: #f2f2f2;
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0
+    background-color: #0d1347
   }
 
   .dot {
@@ -358,7 +351,7 @@
       height: 15px;
       width: 15px;
       margin: 0 2px;
-      background-color: #bbb;
+      background-color: #00678d;
       border-radius: 50%;
       display: inline-block;
       transition: background-color .6s ease
@@ -366,7 +359,7 @@
 
   .active,
   .dot:hover {
-    background-color: #717171
+    background-color: #0d1347
   }
   </style>
 </head>
@@ -464,7 +457,6 @@ resume = () =>{
 }
 </script>
 
-
 <div class="slideshow-container">
   <div class="slideshow-inner">
     <div class="mySlides fade">
@@ -523,11 +515,13 @@ resume = () =>{
   <iframe src="https://discord.com/widget?id=699994812517974057&amp;theme=dark" width="50%" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </div>
 
+<br>
+
 <hr>
 
-<p style="text-align: center; font-size: 0.8em;"><a href="https://mediaplay-discord.fandom.com" target="_blank">Consider visiting the MediaPlay Discord wiki as well.</a></p>
+<p style="text-align: center; font-size: 0.65em;"><a href="https://mediaplay-discord.fandom.com" target="_blank">Consider visiting the MediaPlay Discord wiki as well.</a></p>
 
-<p style="text-align: center; font-size: 0.5em;"><a href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io" target="_blank">Source Code</a> | <a href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io/commits" target="_blank">Website Builds</a> | <a href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM" target="_blank">MPD Dictionary</a></p>
+<p style="text-align: center; font-size: 0.4em;"><a href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io" target="_blank">Source Code</a> | <a href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io/commits" target="_blank">Website Builds</a> | <a href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM" target="_blank">MPD Dictionary</a></p>
 </div>
 </body>
 </html>
