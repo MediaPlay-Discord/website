@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
 
-    <!-- Web manifest -->
-    <link rel="manifest" href="/manifest.json">
+<head>
 
-    <!--Metadata-->
+  <!-- Web manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!--Metadata-->
   <meta charset="UTF-8">
   <meta name="description" content="About the MediaPlay Discord community.">
   <meta name="keywords" content="MediaPlay Discord, Discord, Community, About Us">
@@ -15,33 +16,34 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Community · MediaPlay Discord</title>
 
-    <!--Favicon-->
+  <!--Favicon-->
   <link rel="icon" href="https://mediaplay-discord.github.io/assets/MPD-Favicon.ico" type="image/x-icon">
 
-   <!--Message for showing if JS is disabled-->
+  <!--Message for showing if JS is disabled-->
   <noscript>
-	<style>
-		figure noscript {
-			top: 0;
-			left: 0;
-			position: absolute;
-		}
-	</style>
+    <style>
+      figure noscript {
+        top: 0;
+        left: 0;
+        position: absolute;
+      }
+    </style>
 
-	<style>
-			#enable-js {
-				margin: 0;
-				padding: 12px 15px;
-				background-color: #FFC107;
-				color: #000;
-				text-align: center;
-				font-family: 'Montserrat', sans-serif;
-				font-size: 13px;
-			}
-		</style>
-		<p id="enable-js">🦮 Sorry, some parts of the website didn't load correctly. Make sure to enable JavaScript in your browser.</p>
+    <style>
+      #enable-js {
+        margin: 0;
+        padding: 12px 15px;
+        background-color: #FFC107;
+        color: #000;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+      }
+    </style>
+    <p id="enable-js">🦮 Sorry, some parts of the website didn't load correctly. Make sure to enable JavaScript in your
+      browser.</p>
   </noscript>
-    <!--Google Fonts for website's font-->
+  <!--Google Fonts for website's font-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
   <style>
@@ -50,26 +52,27 @@
     }
   </style>
 
-    <!--Scroll Bar Styling (using Linerly's CSS styling)-->
+  <!--Scroll Bar Styling (using Linerly's CSS styling)-->
   <link rel="stylesheet" href="https://linerly.github.io/css/scrollBar.css">
 
-    <!--iFrame Alignment and <hr> Styling-->
+  <!--iFrame Alignment and <hr> Styling-->
   <style>
     iframe {
-        display: block;
-        margin: 0 auto;
-        border: 0;
+      display: block;
+      margin: 0 auto;
+      border: 0;
     }
+
     hr {
-        border: 4px solid gray;
-        border-radius: 8px;
-        width:75%;
-        text-align:center;
-        margin:auto;
+      border: 4px solid gray;
+      border-radius: 8px;
+      width: 75%;
+      text-align: center;
+      margin: auto;
     }
   </style>
 
-    <!--Navbar Styling-->
+  <!--Navbar Styling-->
   <style>
     *,
     *::before,
@@ -97,9 +100,9 @@
       -ms-flex-align: center;
       align-items: center;
       overflow: hidden;
-      -moz-box-shadow:    0 8px 6px -6px rgba(0, 0, 0, 0.315);
+      -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
       -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
-      box-shadow:         0 8px 6px -6px rgba(0, 0, 0, 0.315);
+      box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
       position: -webkit-sticky;
       position: sticky;
       top: 0;
@@ -163,7 +166,7 @@
       line-height: 30px;
       cursor: pointer;
       padding: 0 10px;
-      
+
     }
 
     .container .navbar ul li a:hover {
@@ -272,80 +275,97 @@
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
     <div class="logo">
-        <a href="."><img src="https://mediaplay-discord.github.io/assets/MPD-Logo-with-Text.png" alt="logo"></a>
+      <a href="."><img src="https://mediaplay-discord.github.io/assets/MPD-Logo-with-Text.png" alt="logo"></a>
     </div>
-<div class="navbar">
+    <div class="navbar">
 
-<div class="icon-bar" onclick="Show()">
-    <i></i>
-    <i></i>
-    <i></i>
-</div>
+      <div class="icon-bar" onclick="Show()">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
 
-<ul style="z-index:1"id="nav-lists">
-  <li class="close"><span onclick="Hide()" style="border-color: #0d1347; color: #ffffff; font-size: 50px; margin-left: 5px; margin-top: 10px;">➜</span></li>
-  <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/">Home</a></li>
-  <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/community">Community</a></li>
-  <li><a style="margin-left: 15px;" href="https://www.thien2021.tk/views/leaderboard.ejs">Leaderboard</a></li>
-  <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/servers">Servers</a></li>
-</ul>
+      <ul style="z-index:1" id="nav-lists">
+        <li class="close"><span onclick="Hide()"
+            style="border-color: #0d1347; color: #ffffff; font-size: 50px; margin-left: 5px; margin-top: 10px;">➜</span>
+        </li>
+        <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/">Home</a></li>
+        <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/community">Community</a></li>
+        <li><a style="margin-left: 15px;" href="https://www.thien2021.tk/views/leaderboard.ejs">Leaderboard</a></li>
+        <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/servers">Servers</a></li>
+      </ul>
 
-</div>
-</div>
-
-<div class="body">
-  <h1 style="text-align: center; font-size: 5em;"><strong>Servers</strong></h1>
-  
-  <h2 style="text-align: center; font-size: 1.75em;">We have a lot of Discord servers for different kinds of purpose, feel free to join the Discord servers below!</h2>
-
-  <br>
-
-  <p style="text-align: center; font-size: 1.5em;">MediaPlay Discord</p>
-  <p style="text-align: center; font-size: 0.75em;">Our main Discord server.</p>
-  <div>
-    <iframe src="https://discord.com/widget?id=699994812517974057&amp;theme=dark" width="50%" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
   </div>
 
-  <br>
+  <div class="body">
+    <h1 style="text-align: center; font-size: 5em;"><strong>Servers</strong></h1>
 
-  <p style="text-align: center; font-size: 1.5em;">MediaPlay Discord+</p>
-  <p style="text-align: center; font-size: 0.75em;">An extra server, also a fun server with more extra channels, plus everything in MediaPlay Discord that you can find here.</p>
-  <div>
-    <iframe src="https://discord.com/widget?id=764594634390372423&amp;theme=dark" width="50%" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <h2 style="text-align: center; font-size: 1.75em;">We have a lot of Discord servers for different kinds of purpose,
+      feel free to join the Discord servers below!</h2>
+
+    <br>
+
+    <p style="text-align: center; font-size: 1.5em;">MediaPlay Discord</p>
+    <p style="text-align: center; font-size: 0.75em;">Our main Discord server.</p>
+    <div>
+      <iframe src="https://discord.com/widget?id=699994812517974057&amp;theme=dark" width="50%" height="350"
+        allowtransparency="true" frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+
+    <br>
+
+    <p style="text-align: center; font-size: 1.5em;">MediaPlay Discord+</p>
+    <p style="text-align: center; font-size: 0.75em;">An extra server, also a fun server with more extra channels, plus
+      everything in MediaPlay Discord that you can find here.</p>
+    <div>
+      <iframe src="https://discord.com/widget?id=764594634390372423&amp;theme=dark" width="50%" height="350"
+        allowtransparency="true" frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+
+    <br>
+
+    <p style="text-align: center; font-size: 1.5em;">MediaPlay Studios™️</p>
+    <p style="text-align: center; font-size: 0.75em;">This server is for MediaPlay Studios™️-related discussions. The
+      server is mostly for developers, artists, coders, and designers as well.</p>
+    <div>
+      <iframe src="https://discord.com/widget?id=764596148865597450&amp;theme=dark" width="50%" height="350"
+        allowtransparency="true" frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+
+    <br>
+
+    <p style="text-align: center; font-size: 1.5em;">MarriagePlay Discord</p>
+    <p style="text-align: center; font-size: 0.75em;">This server is for doing marriage roleplay (or virtual weddings)
+      and for having fun.</p>
+    <div>
+      <iframe src="https://discord.com/widget?id=764596148865597450&amp;theme=dark" width="50%" height="350"
+        allowtransparency="true" frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+
   </div>
 
-  <br>
+  <script>
+    var navList = document.getElementById("nav-lists");
 
-  <p style="text-align: center; font-size: 1.5em;">MediaPlay Studios™️</p>
-  <p style="text-align: center; font-size: 0.75em;">This server is for MediaPlay Studios™️-related discussions. The server is mostly for developers, artists, coders, and designers as well.</p>
-  <div>
-    <iframe src="https://discord.com/widget?id=764596148865597450&amp;theme=dark" width="50%" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-  </div>
+    function Show() {
+      navList.classList.add("_Menus-show");
+    }
 
-  <br>
-
-  <p style="text-align: center; font-size: 1.5em;">MarriagePlay Discord</p>
-  <p style="text-align: center; font-size: 0.75em;">This server is for doing marriage roleplay (or virtual weddings) and for having fun.</p>
-  <div>
-    <iframe src="https://discord.com/widget?id=764596148865597450&amp;theme=dark" width="50%" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-  </div>
-
-</div>
-
-<script>
-  var navList = document.getElementById("nav-lists");
-  function Show() {
-  navList.classList.add("_Menus-show");
-  }
-
-  function Hide(){
-  navList.classList.remove("_Menus-show");
-  }
-</script>
+    function Hide() {
+      navList.classList.remove("_Menus-show");
+    }
+  </script>
 
 </body>
+
 </html>

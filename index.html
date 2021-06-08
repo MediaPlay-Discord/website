@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!--Metadata-->
+
+<head>
+  <!--Metadata-->
   <meta charset="UTF-8">
   <meta name="description" content="Welcome to MediaPlay Discord!">
   <meta name="keywords" content="MediaPlay Discord, Discord, Community">
@@ -11,48 +12,49 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Home · MediaPlay Discord</title>
 
-    <!--Register service worker-->
+  <!--Register service worker-->
   <script>
-	  if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
         navigator.serviceWorker.register('/service-worker.js')
-        .then(function() {
-          console.log("Service worker has been registered!");
-        });
-	    });
+          .then(function () {
+            console.log("Service worker has been registered!");
+          });
+      });
     }
   </script>
 
   <!-- Web manifest -->
   <link rel="manifest" href="/manifest.json">
 
-    <!--Favicon-->
+  <!--Favicon-->
   <link rel="icon" href="https://mediaplay-discord.github.io/assets/MPD-Favicon.ico" type="image/x-icon">
 
-   <!--Message for showing if JS is disabled-->
+  <!--Message for showing if JS is disabled-->
   <noscript>
-	<style>
-		figure noscript {
-			top: 0;
-			left: 0;
-			position: absolute;
-		}
-	</style>
+    <style>
+      figure noscript {
+        top: 0;
+        left: 0;
+        position: absolute;
+      }
+    </style>
 
-	<style>
-			#enable-js {
-				margin: 0;
-				padding: 12px 15px;
-				background-color: #FFC107;
-				color: #000;
-				text-align: center;
-				font-family: 'Montserrat', sans-serif;
-				font-size: 13px;
-			}
-		</style>
-		<p id="enable-js">🦮 Sorry, some parts of the website didn't load correctly. Make sure to enable JavaScript in your browser.</p>
+    <style>
+      #enable-js {
+        margin: 0;
+        padding: 12px 15px;
+        background-color: #FFC107;
+        color: #000;
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 13px;
+      }
+    </style>
+    <p id="enable-js">🦮 Sorry, some parts of the website didn't load correctly. Make sure to enable JavaScript in your
+      browser.</p>
   </noscript>
-    <!--Google Fonts for website's font-->
+  <!--Google Fonts for website's font-->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
   <style>
@@ -61,26 +63,27 @@
     }
   </style>
 
-    <!--Scroll Bar Styling (using Linerly's CSS styling because I'm tired)-->
+  <!--Scroll Bar Styling (using Linerly's CSS styling because I'm tired)-->
   <link rel="stylesheet" href="https://linerly.github.io/css/scrollBar.css">
 
-    <!--iFrame Alignment and <hr> Styling-->
+  <!--iFrame Alignment and <hr> Styling-->
   <style>
     iframe {
-        display: block;
-        margin: 0 auto;
-        border: 0;
+      display: block;
+      margin: 0 auto;
+      border: 0;
     }
+
     hr {
-        border: 4px solid #009ed8;
-        border-radius: 8px;
-        width:75%;
-        text-align:center;
-        margin:auto;
+      border: 4px solid #009ed8;
+      border-radius: 8px;
+      width: 75%;
+      text-align: center;
+      margin: auto;
     }
   </style>
 
-    <!--Navbar Styling-->
+  <!--Navbar Styling-->
   <style>
     *,
     *::before,
@@ -108,9 +111,9 @@
       -ms-flex-align: center;
       align-items: center;
       overflow: hidden;
-      -moz-box-shadow:    0 8px 6px -6px rgba(0, 0, 0, 0.315);
+      -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
       -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
-      box-shadow:         0 8px 6px -6px rgba(0, 0, 0, 0.315);
+      box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
       position: -webkit-sticky;
       position: sticky;
       top: 0;
@@ -174,7 +177,7 @@
       line-height: 30px;
       cursor: pointer;
       padding: 0 10px;
-      
+
     }
 
     .container .navbar ul li a:hover {
@@ -283,79 +286,79 @@
     }
   </style>
 
-    <!--Slideshow/Carousel Theming-->
+  <!--Slideshow/Carousel Theming-->
   <style>
-  .slideshow-container {
-    max-width: clamp(250px, 75%, 850px);
-    position: relative;
-    margin: auto;
-    
-  }
+    .slideshow-container {
+      max-width: clamp(250px, 75%, 850px);
+      position: relative;
+      margin: auto;
 
-  .mySlides {
-    display: none;
-    max-height: 800px;
-  }
+    }
 
-  .prev,
-  .next {
-    cursor: pointer;
-    position: absolute;
-    top: clamp(38.5%, 50%, 45%);
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 30px;
-    transition: .6s ease;
-    border-radius: 0 3px 3px 0
-  }
+    .mySlides {
+      display: none;
+      max-height: 800px;
+    }
 
-  .next {
-    right: 15px;
-    border-radius: 50px 50px 50px 50px
-  }
-
-  .prev {
-    left: 15px;
-    border-radius: 50px 50px 50px 50px
-  }
-
-  @media only screen and (max-width: 900px) {
+    .prev,
     .next {
-      right: 10px;
-      border-radius: 50px 50px 50px 50px;
-      width: 17%;
-      height: 30%
+      cursor: pointer;
+      position: absolute;
+      top: clamp(38.5%, 50%, 45%);
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 30px;
+      transition: .6s ease;
+      border-radius: 0 3px 3px 0
+    }
+
+    .next {
+      right: 15px;
+      border-radius: 50px 50px 50px 50px
     }
 
     .prev {
-      left: 10px;
-      border-radius: 50px 50px 50px 50px;
-      width: 17%;
-      height: 30%
+      left: 15px;
+      border-radius: 50px 50px 50px 50px
     }
-  }
 
-  .prev:hover,
-  .next:hover {
-    color: #707070;
-    background-color: rgba(0, 0, 0, 0.8)
-  }
+    @media only screen and (max-width: 900px) {
+      .next {
+        right: 10px;
+        border-radius: 50px 50px 50px 50px;
+        width: 17%;
+        height: 30%
+      }
 
-  .text {
-    color: #ffffff;
-    font-size: 15px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-  }
+      .prev {
+        left: 10px;
+        border-radius: 50px 50px 50px 50px;
+        width: 17%;
+        height: 30%
+      }
+    }
 
-  .dot {
+    .prev:hover,
+    .next:hover {
+      color: #707070;
+      background-color: rgba(0, 0, 0, 0.8)
+    }
+
+    .text {
+      color: #ffffff;
+      font-size: 15px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .dot {
       cursor: pointer;
       height: 15px;
       width: 15px;
@@ -364,197 +367,233 @@
       border-radius: 50%;
       display: inline-block;
       transition: background-color .6s ease
-  }
+    }
 
-  .active,
-  .dot:hover {
-    background-color: #0d1347
-  }
+    .active,
+    .dot:hover {
+      background-color: #0d1347
+    }
   </style>
 </head>
+
 <body>
 
   <!--Navbar-->
-<div class="container">
+  <div class="container">
     <div class="logo">
-        <a href="#"><img src="https://mediaplay-discord.github.io/assets/MPD-Logo-with-Text.png" alt="logo"></a>
+      <a href="#"><img src="https://mediaplay-discord.github.io/assets/MPD-Logo-with-Text.png" alt="logo"></a>
     </div>
-<div class="navbar">
+    <div class="navbar">
 
-<div class="icon-bar" onclick="Show()">
-    <i></i>
-    <i></i>
-    <i></i>
-</div>
+      <div class="icon-bar" onclick="Show()">
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
 
-<ul style="z-index:1"id="nav-lists">
-    <li class="close"><span onclick="Hide()" style="border-color: #0d1347; color: #ffffff; font-size: 50px; margin-left: 5px; margin-top: 10px;">➜</span></li>
-    <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/">Home</a></li>
-    <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/community">Community</a></li>
-    <li><a style="margin-left: 15px;" href="https://www.thien2021.tk/views/leaderboard.ejs">Leaderboard</a></li>
-    <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/servers">Servers</a></li>
-</ul>
+      <ul style="z-index:1" id="nav-lists">
+        <li class="close"><span onclick="Hide()"
+            style="border-color: #0d1347; color: #ffffff; font-size: 50px; margin-left: 5px; margin-top: 10px;">➜</span>
+        </li>
+        <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/">Home</a></li>
+        <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/community">Community</a></li>
+        <li><a style="margin-left: 15px;" href="https://www.thien2021.tk/views/leaderboard.ejs">Leaderboard</a></li>
+        <li><a style="margin-left: 15px;" href="https://mediaplay-discord.github.io/servers">Servers</a></li>
+      </ul>
 
-</div>
-</div>
-
-<br>
-
-<!--Slideshow/Carousel JS code-->
-<script>
-  var slideIndex = 1;
-
-var myTimer;
-
-var slideshowContainer;
-
-window.addEventListener("load",function() {
-    showSlides(slideIndex);
-    myTimer = setInterval(function(){plusSlides(1)}, 4000);
-  
-    slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
-   slideshowContainer.addEventListener('mouseenter', pause)
-    slideshowContainer.addEventListener('mouseleave', resume)
-})
-
-// Previous and next buttons
-function plusSlides(n){
-  clearInterval(myTimer);
-  if (n < 0){
-    showSlides(slideIndex -= 1);
-  } else {
-   showSlides(slideIndex += 1); 
-  }
-  
-  if (n === -1){
-    myTimer = setInterval(function(){plusSlides(n + 2)}, 4000);
-  } else {
-    myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
-  }
-}
-
-// Controls the current slide and resets interval if needed
-function currentSlide(n){
-  clearInterval(myTimer);
-  myTimer = setInterval(function(){plusSlides(n + 1)}, 4000);
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n){
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
-
-pause = () => {
-  clearInterval(myTimer);
-}
-
-resume = () =>{
-  clearInterval(myTimer);
-  myTimer = setInterval(function(){plusSlides(slideIndex)}, 4000);
-}
-</script>
-
-<div class="slideshow-container">
-  <div class="slideshow-inner">
-    <div class="mySlides fade">
-      <img src='./assets/MPD-Family-1-Picture-Compressed.webp' style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);' alt="MPD Family 1 picture"/>
-      <div class="text">MPD Family 1</div>
     </div>
-  
-    <div class="mySlides fade">
-      <img  src='./assets/MPD-Family-2-Picture-Compressed.webp' style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);' alt="MPD Family 2 picture"/>
-      <div class="text">MPD Family 2</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <img  src='./assets/MPD-Family-3-Picture-Compressed.webp' style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);' alt="MPD Family 3 picture"/>
-      <div class="text">MPD Family 3</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <img  src='./assets/MPD-Family-4-Picture-Compressed.webp' style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);' alt="MPD Family 4 picture"/>
-      <div class="text">MPD Family 4</div>
-    </div>  
   </div>
-  
-  <img src="./assets/MPD-Button-Left.png" width="15%" height="15%" class="prev" onclick='plusSlides(-1)'>
-  <img src="./assets/MPD-Button-Right.png" width="15%" height="15%" class="next" onclick='plusSlides(1)'>
-</div>
 
-<br>
+  <br>
 
-<div style='text-align: center;'>
-  <span class="dot" onclick='currentSlide(1)'></span>
-  <span class="dot" onclick='currentSlide(2)'></span>
-  <span class="dot" onclick='currentSlide(3)'></span>
-  <span class="dot" onclick='currentSlide(4)'></span>
-</div>
+  <!--Slideshow/Carousel JS code-->
+  <script>
+    var slideIndex = 1;
 
-<div class="body">
-<script>
-  var navList = document.getElementById("nav-lists");
-  function Show() {
-  navList.classList.add("_Menus-show");
-  }
+    var myTimer;
 
-  function Hide(){
-  navList.classList.remove("_Menus-show");
-  }
-</script>
+    var slideshowContainer;
 
-<br>
+    window.addEventListener("load", function () {
+      showSlides(slideIndex);
+      myTimer = setInterval(function () {
+        plusSlides(1)
+      }, 4000);
 
-<hr>
+      slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+      slideshowContainer.addEventListener('mouseenter', pause)
+      slideshowContainer.addEventListener('mouseleave', resume)
+    })
 
-<br>
-<br>
-<img alt="News" src="./assets/News.png" style="width: 50%; ">
-<br>
-<p><i>no new news yet...</i></p>
-<br>
-<br>
+    // Previous and next buttons
+    function plusSlides(n) {
+      clearInterval(myTimer);
+      if (n < 0) {
+        showSlides(slideIndex -= 1);
+      } else {
+        showSlides(slideIndex += 1);
+      }
 
-<br>
-<img alt="Members" src="./assets/Members.png" style="width: 50%;">
-<br>
-<p><i>coming soon...</i></p>
-<br>
-<br>
+      if (n === -1) {
+        myTimer = setInterval(function () {
+          plusSlides(n + 2)
+        }, 4000);
+      } else {
+        myTimer = setInterval(function () {
+          plusSlides(n + 1)
+        }, 4000);
+      }
+    }
 
-<br>
-<img alt="Status" src="./assets/Status.png" style="width: 50%;">
-<br>
-<br>
-<img alt="Uptime Robot status" src="https://img.shields.io/uptimerobot/status/m788298883-811baaa931201418c697e553?style=for-the-badge">
-<img alt="Uptime Robot ratio (7 days)" src="https://img.shields.io/uptimerobot/ratio/7/m788298883-811baaa931201418c697e553?style=for-the-badge">
-<br>
-<br>
-<br>
+    // Controls the current slide and resets interval if needed
+    function currentSlide(n) {
+      clearInterval(myTimer);
+      myTimer = setInterval(function () {
+        plusSlides(n + 1)
+      }, 4000);
+      showSlides(slideIndex = n);
+    }
 
-<hr>
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
 
-<h2 style="text-align: center; font-size: 1.875em;">Join our Discord server!</p>
-<div>
-  <iframe src="https://discord.com/widget?id=699994812517974057&amp;theme=dark" width="50%" height="350" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-</div>
+    pause = () => {
+      clearInterval(myTimer);
+    }
 
-<br>
+    resume = () => {
+      clearInterval(myTimer);
+      myTimer = setInterval(function () {
+        plusSlides(slideIndex)
+      }, 4000);
+    }
+  </script>
 
-<p style="text-align: center; font-size: 0.4em;"><a href="https://mediaplay-discord.fandom.com" target="_blank">Consider visiting the MediaPlay Discord wiki as well.</a></p>
+  <div class="slideshow-container">
+    <div class="slideshow-inner">
+      <div class="mySlides fade">
+        <img src='./assets/MPD-Family-1-Picture-Compressed.webp'
+          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
+          alt="MPD Family 1 picture" />
+        <div class="text">MPD Family 1</div>
+      </div>
 
-<p style="text-align: center; font-size: 0.4em;"><a href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io" target="_blank">Source Code</a> | <a href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io/commits" target="_blank">Website Builds</a> | <a href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM" target="_blank">MPD Dictionary</a></p>
-</div>
+      <div class="mySlides fade">
+        <img src='./assets/MPD-Family-2-Picture-Compressed.webp'
+          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
+          alt="MPD Family 2 picture" />
+        <div class="text">MPD Family 2</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src='./assets/MPD-Family-3-Picture-Compressed.webp'
+          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
+          alt="MPD Family 3 picture" />
+        <div class="text">MPD Family 3</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src='./assets/MPD-Family-4-Picture-Compressed.webp'
+          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
+          alt="MPD Family 4 picture" />
+        <div class="text">MPD Family 4</div>
+      </div>
+    </div>
+
+    <img src="./assets/MPD-Button-Left.png" width="15%" height="15%" class="prev" onclick='plusSlides(-1)'>
+    <img src="./assets/MPD-Button-Right.png" width="15%" height="15%" class="next" onclick='plusSlides(1)'>
+  </div>
+
+  <br>
+
+  <div style='text-align: center;'>
+    <span class="dot" onclick='currentSlide(1)'></span>
+    <span class="dot" onclick='currentSlide(2)'></span>
+    <span class="dot" onclick='currentSlide(3)'></span>
+    <span class="dot" onclick='currentSlide(4)'></span>
+  </div>
+
+  <div class="body">
+    <script>
+      var navList = document.getElementById("nav-lists");
+
+      function Show() {
+        navList.classList.add("_Menus-show");
+      }
+
+      function Hide() {
+        navList.classList.remove("_Menus-show");
+      }
+    </script>
+
+    <br>
+
+    <hr>
+
+    <br>
+    <br>
+    <img alt="News" src="./assets/News.png" style="width: 50%; ">
+    <br>
+    <p><i>no new news yet...</i></p>
+    <br>
+    <br>
+
+    <br>
+    <img alt="Members" src="./assets/Members.png" style="width: 50%;">
+    <br>
+    <p><i>coming soon...</i></p>
+    <br>
+    <br>
+
+    <br>
+    <img alt="Status" src="./assets/Status.png" style="width: 50%;">
+    <br>
+    <br>
+    <img alt="Uptime Robot status"
+      src="https://img.shields.io/uptimerobot/status/m788298883-811baaa931201418c697e553?style=for-the-badge">
+    <img alt="Uptime Robot ratio (7 days)"
+      src="https://img.shields.io/uptimerobot/ratio/7/m788298883-811baaa931201418c697e553?style=for-the-badge">
+    <br>
+    <br>
+    <br>
+
+    <hr>
+
+    <h2 style="text-align: center; font-size: 1.875em;">Join our Discord server!</p>
+      <div>
+        <iframe src="https://discord.com/widget?id=699994812517974057&amp;theme=dark" width="50%" height="350"
+          allowtransparency="true" frameborder="0"
+          sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+      </div>
+
+      <br>
+
+      <p style="text-align: center; font-size: 0.4em;"><a href="https://mediaplay-discord.fandom.com"
+          target="_blank">Consider visiting the MediaPlay Discord wiki as well.</a></p>
+
+      <p style="text-align: center; font-size: 0.4em;"><a
+          href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io" target="_blank">Source Code</a> | <a
+          href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io/commits" target="_blank">Website
+          Builds</a> | <a href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM"
+          target="_blank">MPD Dictionary</a></p>
+  </div>
 </body>
+
 </html>
