@@ -4,7 +4,7 @@
 
 ![discord-server](https://img.shields.io/discord/699994812517974057?color=00b0f0&logo=MPD&style=plastic)
 
-![uptime](https://img.shields.io/uptimerobot/status/m788298883-811baaa931201418c697e553?style=plastic)
+![uptime](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MediaPlay-Discord/status/master/api/website/uptime.json&style=plastic)
 
 This is MediaPlay Discord's website source code,
 feel free to make any improvements (such as grammar mistakes, typos, bug issue, etc.)
