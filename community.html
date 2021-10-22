@@ -1,332 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Web manifest -->
+    <link rel="manifest" href="/manifest.json" />
 
-<head>
-  <!-- Web manifest -->
-  <link rel="manifest" href="/manifest.json">
+    <!--Metadata-->
+    <meta charset="UTF-8" />
+    <meta name="description" content="About the MediaPlay Discord community." />
+    <meta
+      name="keywords"
+      content="MediaPlay Discord, Discord, Community, About Us"
+    />
+    <meta name="author" content="Linerly" />
+    <meta name="theme-color" content="#00B0F0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Community · MediaPlay Discord</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/slideshow.css" />
+    <link rel="stylesheet" href="/css/scrollBar.css" />
 
-  <!--Metadata-->
-  <meta charset="UTF-8">
-  <meta name="description" content="About the MediaPlay Discord community.">
-  <meta name="keywords" content="MediaPlay Discord, Discord, Community, About Us">
-  <meta name="author" content="Linerly">
-  <meta name="theme-color" content="#00B0F0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Community · MediaPlay Discord</title>
+    <!--Favicon-->
+    <link rel="icon" href="/assets/MPD-Favicon.ico" type="image/x-icon" />
 
-  <!--Favicon-->
-  <link rel="icon" href="/assets/MPD-Favicon.ico" type="image/x-icon">
+    <!--Message for showing if JS is disabled-->
+    <noscript>
+      <style>
+        figure noscript {
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+      </style>
 
-  <!--Message for showing if JS is disabled-->
-  <noscript>
-    <style>
-      figure noscript {
-        top: 0;
-        left: 0;
-        position: absolute;
-      }
-    </style>
+      <style>
+        #enable-js {
+          margin: 0;
+          padding: 12px 15px;
+          background-color: #ffc107;
+          color: #000;
+          text-align: center;
+          font-family: "Montserrat", sans-serif;
+          font-size: 13px;
+        }
+      </style>
+      <p id="enable-js">
+        🦮 Sorry, some parts of the website didn't load correctly. Make sure to
+        enable JavaScript in your browser.
+      </p>
+    </noscript>
+  </head>
 
-    <style>
-      #enable-js {
-        margin: 0;
-        padding: 12px 15px;
-        background-color: #FFC107;
-        color: #000;
-        text-align: center;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 13px;
-      }
-    </style>
-    <p id="enable-js">🦮 Sorry, some parts of the website didn't load correctly. Make sure to enable JavaScript in your
-      browser.</p>
-  </noscript>
-  <!--Google Fonts for website's font-->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-    }
-  </style>
-
-  <!--Scroll Bar Styling-->
-  <link rel="stylesheet" href="/css/scrollBar.css">
-
-  <!--iFrame Alignment and <hr> Styling-->
-  <style>
-    iframe {
-      display: block;
-      margin: 0 auto;
-      border: 0;
-    }
-
-    hr {
-      border: 4px solid gray;
-      border-radius: 8px;
-      width: 75%;
-      text-align: center;
-      margin: auto;
-    }
-  </style>
-
-  <!--Navbar Styling-->
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #00B0F0;
-    }
-
-    .container {
-      height: 105px;
-      background-color: #0D1347;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      overflow: hidden;
-      -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
-      -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
-      box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-
-    .container .logo {
-      max-width: 350px;
-      padding: 0 15px;
-    }
-
-    .container .logo a {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      height: 105px;
-    }
-
-    .container .logo a img {
-      max-width: 100%;
-      margin: 15px;
-      max-height: 105px;
-    }
-
-    .container .navbar {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      flex-direction: row-reverse;
-      padding: 0 30px;
-    }
-
-    .container .navbar ul {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container .navbar ul li a {
-      text-decoration: none;
-      color: #ffffff;
-      font-size: 14px;
-      text-transform: uppercase;
-      display: block;
-      height: 30px;
-      line-height: 30px;
-      cursor: pointer;
-      padding: 0 10px;
-
-    }
-
-    .container .navbar ul li a:hover {
-      color: #ffffff;
-      background-color: #00B0F0;
-    }
-
-    .container .navbar ul .close {
-      display: none;
-      padding: 10px;
-    }
-
-    .container .navbar ul .close span {
-      font-size: 40px;
-      display: inline-block;
-      border: 1px solid #cccccc;
-      padding: 0 10px;
-      cursor: pointer;
-    }
-
-    .container .navbar .icon-bar {
-      padding: 18px 8px;
-      width: 50px;
-      height: 60px;
-      display: none;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      cursor: pointer;
-    }
-
-    .container .navbar .icon-bar i {
-      background-color: #ffffff;
-      height: 2px;
-    }
-
-    @media only screen and (max-width: 800px) {
-      .container {
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-      }
-
-      .container .logo {
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-      }
-
-      .container .navbar {
-        -webkit-box-flex: 0;
-        -ms-flex: 0;
-        flex: 0;
-      }
-
-      .container .navbar ul {
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        position: fixed;
-        top: 0;
-        left: 100%;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        background: #0d1347;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        -webkit-transition: left .3s;
-        -o-transition: left .3s;
-        transition: left .3s;
-      }
-
-      .container .navbar ul li a {
-        padding: 10px;
-        font-size: 16px;
-        height: auto;
-        line-height: normal;
-        color: #ffffff;
-      }
-
-      .container .navbar ul .close {
-        display: block;
-      }
-
-      .container .navbar .icon-bar {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-      }
-
-      .container .navbar ._Menus-show {
-        left: 0;
-      }
-    }
-
-    .body {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 10px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <div class="container">
-    <div class="logo">
-      <a href="."><img src="/assets/MPD-Logo-with-Text.png" alt="logo"></a>
-    </div>
-    <div class="navbar">
-
-      <div class="icon-bar" onclick="Show()">
-        <i></i>
-        <i></i>
-        <i></i>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <a href="/"><img src="/assets/MPD-Logo-with-Text.png" alt="logo" /></a>
       </div>
+      <div class="navbar">
+        <div class="icon-bar" onclick="Show()">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
 
-      <ul style="z-index:1" id="nav-lists">
-        <li class="close"><span onclick="Hide()"
-            style="border-color: #0d1347; color: #ffffff; font-size: 50px; margin-left: 5px; margin-top: 10px;">➜</span>
-        </li>
-        <li><a style="margin-left: 15px;" href="/">Home</a></li>
-        <li><a style="margin-left: 15px;" href="/community">Community</a></li>
-        <li><a style="margin-left: 15px;" href="https://www.thien2021.tk/views/leaderboard.ejs">Leaderboard</a></li>
-        <li><a style="margin-left: 15px;" href="/servers">Servers</a></li>
-      </ul>
-
+        <ul style="z-index: 1" id="nav-lists">
+          <li class="close">
+            <span
+              onclick="Hide()"
+              style="
+                border-color: #0d1347;
+                color: #ffffff;
+                font-size: 50px;
+                margin-left: 5px;
+                margin-top: 10px;
+              "
+              >➜</span
+            >
+          </li>
+          <li><a style="margin-left: 15px" href="/">Home</a></li>
+          <li><a style="margin-left: 15px" href="/community">Community</a></li>
+          <li>
+            <a
+              style="margin-left: 15px"
+              href="https://www.thien2021.tk/views/leaderboard.ejs"
+              >Leaderboard</a
+            >
+          </li>
+          <li><a style="margin-left: 15px" href="/servers">Servers</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="body">
-    <h1 style="text-align: center; font-size: 2.5em;"><strong>Community</strong></h1>
+    <div class="body">
+      <h1 style="text-align: center; font-size: 2.5em">
+        <strong>Community</strong>
+      </h1>
 
-    <h2 style="text-align: justify; font-size: 1.5em;">If you're new to here, welcome! 👋 <br><br> MediaPlay Discord is
-      a gaming and chatting lounge community created by TechNewVideo—also known as Techy—to bring people all around the
-      world in this community and keep us connected in this world as possible. <br><br> We create projects to help us
-      and other people who is interested in the community to create things together. <br><br> Not just that, MediaPlay
-      Discord also has a studio where we in the community can collaborate together and make games—which is MediaPlay
-      Studios! <br><br> We welcome all people from different kinds of backgrounds no matter how different and unique
-      they are. 🙂</h2>
+      <h2 style="text-align: justify; font-size: 1.5em">
+        If you're new to here, welcome! 👋 <br /><br />
+        MediaPlay Discord is a gaming and chatting lounge community created by
+        TechNewVideo—also known as Techy—to bring people all around the world in
+        this community and keep us connected in this world as possible.
+        <br /><br />
+        We create projects to help us and other people who is interested in the
+        community to create things together. <br /><br />
+        Not just that, MediaPlay Discord also has a studio where we in the
+        community can collaborate together and make games—which is MediaPlay
+        Studios! <br /><br />
+        We welcome all people from different kinds of backgrounds no matter how
+        different and unique they are. 🙂
+      </h2>
+    </div>
 
-  </div>
+    <script>
+      var navList = document.getElementById("nav-lists");
 
-  <script>
-    var navList = document.getElementById("nav-lists");
+      function Show() {
+        navList.classList.add("_Menus-show");
+      }
 
-    function Show() {
-      navList.classList.add("_Menus-show");
-    }
-
-    function Hide() {
-      navList.classList.remove("_Menus-show");
-    }
-  </script>
-
-</body>
-
+      function Hide() {
+        navList.classList.remove("_Menus-show");
+      }
+    </script>
+  </body>
 </html>

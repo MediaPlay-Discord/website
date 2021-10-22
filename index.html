@@ -1,626 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!--Metadata-->
+    <meta charset="UTF-8" />
+    <meta name="description" content="Welcome to MediaPlay Discord!" />
+    <meta name="keywords" content="MediaPlay Discord, Discord, Community" />
+    <meta name="author" content="Linerly" />
+    <meta name="theme-color" content="#00B0F0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Home · MediaPlay Discord</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/slideshow.css" />
+    <link rel="stylesheet" href="/css/scrollBar.css" />
 
-<head>
-  <!--Metadata-->
-  <meta charset="UTF-8">
-  <meta name="description" content="Welcome to MediaPlay Discord!">
-  <meta name="keywords" content="MediaPlay Discord, Discord, Community">
-  <meta name="author" content="Linerly">
-  <meta name="theme-color" content="#00B0F0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Home · MediaPlay Discord</title>
-
-  <!--Register service worker-->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function () {
+    <!--Register service worker-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/sw.js").then(function () {
             console.log("Service worker has been registered!");
           });
-      });
-    }
-  </script>
-
-  <!-- Web manifest -->
-  <link rel="manifest" href="/manifest.json">
-
-  <!--Favicon-->
-  <link rel="icon" href="/assets/MPD-Favicon.ico" type="image/x-icon">
-
-  <!--Message for showing if JS is disabled-->
-  <noscript>
-    <style>
-      figure noscript {
-        top: 0;
-        left: 0;
-        position: absolute;
-      }
-    </style>
-
-    <style>
-      #enable-js {
-        margin: 0;
-        padding: 12px 15px;
-        background-color: #FFC107;
-        color: #000;
-        text-align: center;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 13px;
-      }
-    </style>
-    <p id="enable-js">🦮 Sorry, some parts of the website didn't load correctly. Make sure to enable JavaScript in your
-      browser.</p>
-  </noscript>
-  <!--Google Fonts for website's font-->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-    }
-  </style>
-
-  <!--Scroll Bar Styling-->
-  <link rel="stylesheet" href="/css/scrollBar.css">
-
-  <!--iFrame Alignment and <hr> Styling-->
-  <style>
-    iframe {
-      display: block;
-      margin: 0 auto;
-      border: 0;
-    }
-
-    hr {
-      border: 4px solid #009ed8;
-      border-radius: 8px;
-      width: 75%;
-      text-align: center;
-      margin: auto;
-    }
-  </style>
-
-  <!--Navbar Styling-->
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #00B0F0;
-    }
-
-    .container {
-      height: 105px;
-      background-color: #0D1347;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      overflow: hidden;
-      -moz-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
-      -webkit-box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
-      box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.315);
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-
-    .container .logo {
-      max-width: 350px;
-      padding: 0 15px;
-    }
-
-    .container .logo a {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      height: 105px;
-    }
-
-    .container .logo a img {
-      max-width: 100%;
-      margin: 15px;
-      max-height: 105px;
-    }
-
-    .container .navbar {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      -webkit-box-flex: 1;
-      -ms-flex: 1;
-      flex: 1;
-      flex-direction: row-reverse;
-      padding: 0 30px;
-    }
-
-    .container .navbar ul {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container .navbar ul li a {
-      text-decoration: none;
-      color: #ffffff;
-      font-size: 14px;
-      text-transform: uppercase;
-      display: block;
-      height: 30px;
-      line-height: 30px;
-      cursor: pointer;
-      padding: 0 10px;
-
-    }
-
-    .container .navbar ul li a:hover {
-      color: #ffffff;
-      background-color: #00B0F0;
-    }
-
-    .container .navbar ul .close {
-      display: none;
-      padding: 10px;
-    }
-
-    .container .navbar ul .close span {
-      font-size: 40px;
-      display: inline-block;
-      border: 1px solid #cccccc;
-      padding: 0 10px;
-      cursor: pointer;
-    }
-
-    .container .navbar .icon-bar {
-      padding: 18px 8px;
-      width: 50px;
-      height: 60px;
-      display: none;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-      justify-content: space-between;
-      cursor: pointer;
-    }
-
-    .container .navbar .icon-bar i {
-      background-color: #ffffff;
-      height: 2px;
-    }
-
-    @media only screen and (max-width: 800px) {
-      .container {
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-      }
-
-      .container .logo {
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-      }
-
-      .container .navbar {
-        -webkit-box-flex: 0;
-        -ms-flex: 0;
-        flex: 0;
-      }
-
-      .container .navbar ul {
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        position: fixed;
-        top: 0;
-        left: 100%;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        background: #0d1347;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        -webkit-transition: left .3s;
-        -o-transition: left .3s;
-        transition: left .3s;
-      }
-
-      .container .navbar ul li a {
-        padding: 10px;
-        font-size: 16px;
-        height: auto;
-        line-height: normal;
-        color: #ffffff;
-      }
-
-      .container .navbar ul .close {
-        display: block;
-      }
-
-      .container .navbar .icon-bar {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-      }
-
-      .container .navbar ._Menus-show {
-        left: 0;
-      }
-    }
-
-    .body {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 10px;
-    }
-  </style>
-
-  <!--Slideshow/Carousel Theming-->
-  <style>
-    .slideshow-container {
-      max-width: clamp(250px, 75%, 850px);
-      position: relative;
-      margin: auto;
-
-    }
-
-    .mySlides {
-      display: none;
-      max-height: 800px;
-    }
-
-    .prev,
-    .next {
-      cursor: pointer;
-      position: absolute;
-      top: clamp(38.5%, 50%, 45%);
-      width: auto;
-      margin-top: -22px;
-      padding: 16px;
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 30px;
-      transition: .6s ease;
-      border-radius: 0 3px 3px 0
-    }
-
-    .next {
-      right: 15px;
-      border-radius: 50px 50px 50px 50px
-    }
-
-    .prev {
-      left: 15px;
-      border-radius: 50px 50px 50px 50px
-    }
-
-    @media only screen and (max-width: 900px) {
-      .next {
-        right: 10px;
-        border-radius: 50px 50px 50px 50px;
-        width: 17%;
-        height: 30%
-      }
-
-      .prev {
-        left: 10px;
-        border-radius: 50px 50px 50px 50px;
-        width: 17%;
-        height: 30%
-      }
-    }
-
-    .prev:hover,
-    .next:hover {
-      color: #707070;
-      background-color: rgba(0, 0, 0, 0.8)
-    }
-
-    .text {
-      color: #ffffff;
-      font-size: 15px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      text-align: center;
-    }
-
-    .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #00678d;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color .6s ease
-    }
-
-    .active,
-    .dot:hover {
-      background-color: #0d1347
-    }
-  </style>
-</head>
-
-<body>
-
-  <!--Navbar-->
-  <div class="container">
-    <div class="logo">
-      <a href="#"><img src="/assets/MPD-Logo-with-Text.png" alt="logo"></a>
-    </div>
-    <div class="navbar">
-
-      <div class="icon-bar" onclick="Show()">
-        <i></i>
-        <i></i>
-        <i></i>
-      </div>
-
-      <ul style="z-index:1" id="nav-lists">
-        <li class="close"><span onclick="Hide()"
-            style="border-color: #0d1347; color: #ffffff; font-size: 50px; margin-left: 5px; margin-top: 10px;">➜</span>
-        </li>
-        <li><a style="margin-left: 15px;" href="#">Home</a></li>
-        <li><a style="margin-left: 15px;" href="/community">Community</a></li>
-        <li><a style="margin-left: 15px;" href="https://www.thien2021.tk/views/leaderboard.ejs">Leaderboard</a></li>
-        <li><a style="margin-left: 15px;" href="/servers">Servers</a></li>
-      </ul>
-
-    </div>
-  </div>
-
-  <br>
-
-  <!--Slideshow/Carousel JS code-->
-  <script>
-    var slideIndex = 1;
-
-    var myTimer;
-
-    var slideshowContainer;
-
-    window.addEventListener("load", function () {
-      showSlides(slideIndex);
-      myTimer = setInterval(function () {
-        plusSlides(1)
-      }, 4000);
-
-      slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
-      slideshowContainer.addEventListener('mouseenter', pause)
-      slideshowContainer.addEventListener('mouseleave', resume)
-    })
-
-    // Previous and next buttons
-    function plusSlides(n) {
-      clearInterval(myTimer);
-      if (n < 0) {
-        showSlides(slideIndex -= 1);
-      } else {
-        showSlides(slideIndex += 1);
-      }
-
-      if (n === -1) {
-        myTimer = setInterval(function () {
-          plusSlides(n + 2)
-        }, 4000);
-      } else {
-        myTimer = setInterval(function () {
-          plusSlides(n + 1)
-        }, 4000);
-      }
-    }
-
-    // Controls the current slide and resets interval if needed
-    function currentSlide(n) {
-      clearInterval(myTimer);
-      myTimer = setInterval(function () {
-        plusSlides(n + 1)
-      }, 4000);
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {
-        slideIndex = 1
-      }
-      if (n < 1) {
-        slideIndex = slides.length
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-
-    pause = () => {
-      clearInterval(myTimer);
-    }
-
-    resume = () => {
-      clearInterval(myTimer);
-      myTimer = setInterval(function () {
-        plusSlides(slideIndex)
-      }, 4000);
-    }
-  </script>
-
-  <div class="slideshow-container">
-    <div class="slideshow-inner">
-      <div class="mySlides fade">
-        <img src='/assets/MPD-Family-1-Picture-Compressed.webp'
-          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
-          alt="MPD Family 1 picture. Characters are on top of the shapes of the MPD logo. Linedol, TechNewVideo, Real Nath, hai!, Alvin, Terria, NtyEllias, Toastie, and G~ are some of the MPD members in the picture." />
-        <div class="text">MPD Family 1</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img src='/assets/MPD-Family-2-Picture-Compressed.webp'
-          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
-          alt="MPD Family 2 picture. Sunny day, forest trees, grassy land, ocean in the front, and rocks for the path. Most of the members in MPD are in the picture, including veterans." />
-        <div class="text">MPD Family 2</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img src='/assets/MPD-Family-3-Picture-Compressed.webp'
-          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
-          alt="MPD Family 3 picture. Space themed. numb (aka Laser Soul, Hamza, ...), Arlver, Maias (ReDark Technology), The Dark Knight, Alvin, hai!, Nether743, Sync, AlphaAdvanced, BreadoDaLoaf, AftonIvolvery, Linerly, OfficialAz3, MimiWorld, DaBlueCube, LThirty6, LongH, Marshie (aka Marshmello, Marsh, ...), Senjienji, Noah 99556, Fanny, Geek, Toastie, ThatGuy03, JoshuaTNTGamer, Terria, OTFT, and Marklanchvar32 are some of the members that is in the picture." />
-        <div class="text">MPD Family 3</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img src='/assets/MPD-Family-4-Picture-Compressed.webp'
-          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
-          alt="MPD Family 4 picture. Contains six different styles by Arlver, Terria, AlphaAdvanced, BreadoDaLoaf, and MimiWorld in one artwork, also contains the MPD logo. Those styles are outer space, sky with a hot air balloon, rainbow, clouds, and an airplane, city, forest at night, Antartica, and another city. There are Phuc (aka Toastie), LongH, KhoaDankstoneMC/GD, Senjienji, JustMonotone, AlphaAdvanced, Marshmello (aka Marshie, Marsh), MimiWorld, BreadoDaLoaf, Blinku (aka HuyasAnpey), RanbooFan (aka Stardrop), Nextie, an ore cubie, DaBlueCube, a yellow cubie with sunglasses, headphones, and an attachment, a humanoid, Marklanchvar32, a dinosaur cubie, tentyp, Arlver, Marshmello (aka Marshie, Marsh), BlooDerg (aka OTFT), RockyR, TechNewVideo, Nether743, hai, Noah 99556, ThatGuy03, The Dark Knight, Ray Ramadan (aka Rayyan), Linerly, Efehan, ReDark Technology, Terria, SrMuffin136, LThirty6, and OfficialAz3 in the artwork." />
-        <div class="text">MPD Family 4</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img src='/assets/MPD-Family-5-Main-Picture-Compressed.webp'
-          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
-          alt="MPD Family 5 - Main picture. Contains Arcaea, Phigros, and Rolling Sky gameplay. There are Linerly, Marklanchvar32, ThatGuy03, tentyp, Henry Stickmin, LThirty6, Phuc (aka Toastie), numb (aka Hamza), TechNewVideo, R3DZ3R, JoshuaTNTGamer, Senjienji, Oddbot (Fancade's mascot), Dimitris Savu, and Marshmello (aka Marshie, Marsh) in the artwork." />
-        <div class="text">MPD Family 5 - Main</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img src='/assets/MPD-NVO-18-Family-Picture-Compressed.webp'
-          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
-          alt="MPD NVO-18 Family picture, this is also TechNewVideo's small artwork for his 18th birthday! There are UN4YA (UNAYA), JoshuaTNTGamer, BreadoDaLoaf, TechNewVideo, DuyCool, Cube, and MrXCube in the artwork." />
-        <div class="text">MPD NVO-18 Family — TechNewVideo's 18th Birthday!</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img src='/assets/MPD-Family-5-Exclusive-Picture-Compressed.webp'
-          style='width: 100%; border-radius: 15px 15px 15px 15px; -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);-moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);'
-          alt="MPD Family 5 - Exclusive picture. Contains a Discord app window, with messages coming out from it. The Demon (OfficialAz3)'s message: 'gottem' fam'', Techy's message: 'MPD Family 5 Exclusive Picture releases!', MimiWorld's message: 'Good Morning everyone! Sorry, I forgot talking yesterday, hope y'all had a great day!', KhoaDankstoneMC/GD's message: 'Hmm', DuyCool's message: 'Don't forget me!', JustMonotone's message: 'it is true, the less I know the better', Breado (BreadoDaLoaf)'s message: 'I will devour all your loafs'." />
-        <div class="text">MPD Family 5 - Exclusive</div>
-      </div>
-    </div>
-
-    <img src="/assets/MPD-Button-Left.png" width="15%" height="15%" class="prev" onclick='plusSlides(-1)'>
-    <img src="/assets/MPD-Button-Right.png" width="15%" height="15%" class="next" onclick='plusSlides(1)'>
-  </div>
-
-  <br>
-
-  <div style='text-align: center;'>
-    <span class="dot" onclick='currentSlide(1)'></span>
-    <span class="dot" onclick='currentSlide(2)'></span>
-    <span class="dot" onclick='currentSlide(3)'></span>
-    <span class="dot" onclick='currentSlide(4)'></span>
-    <span class="dot" onclick='currentSlide(5)'></span>
-    <span class="dot" onclick='currentSlide(6)'></span>
-    <span class="dot" onclick='currentSlide(7)'></span>
-  </div>
-
-  <div class="body">
-    <script>
-      var navList = document.getElementById("nav-lists");
-
-      function Show() {
-        navList.classList.add("_Menus-show");
-      }
-
-      function Hide() {
-        navList.classList.remove("_Menus-show");
+        });
       }
     </script>
 
-    <br>
+    <!-- Web manifest -->
+    <link rel="manifest" href="/manifest.json" />
 
-    <hr>
+    <!--Favicon-->
+    <link rel="icon" href="/assets/MPD-Favicon.ico" type="image/x-icon" />
 
-    <br>
-    <br>
-    <img alt="News" src="/assets/News.png" style="width: 50%; ">
-    <br>
-    <p>The Cubes—Happy 1st Birthday on 31 August 2021! 🎂🧊🎉</p>
-    <br>
-    <br>
-    <br>
-    <br>
+    <!--Message for showing if JS is disabled-->
+    <noscript>
+      <style>
+        figure noscript {
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+      </style>
 
-    <br>
-    <img alt="Members" src="/assets/Members.png" style="width: 50%;">
-    <br>
-    <p><i>in the meantime, <a href="https://mediaplay-discord.fandom.com/wiki/Members" target="_blank">go to this page instead!</a></i></p>
-    <br>
-    <br>
-    <br>
-    <br>
+      <style>
+        #enable-js {
+          margin: 0;
+          padding: 12px 15px;
+          background-color: #ffc107;
+          color: #000;
+          text-align: center;
+          font-family: "Montserrat", sans-serif;
+          font-size: 13px;
+        }
+      </style>
+      <p id="enable-js">
+        🦮 Sorry, some parts of the website didn't load correctly. Make sure to
+        enable JavaScript in your browser.
+      </p>
+    </noscript>
+  </head>
 
-    <br>
-    <img alt="Status" src="/assets/Status.png" style="width: 50%;">
-    <br>
-    <br>
-    <img alt="Uptime status"
-      src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MediaPlay-Discord/status/master/api/website/uptime.json&style=flat">
-    <br>
-    <br>
-    <br>
+  <body>
+    <!--Navbar-->
+    <div class="container">
+      <div class="logo">
+        <a href="#"><img src="/assets/MPD-Logo-with-Text.png" alt="logo" /></a>
+      </div>
+      <div class="navbar">
+        <div class="icon-bar" onclick="Show()">
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
 
-    <hr>
+        <ul style="z-index: 1" id="nav-lists">
+          <li class="close">
+            <span
+              onclick="Hide()"
+              style="
+                border-color: #0d1347;
+                color: #ffffff;
+                font-size: 50px;
+                margin-left: 5px;
+                margin-top: 10px;
+              "
+              >➜</span
+            >
+          </li>
+          <li><a style="margin-left: 15px" href="#">Home</a></li>
+          <li><a style="margin-left: 15px" href="/community">Community</a></li>
+          <li>
+            <a
+              style="margin-left: 15px"
+              href="https://www.thien2021.tk/views/leaderboard.ejs"
+              >Leaderboard</a
+            >
+          </li>
+          <li><a style="margin-left: 15px" href="/servers">Servers</a></li>
+        </ul>
+      </div>
+    </div>
 
-    <h2 style="text-align: center; font-size: 1.875em;">Join our Discord server!</p>
-    <a href="https://discord.gg/nj7rV6p8gS" target="_blank"><img alt="Discord" src="https://img.shields.io/discord/699994812517974057"></a>
-    
-    <br>
+    <br />
 
-    <h2 style="text-align: center; font-size: 1.875em;">Join our Matrix space as well!</p>
-    <a href="https://matrix.to/#/#mediaplay-matrix:matrix.org" target="_blank"><img alt="Matrix" src="https://img.shields.io/matrix/mediaplay-matrix:matrix.org"></a>
+    <!--Slideshow/Carousel JS code-->
+    <script>
+      var slideIndex = 1;
 
-    <br>
+      var myTimer;
 
-    <p style="text-align: center; font-size: 0.4em;"><a href="https://mediaplay-discord.fandom.com"
-          target="_blank">Check out the MediaPlay Discord wiki!</a></p>
+      var slideshowContainer;
 
-    <p style="text-align: center; font-size: 0.4em;"><a
-          href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io" target="_blank">Source Code</a> | <a
-          href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io/commits" target="_blank">Website
-          Changes</a> | <a href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM"
-          target="_blank">MPDictionary</a></p>
-  </div>
-</body>
+      window.addEventListener("load", function () {
+        showSlides(slideIndex);
+        myTimer = setInterval(function () {
+          plusSlides(1);
+        }, 4000);
 
+        slideshowContainer =
+          document.getElementsByClassName("slideshow-inner")[0];
+        slideshowContainer.addEventListener("mouseenter", pause);
+        slideshowContainer.addEventListener("mouseleave", resume);
+      });
+
+      // Previous and next buttons
+      function plusSlides(n) {
+        clearInterval(myTimer);
+        if (n < 0) {
+          showSlides((slideIndex -= 1));
+        } else {
+          showSlides((slideIndex += 1));
+        }
+
+        if (n === -1) {
+          myTimer = setInterval(function () {
+            plusSlides(n + 2);
+          }, 4000);
+        } else {
+          myTimer = setInterval(function () {
+            plusSlides(n + 1);
+          }, 4000);
+        }
+      }
+
+      // Controls the current slide and resets interval if needed
+      function currentSlide(n) {
+        clearInterval(myTimer);
+        myTimer = setInterval(function () {
+          plusSlides(n + 1);
+        }, 4000);
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+
+      pause = () => {
+        clearInterval(myTimer);
+      };
+
+      resume = () => {
+        clearInterval(myTimer);
+        myTimer = setInterval(function () {
+          plusSlides(slideIndex);
+        }, 4000);
+      };
+    </script>
+
+    <div class="slideshow-container">
+      <div class="slideshow-inner">
+        <div class="mySlides fade">
+          <img
+            src="/assets/MPD-Family-1-Picture-Compressed.webp"
+            style="
+              width: 100%;
+              border-radius: 15px 15px 15px 15px;
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+            "
+            alt="MPD Family 1 picture. Characters are on top of the shapes of the MPD logo. Linedol, TechNewVideo, Real Nath, hai!, Alvin, Terria, NtyEllias, Toastie, and G~ are some of the MPD members in the picture."
+          />
+          <div class="text">MPD Family 1</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            src="/assets/MPD-Family-2-Picture-Compressed.webp"
+            style="
+              width: 100%;
+              border-radius: 15px 15px 15px 15px;
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+            "
+            alt="MPD Family 2 picture. Sunny day, forest trees, grassy land, ocean in the front, and rocks for the path. Most of the members in MPD are in the picture, including veterans."
+          />
+          <div class="text">MPD Family 2</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            src="/assets/MPD-Family-3-Picture-Compressed.webp"
+            style="
+              width: 100%;
+              border-radius: 15px 15px 15px 15px;
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+            "
+            alt="MPD Family 3 picture. Space themed. numb (aka Laser Soul, Hamza, ...), Arlver, Maias (ReDark Technology), The Dark Knight, Alvin, hai!, Nether743, Sync, AlphaAdvanced, BreadoDaLoaf, AftonIvolvery, Linerly, OfficialAz3, MimiWorld, DaBlueCube, LThirty6, LongH, Marshie (aka Marshmello, Marsh, ...), Senjienji, Noah 99556, Fanny, Geek, Toastie, ThatGuy03, JoshuaTNTGamer, Terria, OTFT, and Marklanchvar32 are some of the members that is in the picture."
+          />
+          <div class="text">MPD Family 3</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            src="/assets/MPD-Family-4-Picture-Compressed.webp"
+            style="
+              width: 100%;
+              border-radius: 15px 15px 15px 15px;
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+            "
+            alt="MPD Family 4 picture. Contains six different styles by Arlver, Terria, AlphaAdvanced, BreadoDaLoaf, and MimiWorld in one artwork, also contains the MPD logo. Those styles are outer space, sky with a hot air balloon, rainbow, clouds, and an airplane, city, forest at night, Antartica, and another city. There are Phuc (aka Toastie), LongH, KhoaDankstoneMC/GD, Senjienji, JustMonotone, AlphaAdvanced, Marshmello (aka Marshie, Marsh), MimiWorld, BreadoDaLoaf, Blinku (aka HuyasAnpey), RanbooFan (aka Stardrop), Nextie, an ore cubie, DaBlueCube, a yellow cubie with sunglasses, headphones, and an attachment, a humanoid, Marklanchvar32, a dinosaur cubie, tentyp, Arlver, Marshmello (aka Marshie, Marsh), BlooDerg (aka OTFT), RockyR, TechNewVideo, Nether743, hai, Noah 99556, ThatGuy03, The Dark Knight, Ray Ramadan (aka Rayyan), Linerly, Efehan, ReDark Technology, Terria, SrMuffin136, LThirty6, and OfficialAz3 in the artwork."
+          />
+          <div class="text">MPD Family 4</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            src="/assets/MPD-Family-5-Main-Picture-Compressed.webp"
+            style="
+              width: 100%;
+              border-radius: 15px 15px 15px 15px;
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+            "
+            alt="MPD Family 5 - Main picture. Contains Arcaea, Phigros, and Rolling Sky gameplay. There are Linerly, Marklanchvar32, ThatGuy03, tentyp, Henry Stickmin, LThirty6, Phuc (aka Toastie), numb (aka Hamza), TechNewVideo, R3DZ3R, JoshuaTNTGamer, Senjienji, Oddbot (Fancade's mascot), Dimitris Savu, and Marshmello (aka Marshie, Marsh) in the artwork."
+          />
+          <div class="text" style="color: #000">MPD Family 5 - Main</div>
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            src="/assets/MPD-NVO-18-Family-Picture-Compressed.webp"
+            style="
+              width: 100%;
+              border-radius: 15px 15px 15px 15px;
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+            "
+            alt="MPD NVO-18 Family picture, this is also TechNewVideo's small artwork for his 18th birthday! There are UN4YA (UNAYA), JoshuaTNTGamer, BreadoDaLoaf, TechNewVideo, DuyCool, Cube, and MrXCube in the artwork."
+          />
+          <div class="text">
+            MPD NVO-18 Family — TechNewVideo's 18th Birthday!
+          </div>
+        </div>
+
+        <div class="mySlides fade">
+          <img
+            src="/assets/MPD-Family-5-Exclusive-Picture-Compressed.webp"
+            style="
+              width: 100%;
+              border-radius: 15px 15px 15px 15px;
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+              box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+            "
+            alt="MPD Family 5 - Exclusive picture. Contains a Discord app window, with messages coming out from it. The Demon (OfficialAz3)'s message: 'gottem' fam'', Techy's message: 'MPD Family 5 Exclusive Picture releases!', MimiWorld's message: 'Good Morning everyone! Sorry, I forgot talking yesterday, hope y'all had a great day!', KhoaDankstoneMC/GD's message: 'Hmm', DuyCool's message: 'Don't forget me!', JustMonotone's message: 'it is true, the less I know the better', Breado (BreadoDaLoaf)'s message: 'I will devour all your loafs'."
+          />
+          <div class="text">MPD Family 5 - Exclusive</div>
+        </div>
+      </div>
+
+      <img
+        src="/assets/MPD-Button-Left.png"
+        width="15%"
+        height="15%"
+        class="prev"
+        onclick="plusSlides(-1)"
+      />
+      <img
+        src="/assets/MPD-Button-Right.png"
+        width="15%"
+        height="15%"
+        class="next"
+        onclick="plusSlides(1)"
+      />
+    </div>
+
+    <br />
+
+    <div style="text-align: center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
+    </div>
+
+    <div class="body">
+      <script>
+        var navList = document.getElementById("nav-lists");
+
+        function Show() {
+          navList.classList.add("_Menus-show");
+        }
+
+        function Hide() {
+          navList.classList.remove("_Menus-show");
+        }
+      </script>
+
+      <br />
+
+      <hr />
+
+      <br />
+      <br />
+      <img alt="News" src="/assets/News.png" style="width: 50%" />
+      <br />
+      <p>The Cubes—Happy 1st Birthday on 31 August 2021! 🎂🧊🎉</p>
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <br />
+      <img alt="Members" src="/assets/Members.png" style="width: 50%" />
+      <br />
+      <p>
+        <i
+          >in the meantime,
+          <a
+            href="https://mediaplay-discord.fandom.com/wiki/Members"
+            target="_blank"
+            >go to this page instead!</a
+          ></i
+        >
+      </p>
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <br />
+      <img alt="Status" src="/assets/Status.png" style="width: 50%" />
+      <br />
+      <br />
+      <img
+        alt="Uptime status"
+        src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MediaPlay-Discord/status/master/api/website/uptime.json&style=flat"
+      />
+      <br />
+      <br />
+      <br />
+
+      <hr />
+
+      <h2 style="text-align: center; font-size: 1.875em">
+        Join our Discord server!
+      </h2>
+      <p style="text-align: center">
+        <a href="https://discord.gg/nj7rV6p8gS" target="_blank"
+          ><img
+            alt="Discord"
+            src="https://img.shields.io/discord/699994812517974057"
+        /></a>
+      </p>
+
+      <br />
+
+      <h2 style="text-align: center; font-size: 1.875em">
+        Join our Matrix space as well!
+      </h2>
+      <p style="text-align: center">
+        <a
+          href="https://matrix.to/#/#mediaplay-matrix:matrix.org"
+          target="_blank"
+          ><img
+            alt="Matrix"
+            src="https://img.shields.io/matrix/mediaplay-matrix:matrix.org"
+        /></a>
+      </p>
+
+      <br />
+
+      <p style="text-align: center; font-size: 0.9em">
+        <a href="https://mediaplay-discord.fandom.com" target="_blank"
+          >Check out the MediaPlay Discord wiki!</a
+        >
+      </p>
+
+      <p style="text-align: center; font-size: 0.75em">
+        <a
+          href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io"
+          target="_blank"
+          >Source Code</a
+        >
+        |
+        <a
+          href="https://github.com/MediaPlay-Discord/mediaplay-discord.github.io/commits"
+          target="_blank"
+          >Website Changes</a
+        >
+        |
+        <a
+          href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM"
+          target="_blank"
+          >MPDictionary</a
+        >
+      </p>
+    </div>
+  </body>
 </html>
