@@ -6,6 +6,4 @@ This is the MediaPlay website source code,
 feel free to make any improvements (such as grammar mistakes, typos, bug issue, etc.)
 by making a pull request on this repository!
 
-Join our Discord by clicking [here](https://discord.gg/5Tdke6dsaP) for more information about the website. (make sure to scroll down until you see the "🌐 MPD WEBSITE TESTING" category)
-
-If you want to discuss about the MediaPlay website - and MediaPlay development in general - [join the Matrix room!](https://matrix.to/#/#mediaplay-development:matrix.org) (you could also [join our Discord server](https://discord.gg/5Tdke6dsaP) as well)
+If you want to discuss about the MediaPlay website - and MediaPlay development in general - [join the Matrix room](https://matrix.to/#/#mediaplay-development:matrix.org). (you could also [join our Discord server](https://discord.gg/5Tdke6dsaP) as well, and you'll need to get through the gatekeeper, after that go to [#development-chat](https://discord.com/app/699994812517974057/788533905854300170))
