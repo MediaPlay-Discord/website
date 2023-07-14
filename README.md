@@ -1,6 +1,6 @@
 # mediaparlour.github.io
 
-![license](https://img.shields.io/github/license/MediaPlay-Discord/mediaparlour.github.io?style=plastic) ![discord-server](https://img.shields.io/discord/699994812517974057?color=00b0f0&logo=MP&style=plastic) ![uptime](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MediaParlour/status/master/api/website/uptime.json&style=plastic)
+![license](https://img.shields.io/github/license/MediaParlour/mediaparlour.github.io?style=plastic) ![discord-server](https://img.shields.io/discord/699994812517974057?color=00b0f0&logo=MP&style=plastic) ![uptime](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/MediaParlour/status/master/api/website/uptime.json&style=plastic)
 
 This is the MediaParlour website source code,
 feel free to make any improvements (such as grammar mistakes, typos, bug issue, etc.)
