@@ -1,0 +1,84 @@
+.slideshow-container {
+  max-width: clamp(250px, 75%, 850px);
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+  max-height: 800px;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: clamp(38.5%, 50%, 45%);
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 15px;
+  border-radius: 50px 50px 50px 50px;
+}
+
+.prev {
+  left: 15px;
+  border-radius: 50px 50px 50px 50px;
+}
+
+@media only screen and (max-width: 900px) {
+  .next {
+    right: 10px;
+    border-radius: 50px 50px 50px 50px;
+    width: 17%;
+    height: 30%;
+  }
+
+  .prev {
+    left: 10px;
+    border-radius: 50px 50px 50px 50px;
+    width: 17%;
+    height: 30%;
+  }
+}
+
+.prev:hover,
+.next:hover {
+  color: #707070;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.text {
+  color: #ffffff;
+  font-size: 15px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #00678d;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #0d1347;
+}

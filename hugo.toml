@@ -1,0 +1,5 @@
+baseURL = 'https://mediaplay-discord.github.io/'
+languageCode = 'en-us'
+title = 'MediaPlay'
+disableKinds = ["taxonomy", "term"]
+summaryLength = 12
