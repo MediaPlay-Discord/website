@@ -22,7 +22,7 @@ collections:
       - { label: 'Author', name: 'author', widget: 'string' }
       - { label: 'Discord Profile', name: 'discord', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'content'
+  - name: 'blog'
       label: 'Blog'
       folder: 'content/blog'
       create: true
