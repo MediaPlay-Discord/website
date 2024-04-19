@@ -4,7 +4,7 @@
     <title>MediaPlay</title>
     <link>http://localhost:1313/</link>
     <description>Recent content on MediaPlay</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo 0.125.1</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 19 Apr 2024 06:44:53 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />

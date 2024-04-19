@@ -1,0 +1,8 @@
+<div style="background-color:#1c2779; border-radius:1rem; padding:1.5rem; padding-top: 1px; box-shadow: 0px 5px 10px #00000015; user-select: none;">
+    <a href="{{ .Permalink }}"><h1>{{ .Title }}</h1></a>
+    <p>
+        {{ .Summary | replaceRE "(&rsquo;)" "’" | replaceRE "(&mdash;)" "—" | replaceRE "([.:]$)" "…"}}
+    </p>
+    <sub style="font-size: 12pt;">by {{ .Params.author }} (<code>{{ .Params.discord }}</code>) · around {{ .ReadingTime }} {{ cond (eq .ReadingTime 1) "minute" "minutes" }} · published on {{ .Date.Format "2006-01-02" }} · {{ .WordCount }} words</sub>
+</div>
+<br>

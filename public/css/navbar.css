@@ -7,8 +7,7 @@
 
 .container {
   height: 105px;
-  background: rgb(13,19,71);
-  background: linear-gradient(180deg, rgba(13,19,71,1) 0%, rgba(17,23,66,1) 100%); 
+  background: linear-gradient(180deg, rgba(13,19,71,1) 0%, rgba(17,23,66,0) 100%); 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

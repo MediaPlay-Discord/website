@@ -1,5 +1,5 @@
 .slideshow-container {
-  max-width: clamp(250px, 75%, 850px);
+  max-width: 800px;
   position: relative;
   margin: auto;
 }
@@ -80,5 +80,5 @@
 
 .active,
 .dot:hover {
-  background-color: #0d1347;
+  background-color: #00adec;
 }

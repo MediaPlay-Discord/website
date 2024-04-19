@@ -1,6 +1,8 @@
 +++
 title = 'Community'
 date = 2024-04-19T06:36:53+07:00
+author = 'TechNewVideo'
+discord = '@technewvideo'
 +++
 
 *If you're new to here, welcome! 👋*
