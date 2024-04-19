@@ -1,4 +1,4 @@
-baseURL = 'https://mediaplay-discord.github.io/'
+baseURL = 'https://mediaplay-discord.netlify.app/'
 languageCode = 'en-us'
 title = 'MediaPlay'
 disableKinds = ["taxonomy", "term"]
