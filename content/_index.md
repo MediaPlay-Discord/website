@@ -1,6 +1,10 @@
-+++
-date = 2024-04-19T06:32:18+07:00
-+++
+---
+title: Home
+date: 2024-04-18T23:32:18.000Z
+draft: false
+author: "-"
+discord: "-"
+---
 
 # Welcome to MediaPlay!
 
