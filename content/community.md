@@ -12,3 +12,5 @@ MediaPlay is a gaming and chatting lounge community created by TechNewVideo—al
 We create projects to help us and other people who is interested in the community to create things together.
 
 We welcome all people from different kinds of backgrounds no matter how different and unique they are. 🙂
+
+Test
