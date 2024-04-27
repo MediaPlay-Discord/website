@@ -5,12 +5,10 @@ author = 'TechNewVideo'
 discord = '@technewvideo'
 +++
 
-*If you're new to here, welcome! 👋*
+# Community
 
-MediaPlay is a gaming and chatting lounge community created by TechNewVideo—also known as Techy—to bring people all around the world in this community and keep us connected in this world as possible.
+Welcome to MediaPlay Community section
 
-We create projects to help us and other people who is interested in the community to create things together.
+You can view all the community information in this section.
 
-We welcome all people from different kinds of backgrounds no matter how different and unique they are. 🙂
 
-Test
