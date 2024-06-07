@@ -7,4 +7,3 @@ discord: "@technewvideo, @linerly"
 ---
 
 # [Discord ⮞](/discord)
-# [Roles ⮞](/roles)
