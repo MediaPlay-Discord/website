@@ -1,0 +1,28 @@
+<style>
+    a.button {
+    padding: 0.75em 3em;
+    border-radius: 100px;
+    background-color: #ffffff20;
+    transition: all .05s ease;
+    text-decoration: none;
+    }
+
+    a.button:hover {
+        background: #ffffff60;
+        transition: all .05s ease;
+    }
+</style>
+
+<div style="box-shadow: 0 0 15px rgba(0, 0, 0, 0.315); margin-bottom: 1em; background-image: linear-gradient({{ .Get 0 }}40, {{ .Get 0}}80); border-radius:2rem; padding: 2.25rem; padding-bottom: 4rem; box-shadow: 0px 5px 10px #00000015; user-select: none;">
+    <div style="display:flex;">
+        <div>
+            <h1 style="text-transform: uppercase;"><i>Current Event</i></h1>
+            <h2>{{ .Get 1 }}</h2>
+            <p style="font-size: 14pt; text-align: justify;"><i>{{ .Get 2 }}</i></p>
+            <sub>Started on {{ .Get 3 }}</sub>
+        </div>
+        <div style="margin: auto; margin-left: 3em; margin-right: 2.25em;">
+            <a style="color:#ffffff80" class="button" target="_blank" href="{{ .Get 4 }}"><b>Go</b></a><br>
+        </div>
+    </div>
+</div>
