@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: MediaPlay-Discord/mediaplay-discord.github.io # Path to your GitHub repository
+  repo: MediaPlay-Discord/website # Path to your GitHub repository
   # optional, defaults to master
   # branch: main
 
