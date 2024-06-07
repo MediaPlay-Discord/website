@@ -6,5 +6,5 @@ author: TechNewVideo, Linerly
 discord: "@technewvideo, @linerly"
 ---
 
-# [Discord](/discord)
-# [Roles](/roles)
+# [Discord →](/discord)
+# [Roles →](/roles)
