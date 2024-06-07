@@ -1,6 +1,6 @@
 ---
 title: Discord
-date: 2024-06-07T16:07:00.000Z
+date: 2024-06-07T16:07:00+07:00
 draft: false
 author: Linerly
 discord: "@linerly"
