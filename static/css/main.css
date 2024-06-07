@@ -108,6 +108,13 @@ hr {
   margin: auto;
 }
 
+img {
+  max-width: 100%;
+  border-radius: 15px;
+  margin: 0;
+  padding: 0;
+}
+
 table {
   border-collapse: separate;
   border-spacing: 0;
