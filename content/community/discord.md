@@ -8,9 +8,7 @@ discord: "@technewvideo"
 
 [🡠 RETURN](..)
 
-# List of Server Roles
-
-{{< roles >}}
+# [List of Server Roles 🡢](roles)
 
 # Invite Link
 
