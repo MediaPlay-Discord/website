@@ -70,6 +70,31 @@
   src: url('../fonts/jetbrains-mono-v18-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* material-icons-round-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Material Icons Round';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/material-icons-round-v108-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+.material-symbols-rounded {
+  font-family: "Material Icons Round";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: "liga";
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   font-family: "Figtree", sans-serif;
   margin: 0;
@@ -82,7 +107,7 @@ code {
   font-family: "JetBrains Mono", monospace;
 }
 
-p, sub, h1, h2, h3, h4, h5, h6, time {
+p, sub, h1, h2, h3, h4, h5, h6, time, ul, li {
   color: #9fcedf;
 }
 
@@ -90,7 +115,7 @@ a {
   color: #19afe6;
 }
 
-p {
+p, ul, li {
   font-size: 16pt;
 }
 

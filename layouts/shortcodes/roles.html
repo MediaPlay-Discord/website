@@ -31,6 +31,28 @@
     table {
         user-select: none;
     }
+
+    .legend {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            border-radius: 100px;
+        }
+        .no-requirements { background-color: #00ff0040; } /* Green */
+        .certain-requirement { background-color: #ffcc0040; } /* Yellow */
+        .moderator-pick { background-color: #800080b0; } /* Purple */
+        .not-obtainable { background-color: #ff000040; } /* Red */
+        .not-available { background-color: #cccccc40; } /* Grey */
 </style>
 
 <table>
@@ -325,3 +347,28 @@
         <td class="buy-store">Choose them in Channels & Roles.</td>
       </tr>
 </table>
+
+<div class="legend">
+  <div class="legend-item">
+      <div class="legend-color no-requirements"></div>
+      <sub>No requirements needed</sub>
+  </div>
+  <div class="legend-item">
+      <div class="legend-color certain-requirement"></div>
+      <sub>Based on certain requirement</sub>
+  </div>
+  <div class="legend-item">
+      <div class="legend-color moderator-pick"></div>
+      <sub>Based on moderator’s pick</sub>
+  </div>
+  <div class="legend-item">
+      <div class="legend-color not-obtainable"></div>
+      <sub>Not obtainable</sub>
+  </div>
+  <div class="legend-item">
+      <div class="legend-color not-available"></div>
+      <sub>Not available for requirement</sub>
+  </div>
+</div>
+
+<br>
