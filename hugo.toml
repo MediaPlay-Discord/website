@@ -1,5 +1,10 @@
 baseURL = 'https://mediaplay-discord.netlify.app/'
-languageCode = 'en-us'
+languageCode = 'en'
 title = 'MediaPlay'
 disableKinds = ["taxonomy", "term"]
 summaryLength = 12
+
+[languages]
+    [languages.en.params]
+        locale = "en"
+        description = 'The website for the MediaPlay community.'
