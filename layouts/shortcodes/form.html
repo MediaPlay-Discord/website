@@ -78,6 +78,27 @@ form textarea {
       </form>
 
       <script>
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  const myForm = event.target;
+  const formData = new FormData(myForm);
+  
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+    .then(() => console.log("Form successfully submitted"))
+    .catch((error) => alert(error));
+};
+
+document
+  .querySelector("form")
+  .addEventListener("submit", handleSubmit);
+
+
+
         document.getElementById('applicationForm').addEventListener('submit', function(event) {
           event.preventDefault()
             window.location.href = '../thank-you'; // Replace 'thank-you.html' with the URL you want to redirect to
