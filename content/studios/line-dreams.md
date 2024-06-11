@@ -7,9 +7,4 @@ author: "TechNewVideo"
 discord: "@technewvideo"
 ---
 
-# Changelog
-- Bugfixes
-
-{{< downloads/windows "https://drive.google.com/file/d/19cHrrg26uMTAsvlFKL_Je1VzAn-qj7wD/view?usp=sharing" >}}
-{{< downloads/linux "https://drive.google.com/file/d/1TpFmN5LZ9rn6qvuK7LGnUqe9v_NSU5VQ/view?usp=sharing" >}}
-{{< downloads/android "https://drive.google.com/file/d/1zQ_PFbJB7nxi-sF7ex75inczy__1l62o/view?usp=sharing" >}}
+# Download the game on [our Discord server](https://discord.gg/tjNg8FstTu), then head over to the MediaPlay Discord category.
