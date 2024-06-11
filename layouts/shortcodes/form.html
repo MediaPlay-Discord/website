@@ -1,0 +1,85 @@
+<style>
+  /* General styling for the form container */
+form {
+    background-color: #070d18; /* Dark blue background */
+    color: #b3e0ff; /* Light blue text color */
+    padding: 20px;
+    border-radius: 1em;
+    margin: auto;
+    font-family: "Figtree", sans-serif;
+}
+
+/* Styling for the labels and inputs */
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+    font-family: "Figtree", sans-serif;
+    width: 100%;
+    padding: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #1e3c72; /* Darker blue border */
+    border-radius: 1em;
+    background-color: #0d1b34; /* Matching background */
+    color: #b3e0ff; /* Light blue text color */
+}
+
+/* Styling for the send button */
+form button[type="submit"] {
+    text-transform: uppercase;
+    font-family: "Figtree", sans-serif;
+    background-color: #1e3c72; /* Dark blue button */
+    color: #b3e0ff; /* Light blue text color */
+    border: none;
+    border-radius: 1em;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
+}
+
+form button[type="submit"]:hover {
+    background-color: #365f9c; /* Slightly lighter blue on hover */
+}
+
+form textarea {
+    resize: vertical;
+}
+
+</style>
+
+<form name="contact" method="POST" data-netlify="true" id="applicationForm">
+        <p>
+          <label>Your Name <input type="text" name="name" required /></label>
+        </p>
+        <p>
+          <label>Your Email <input type="email" name="email" required /></label>
+        </p>
+        <p>
+          <label>Your Role <select name="role[]" multiple required>
+            <option value="leader">Leader</option>
+            <option value="follower">Follower</option>
+          </select></label>
+        </p>
+        <p>
+          <label>Message <textarea name="message" required></textarea></label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
+      </form>
+
+      <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(event) {
+          event.preventDefault()
+            window.location.href = '../thank-you'; // Replace 'thank-you.html' with the URL you want to redirect to
+        });
+    </script>

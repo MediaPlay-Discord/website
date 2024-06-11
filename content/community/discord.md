@@ -1,12 +1,7 @@
 ---
 title: Discord
-date: 2024-04-18T23:32:18.000Z
-draft: false
-author: "TechNewVideo"
-discord: "@technewvideo"
+layout: staticpage
 ---
-
-[🡠 RETURN](..)
 
 # Invitation Link
 
