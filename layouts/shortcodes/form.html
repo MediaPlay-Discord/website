@@ -93,14 +93,5 @@ const handleSubmit = (event) => {
     .catch((error) => alert(error));
 };
 
-document
-  .querySelector("form")
-  .addEventListener("submit", handleSubmit);
-
-
-
-        document.getElementById('applicationForm').addEventListener('submit', function(event) {
-          event.preventDefault()
-            window.location.href = '../thank-you'; // Replace 'thank-you.html' with the URL you want to redirect to
-        });
+document.querySelector("form").addEventListener("submit", handleSubmit);
     </script>
