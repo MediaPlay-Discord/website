@@ -6,6 +6,7 @@
 }
 
 .container {
+  user-select: none;
   height: 105px;
   background: linear-gradient(180deg, rgba(13,19,71,1) 0%, rgba(17,23,66,0) 100%); 
   display: -webkit-box;
@@ -17,9 +18,6 @@
   -ms-flex-align: center;
   align-items: center;
   overflow: hidden;
-  /* -webkit-box-shadow: 0px 15px 30px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 15px 30px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 15px 30px 0px rgba(0,0,0,0.5); */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -46,7 +44,7 @@
 .container .logo a img {
   max-width: 100%;
   margin: 15px;
-  max-height: 105px;
+  max-height: 64px;
 }
 
 .container .navbar {
@@ -83,11 +81,13 @@
   line-height: 30px;
   cursor: pointer;
   padding: 0 10px;
+  margin-bottom: 15px;
+  border-radius: 100px;
 }
 
 .container .navbar ul li a:hover {
   color: #ffffff;
-  background-color: #00b0f0;
+  background-color: #00b0f040;
 }
 
 .container .navbar ul .close {
@@ -152,13 +152,14 @@
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    background: #0d1347;
+    background: #0d1347d0;
     width: 100%;
     height: 100%;
     overflow: auto;
     -webkit-transition: left 0.3s;
     -o-transition: left 0.3s;
     transition: left 0.3s;
+    backdrop-filter: blur(15px);
   }
 
   .container .navbar ul li a {

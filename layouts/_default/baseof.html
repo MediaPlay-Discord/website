@@ -69,10 +69,10 @@
                 margin-top: 30px;
               "><span style="border-color: transparent; user-select: none;" class="material-symbols-rounded">close</span></span>
         </li>
-        <li><a style="margin-left: 15px" href="/">Home</a></li>
-        <li><a style="margin-left: 15px" href="/community">Community</a></li>
-        <li><a style="margin-left: 15px" href="/blog">Blog</a></li>
-        <li><a style="margin-left: 15px" href="/studios">Studios</a></li>
+        <li><a style="margin-left: 10px; margin-right: 10px" href="/">Home</a></li>
+        <li><a style="margin-left: 10px; margin-right: 10px" href="/community">Community</a></li>
+        <li><a style="margin-left: 10px; margin-right: 10px" href="/blog">Blog</a></li>
+        <li><a style="margin-left: 10px; margin-right: 10px" href="/studios">Studios</a></li>
       </ul>
     </div>
   </div>
@@ -95,19 +95,32 @@
   </script>
 </body>
 
-<hr>
+<br>
 
-<footer style="text-align: center; text-transform: uppercase;">
+<footer class="footer" style="user-select: none; background-color: #0e1338; padding: 2em; bottom: 100%; text-align: center;">
+  <sub style="filter: opacity(75%);"><i>Last updated on {{ with .GitInfo }}
+    {{ .CommitDate.Format "2006-01-02" }}
+  {{ end }}</i>
+  </sub>
   <p>
-    <a style="font-size: 12pt; margin: 1em;" href="https://github.com/MediaPlay-Discord/website" target="_blank">Source Code</a>
+    <a style="font-size: 12pt; margin-right: 1em;" href="https://github.com/MediaPlay-Discord/website" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">
+      code
+      </span></a>
     
-    <a style="font-size: 12pt; margin: 1em;" href="https://github.com/MediaPlay-Discord/website/commits" target="_blank">Website
-      Changes</a>
+    <a style="font-size: 12pt; margin-right: 1em;" href="https://github.com/MediaPlay-Discord/website/commits" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">
+      history
+      </span></a>
     
-    <a style="font-size: 12pt; margin: 1em;" href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM"
-      target="_blank">MPDictionary</a>
+    <a style="font-size: 12pt;" href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM"
+      target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">
+        menu_book
+        </span></a>
   </p>
-  </div>
-</footer>
 
+  <sub style="filter: opacity(50%);">
+    version <code>{{ with .GitInfo }}
+      {{ .AbbreviatedHash }}
+    {{ end }}</code>
+  </sub>
+</footer>
 </html>

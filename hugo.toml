@@ -3,6 +3,7 @@ languageCode = 'en'
 title = 'MediaPlay'
 disableKinds = ["taxonomy", "term"]
 summaryLength = 12
+enableGitInfo = true
 
 [languages]
     [languages.en.params]
