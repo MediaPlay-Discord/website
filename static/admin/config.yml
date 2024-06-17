@@ -11,7 +11,7 @@ collections:
     label: Content
     folder: content
     create: true
-    slug: { { slug } }
+    slug: "{{slug}}"
     preview_path: /
     editor:
       preview: true
@@ -26,7 +26,7 @@ collections:
     label: Blog
     folder: content/blog
     create: true
-    slug: { { slug } }
+    slug: "{{slug}}"
     preview_path: blog/{{slug}}
     editor:
       preview: true
