@@ -1,6 +1,6 @@
 ---
 title: List of Server Roles
-layout: staticpage
+layout: wiki-staticpage
 ---
 
 {{< roles >}}

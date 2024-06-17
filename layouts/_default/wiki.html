@@ -1,0 +1,237 @@
+{{ define "main" }}
+
+<style>
+  section ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    padding: 0 8px;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    border-radius: 100px;
+  }
+
+  section ul li a:hover {
+    color: #ffffff;
+    background-color: #00b0f040;
+  }
+
+  section ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    margin-left: -45px;
+  }
+
+  .wiki {
+    font-size: 24pt;
+    margin-top: -4px;
+  }
+
+  aside {
+    width: 768px;
+    max-width: 100%;
+    margin-left: 50px;
+    height: 100%;
+    margin-top: 2em;
+  }
+
+  @media only screen and (max-width: 768px) {
+    aside {
+      margin-left: 0;
+    }
+  }
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    background-color: #003b5c;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 25px;
+    margin: 0 0px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .link {
+    display: block;
+    background-color: #36a2eb;
+    color: white;
+    text-align: left;
+    padding: 40px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    position: relative;
+    font-weight: bold;
+    font-size: 14pt;
+  }
+
+  .link .material-symbols-rounded {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .link:hover {
+    background-color: #258adf;
+  }
+
+  .wiki-section {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .wiki-section {
+      display: block;
+    }
+  }
+  .body {
+    width: 1024px;
+    max-width: 100%;
+  }
+  .nav-lists {
+    background-color: #0a0d23;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav-lists::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for webkit browsers */
+  }
+  @media (max-width: 600px) {
+    .nav-lists {
+      flex-direction: row;
+      overflow-x: auto;
+    }
+
+    ul li {
+      flex: 0 0 auto;
+      padding: 10px 15px;
+      margin-right: 10px;
+    }
+  }
+</style>
+
+<section
+  style="
+    font-size: 24pt;
+    user-select: none;
+    background-color: #0e1338;
+    padding: 0.1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    border-radius: 0.5em;
+  "
+>
+  <h1 style="font-size: 24pt; user-select: none">
+    <a href=".."
+      ><span
+        style="color: white; user-select: none; vertical-align: baseline"
+        class="material-symbols-rounded"
+        >arrow_back</span
+      ></a
+    >
+    <span style="vertical-align: baseline">{{ .Title }}</span>
+  </h1>
+
+  <ul id="nav-lists">
+    <li>
+      <a href="#"
+        >General
+        <span
+          class="material-symbols-rounded wiki"
+          style="vertical-align: middle"
+        >
+          arrow_drop_down
+        </span></a
+      >
+    </li>
+    <li>
+      <a style="margin-left: 10px" href="#"
+        >Events<span
+          class="material-symbols-rounded wiki"
+          style="vertical-align: middle"
+        >
+          arrow_drop_down
+        </span></a
+      >
+    </li>
+    <li>
+      <a style="margin-left: 10px" href="#"
+        >Members<span
+          class="material-symbols-rounded wiki"
+          style="vertical-align: middle"
+        >
+          arrow_drop_down
+        </span></a
+      >
+    </li>
+    <li>
+      <a style="margin-left: 10px" href="#"
+        >Extras<span
+          class="material-symbols-rounded wiki"
+          style="vertical-align: middle"
+        >
+          arrow_drop_down
+        </span></a
+      >
+    </li>
+  </ul>
+</section>
+
+<div class="wiki-section">
+  <div>{{ .Content }}</div>
+
+  <aside>
+    <div class="section">
+      <h2 class="section-title">ESSENTIALS</h2>
+      <a href="roles" class="link"
+        >Roles List<span
+          style="color: white; user-select: none; vertical-align: middle"
+          class="material-symbols-rounded"
+          >arrow_forward</span
+        ></a
+      >
+      <a href="#" class="link"
+        >Rules<span
+          style="color: white; user-select: none; vertical-align: middle"
+          class="material-symbols-rounded"
+          >arrow_forward</span
+        ></a
+      >
+    </div>
+    <div class="section">
+      <h2 class="section-title">EXTRAS</h2>
+      <a href="#" class="link"
+        >...<span
+          style="color: white; user-select: none; vertical-align: middle"
+          class="material-symbols-rounded"
+          >arrow_forward</span
+        ></a
+      >
+    </div>
+  </aside>
+</div>
+
+{{ end }}
