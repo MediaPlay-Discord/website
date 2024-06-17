@@ -120,6 +120,9 @@ body {
   /* background-color: #00b0f0; */
   background: #111742;
   margin: 15px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 code {
@@ -218,11 +221,4 @@ footer {
   padding: 2em;
   text-align: center;
   user-select: none;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
 }
