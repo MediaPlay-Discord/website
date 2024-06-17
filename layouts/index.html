@@ -4,239 +4,236 @@
 <link rel="stylesheet" href="/css/slideshow.css" />
 
 <script>
-    var slideIndex = 1;
+  var slideIndex = 1;
 
-    var myTimer;
+  var myTimer;
 
-    var slideshowContainer;
+  var slideshowContainer;
 
-    window.addEventListener("load", function () {
-      showSlides(slideIndex);
-      myTimer = setInterval(function () {
-        plusSlides(1);
-      }, 4000);
+  window.addEventListener("load", function () {
+    showSlides(slideIndex);
+    myTimer = setInterval(function () {
+      plusSlides(1);
+    }, 4000);
 
-      slideshowContainer =
-        document.getElementsByClassName("slideshow-inner")[0];
-      slideshowContainer.addEventListener("mouseenter", pause);
-      slideshowContainer.addEventListener("mouseleave", resume);
-    });
+    slideshowContainer = document.getElementsByClassName("slideshow-inner")[0];
+    slideshowContainer.addEventListener("mouseenter", pause);
+    slideshowContainer.addEventListener("mouseleave", resume);
+  });
 
-    // Previous and next buttons
-    function plusSlides(n) {
-      clearInterval(myTimer);
-      if (n < 0) {
-        showSlides((slideIndex -= 1));
-      } else {
-        showSlides((slideIndex += 1));
-      }
-
-      if (n === -1) {
-        myTimer = setInterval(function () {
-          plusSlides(n + 2);
-        }, 4000);
-      } else {
-        myTimer = setInterval(function () {
-          plusSlides(n + 1);
-        }, 4000);
-      }
+  // Previous and next buttons
+  function plusSlides(n) {
+    clearInterval(myTimer);
+    if (n < 0) {
+      showSlides((slideIndex -= 1));
+    } else {
+      showSlides((slideIndex += 1));
     }
 
-    // Controls the current slide and resets interval if needed
-    function currentSlide(n) {
-      clearInterval(myTimer);
+    if (n === -1) {
+      myTimer = setInterval(function () {
+        plusSlides(n + 2);
+      }, 4000);
+    } else {
       myTimer = setInterval(function () {
         plusSlides(n + 1);
       }, 4000);
-      showSlides((slideIndex = n));
     }
+  }
 
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {
-        slideIndex = 1;
-      }
-      if (n < 1) {
-        slideIndex = slides.length;
-      }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
+  // Controls the current slide and resets interval if needed
+  function currentSlide(n) {
+    clearInterval(myTimer);
+    myTimer = setInterval(function () {
+      plusSlides(n + 1);
+    }, 4000);
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+      slideIndex = 1;
     }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
 
-    pause = () => {
-      clearInterval(myTimer);
-    };
+  pause = () => {
+    clearInterval(myTimer);
+  };
 
-    resume = () => {
-      clearInterval(myTimer);
-      myTimer = setInterval(function () {
-        plusSlides(slideIndex);
-      }, 4000);
-    };
-  </script>
+  resume = () => {
+    clearInterval(myTimer);
+    myTimer = setInterval(function () {
+      plusSlides(slideIndex);
+    }, 4000);
+  };
+</script>
 
-  <div class="slideshow-container">
-    <div class="slideshow-inner">
-      <div class="mySlides fade">
-        <img
-          src="/assets/MPD-Family-1-Picture-Compressed.webp"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MPD Family 1 picture. Characters are on top of the shapes of the MPD logo. Linedol, TechNewVideo, Real Nath, hai!, Alvin, Terria, NtyEllias, Toastie, and G~ are some of the MPD members in the picture."
-        />
-        <div class="text">MPD Family 1</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img
-          src="/assets/MPD-Family-2-Picture-Compressed.webp"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MPD Family 2 picture. Sunny day, forest trees, grassy land, ocean in the front, and rocks for the path. Most of the members in MPD are in the picture, including veterans."
-        />
-        <div class="text">MPD Family 2</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img
-          src="/assets/MPD-Family-3-Picture-Compressed.webp"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MPD Family 3 picture. Space themed. numb (aka Laser Soul, Hamza, ...), Arlver, Maias (ReDark Technology), The Dark Knight, Alvin, hai!, Nether743, Sync, AlphaAdvanced, BreadoDaLoaf, AftonIvolvery, Linerly, OfficialAz3, MimiWorld, DaBlueCube, LThirty6, LongH, Marshie (aka Marshmello, Marsh, ...), Senjienji, Noah 99556, Fanny, Geek, Toastie, ThatGuy03, JoshuaTNTGamer, Terria, OTFT, and Marklanchvar32 are some of the members that is in the picture."
-        />
-        <div class="text">MPD Family 3</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img
-          src="/assets/MPD-Family-4-Picture-Compressed.webp"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MPD Family 4 picture. Contains six different styles by Arlver, Terria, AlphaAdvanced, BreadoDaLoaf, and MimiWorld in one artwork, also contains the MPD logo. Those styles are outer space, sky with a hot air balloon, rainbow, clouds, and an airplane, city, forest at night, Antartica, and another city. There are Phuc (aka Toastie), LongH, KhoaDankstoneMC/GD, Senjienji, JustMonotone, AlphaAdvanced, Marshmello (aka Marshie, Marsh), MimiWorld, BreadoDaLoaf, Blinku (aka HuyasAnpey), RanbooFan (aka Stardrop), Nextie, an ore cubie, DaBlueCube, a yellow cubie with sunglasses, headphones, and an attachment, a humanoid, Marklanchvar32, a dinosaur cubie, tentyp, Arlver, Marshmello (aka Marshie, Marsh), BlooDerg (aka OTFT), RockyR, TechNewVideo, Nether743, hai, Noah 99556, ThatGuy03, The Dark Knight, Ray Ramadan (aka Rayyan), Linerly, Efehan, ReDark Technology, Terria, SrMuffin136, LThirty6, and OfficialAz3 in the artwork."
-        />
-        <div class="text">MPD Family 4</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img
-          src="/assets/MPD-Family-5-Main-Picture-Compressed.webp"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MPD Family 5 - Main picture. Contains Arcaea, Phigros, and Rolling Sky gameplay. There are Linerly, Marklanchvar32, ThatGuy03, tentyp, Henry Stickmin, LThirty6, Phuc (aka Toastie), numb (aka Hamza), TechNewVideo, R3DZ3R, JoshuaTNTGamer, Senjienji, Oddbot (Fancade's mascot), Dimitris Savu, and Marshmello (aka Marshie, Marsh) in the artwork."
-        />
-        <div class="text" style="color: #000">MPD Family 5 - Main</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img
-          src="/assets/MPD-NVO-18-Family-Picture-Compressed.webp"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MPD NVO-18 Family picture, this is also TechNewVideo's small artwork for his 18th birthday! There are UN4YA (UNAYA), JoshuaTNTGamer, BreadoDaLoaf, TechNewVideo, DuyCool, Cube, and MrXCube in the artwork."
-        />
-        <div class="text">
-          MPD NVO-18 Family — TechNewVideo's 18th Birthday!
-        </div>
-      </div>
-
-      <div class="mySlides fade">
-        <img
-          src="/assets/MPD-Family-5-Exclusive-Picture-Compressed.webp"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MPD Family 5 - Exclusive picture. Contains a Discord app window, with messages coming out from it. The Demon (OfficialAz3)'s message: 'gottem' fam'', Techy's message: 'MPD Family 5 Exclusive Picture releases!', MimiWorld's message: 'Good Morning everyone! Sorry, I forgot talking yesterday, hope y'all had a great day!', KhoaDankstoneMC/GD's message: 'Hmm', DuyCool's message: 'Don't forget me!', JustMonotone's message: 'it is true, the less I know the better', Breado (BreadoDaLoaf)'s message: 'I will devour all your loafs'."
-        />
-        <div class="text">MPD Family 5 - Exclusive</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img
-          src="/assets/MPD-Family-6-Picture.png"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MPD Family 6 picture. The background features a monochromatic, mechanical theme with a large central clock face, surrounded by interconnected gears, floating platforms, grand architectural arches, and soft light rays emanating from the top center, creating an intricate, steampunk-like environment. Aside from that, there are many members in their cube form, but not limited to (counter-clockwise): tentyp, JustMono, TDK, Snowy, Marshie, Linerly, DuyCool, Dimitris Savu, AlphaAdvanced, TechNewVideo, OfficialAz3, JoshuaTNTGamer, Geek, Senjienji, AftonIvolvery, Nether743, KhoaDankstoneMC, BreadoDaLoaf, hai, and more..."
-        />
-        <div class="text" style="color: #000">MPD Family 6</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img
-          src="/assets/MediaPlay-Family-8-Picture.png"
-          style="
-            width: 100%;
-            border-radius:2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
-          "
-          alt="MediaPlay Family 8 picture."
-        />
-        <div class="text" style="color: #fff; text-shadow: 0px 2px #000;">MediaPlay Family 8</div>
-      </div>
+<div class="slideshow-container">
+  <div class="slideshow-inner">
+    <div class="mySlides fade">
+      <img
+        src="/assets/MPD-Family-1-Picture-Compressed.webp"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MPD Family 1 picture. Characters are on top of the shapes of the MPD logo. Linedol, TechNewVideo, Real Nath, hai!, Alvin, Terria, NtyEllias, Toastie, and G~ are some of the MPD members in the picture."
+      />
+      <div class="text">MPD Family 1</div>
     </div>
 
-    <img
-      src="/assets/MPD-Button-Left.png"
-      width="15%"
-      height="15%"
-      class="prev"
-      onclick="plusSlides(-1)"
-    />
-    <img
-      src="/assets/MPD-Button-Right.png"
-      width="15%"
-      height="15%"
-      class="next"
-      onclick="plusSlides(1)"
-    />
+    <div class="mySlides fade">
+      <img
+        src="/assets/MPD-Family-2-Picture-Compressed.webp"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MPD Family 2 picture. Sunny day, forest trees, grassy land, ocean in the front, and rocks for the path. Most of the members in MPD are in the picture, including veterans."
+      />
+      <div class="text">MPD Family 2</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="/assets/MPD-Family-3-Picture-Compressed.webp"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MPD Family 3 picture. Space themed. numb (aka Laser Soul, Hamza, ...), Arlver, Maias (ReDark Technology), The Dark Knight, Alvin, hai!, Nether743, Sync, AlphaAdvanced, BreadoDaLoaf, AftonIvolvery, Linerly, OfficialAz3, MimiWorld, DaBlueCube, LThirty6, LongH, Marshie (aka Marshmello, Marsh, ...), Senjienji, Noah 99556, Fanny, Geek, Toastie, ThatGuy03, JoshuaTNTGamer, Terria, OTFT, and Marklanchvar32 are some of the members that is in the picture."
+      />
+      <div class="text">MPD Family 3</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="/assets/MPD-Family-4-Picture-Compressed.webp"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MPD Family 4 picture. Contains six different styles by Arlver, Terria, AlphaAdvanced, BreadoDaLoaf, and MimiWorld in one artwork, also contains the MPD logo. Those styles are outer space, sky with a hot air balloon, rainbow, clouds, and an airplane, city, forest at night, Antartica, and another city. There are Phuc (aka Toastie), LongH, KhoaDankstoneMC/GD, Senjienji, JustMonotone, AlphaAdvanced, Marshmello (aka Marshie, Marsh), MimiWorld, BreadoDaLoaf, Blinku (aka HuyasAnpey), RanbooFan (aka Stardrop), Nextie, an ore cubie, DaBlueCube, a yellow cubie with sunglasses, headphones, and an attachment, a humanoid, Marklanchvar32, a dinosaur cubie, tentyp, Arlver, Marshmello (aka Marshie, Marsh), BlooDerg (aka OTFT), RockyR, TechNewVideo, Nether743, hai, Noah 99556, ThatGuy03, The Dark Knight, Ray Ramadan (aka Rayyan), Linerly, Efehan, ReDark Technology, Terria, SrMuffin136, LThirty6, and OfficialAz3 in the artwork."
+      />
+      <div class="text">MPD Family 4</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="/assets/MPD-Family-5-Main-Picture-Compressed.webp"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MPD Family 5 - Main picture. Contains Arcaea, Phigros, and Rolling Sky gameplay. There are Linerly, Marklanchvar32, ThatGuy03, tentyp, Henry Stickmin, LThirty6, Phuc (aka Toastie), numb (aka Hamza), TechNewVideo, R3DZ3R, JoshuaTNTGamer, Senjienji, Oddbot (Fancade's mascot), Dimitris Savu, and Marshmello (aka Marshie, Marsh) in the artwork."
+      />
+      <div class="text" style="color: #000">MPD Family 5 - Main</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="/assets/MPD-NVO-18-Family-Picture-Compressed.webp"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MPD NVO-18 Family picture, this is also TechNewVideo's small artwork for his 18th birthday! There are UN4YA (UNAYA), JoshuaTNTGamer, BreadoDaLoaf, TechNewVideo, DuyCool, Cube, and MrXCube in the artwork."
+      />
+      <div class="text">MPD NVO-18 Family — TechNewVideo's 18th Birthday!</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="/assets/MPD-Family-5-Exclusive-Picture-Compressed.webp"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MPD Family 5 - Exclusive picture. Contains a Discord app window, with messages coming out from it. The Demon (OfficialAz3)'s message: 'gottem' fam'', Techy's message: 'MPD Family 5 Exclusive Picture releases!', MimiWorld's message: 'Good Morning everyone! Sorry, I forgot talking yesterday, hope y'all had a great day!', KhoaDankstoneMC/GD's message: 'Hmm', DuyCool's message: 'Don't forget me!', JustMonotone's message: 'it is true, the less I know the better', Breado (BreadoDaLoaf)'s message: 'I will devour all your loafs'."
+      />
+      <div class="text">MPD Family 5 - Exclusive</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="/assets/MPD-Family-6-Picture.png"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MPD Family 6 picture. The background features a monochromatic, mechanical theme with a large central clock face, surrounded by interconnected gears, floating platforms, grand architectural arches, and soft light rays emanating from the top center, creating an intricate, steampunk-like environment. Aside from that, there are many members in their cube form, but not limited to (counter-clockwise): tentyp, JustMono, TDK, Snowy, Marshie, Linerly, DuyCool, Dimitris Savu, AlphaAdvanced, TechNewVideo, OfficialAz3, JoshuaTNTGamer, Geek, Senjienji, AftonIvolvery, Nether743, KhoaDankstoneMC, BreadoDaLoaf, hai, and more..."
+      />
+      <div class="text" style="color: #000">MPD Family 6</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="/assets/MediaPlay-Family-8-Picture.png"
+        style="
+          width: 100%;
+          border-radius: 2rem;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+        "
+        alt="MediaPlay Family 8 picture."
+      />
+      <div class="text" style="color: #fff; text-shadow: 0px 2px #000">
+        MediaPlay Family 8
+      </div>
+    </div>
   </div>
 
-  <br />
+  <img
+    src="/assets/MPD-Button-Left.png"
+    width="15%"
+    height="15%"
+    class="prev"
+    onclick="plusSlides(-1)"
+  />
+  <img
+    src="/assets/MPD-Button-Right.png"
+    width="15%"
+    height="15%"
+    class="next"
+    onclick="plusSlides(1)"
+  />
+</div>
 
-  <div style="text-align: center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-    <span class="dot" onclick="currentSlide(4)"></span>
-    <span class="dot" onclick="currentSlide(5)"></span>
-    <span class="dot" onclick="currentSlide(6)"></span>
-    <span class="dot" onclick="currentSlide(7)"></span>
-    <span class="dot" onclick="currentSlide(8)"></span>
-    <span class="dot" onclick="currentSlide(9)"></span>
-  </div>
+<br />
 
-  <br>
+<div style="text-align: center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+  <span class="dot" onclick="currentSlide(6)"></span>
+  <span class="dot" onclick="currentSlide(7)"></span>
+  <span class="dot" onclick="currentSlide(8)"></span>
+  <span class="dot" onclick="currentSlide(9)"></span>
+</div>
 
-{{ .Content }}
+<br />
 
-{{ end }}
+{{ .Content }} {{ end }}

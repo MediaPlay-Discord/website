@@ -1,111 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Web manifest -->
+    <link rel="manifest" href="/manifest.json" />
 
-<head>
-  <!-- Web manifest -->
-  <link rel="manifest" href="/manifest.json" />
+    <!--Metadata-->
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}"
+    />
+    <meta name="keywords" content="MediaPlay" />
+    <meta name="theme-color" content="#111742" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>
+      {{ block "title" . }}{{ $title := site.Title }}{{ if not .IsHome }}{{
+      $title = printf "%s - %s" .Title site.Title }}{{ end }}{{ $title }}{{ end
+      }}
+    </title>
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/scrollBar.css" />
 
-  <!--Metadata-->
-  <meta charset="UTF-8" />
-  <meta name="description"
-    content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
-  <meta name="keywords" content="MediaPlay" />
-  <meta name="theme-color" content="#111742" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>
-    {{ block "title" . }}{{ $title := site.Title }}{{ if not .IsHome }}{{ $title = printf "%s - %s" .Title site.Title }}{{ end }}{{ $title }}{{ end }}
-  </title>
-  <link rel="stylesheet" href="/css/navbar.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-  <link rel="stylesheet" href="/css/scrollBar.css" />
+    <!--Favicon-->
+    <link rel="icon" href="/assets/MediaPlay_Logo.png" type="image/x-icon" />
+  </head>
 
-  <!--Favicon-->
-  <link rel="icon" href="/assets/MediaPlay_Logo.png" type="image/x-icon" />
-</head>
+  <body>
+    <!--Message for showing if JS is disabled-->
+    <noscript>
+      <style>
+        figure noscript {
+          top: 0;
+          left: 0;
+          position: absolute;
+        }
+      </style>
 
-<body>
-  <!--Message for showing if JS is disabled-->
-  <noscript>
-    <style>
-      figure noscript {
-        top: 0;
-        left: 0;
-        position: absolute;
-      }
-    </style>
-
-    <style>
-      #enable-js {
-        margin: 0;
-        padding: 12px 15px;
-        background-color: #ffc107;
-        color: #000;
-        text-align: center;
-        font-family: "Figtree", sans-serif;
-        font-size: 13px;
-      }
-    </style>
-    <p id="enable-js">
-      🦮 Some parts on the website won't work correctly without JavaScript. <a target="_blank" href="https://www.enable-javascript.com/">Learn more</a>
-    </p>
-  </noscript>
-  <div class="container">
-    <div class="logo">
-      <a href="/"><img src="/assets/MediaPlay_Text_Logo.png" alt="logo" /></a>
-    </div>
-    <div class="navbar">
-      <div class="icon-bar" onclick="Show()">
-        <span style="color: white; font-size: 32px; user-select: none;" class="material-symbols-rounded">menu</span>
+      <style>
+        #enable-js {
+          margin: 0;
+          padding: 12px 15px;
+          background-color: #ffc107;
+          color: #000;
+          text-align: center;
+          font-family: "Figtree", sans-serif;
+          font-size: 13px;
+        }
+      </style>
+      <p id="enable-js">
+        🦮 Some parts on the website won't work correctly without JavaScript.
+        <a target="_blank" href="https://www.enable-javascript.com/"
+          >Learn more</a
+        >
+      </p>
+    </noscript>
+    <div class="container">
+      <div class="logo">
+        <a href="/"><img src="/assets/MediaPlay_Text_Logo.png" alt="logo" /></a>
       </div>
+      <div class="navbar">
+        <div class="icon-bar" onclick="Show()">
+          <span
+            style="color: white; font-size: 32px; user-select: none"
+            class="material-symbols-rounded"
+            >menu</span
+          >
+        </div>
 
-      <ul style="z-index: 1" id="nav-lists">
-        <li class="close">
-          <span onclick="Hide()" style="
+        <ul style="z-index: 1" id="nav-lists">
+          <li class="close">
+            <span
+              onclick="Hide()"
+              style="
                 border-color: transparent;
                 color: #ffffff;
                 font-size: 32px;
                 margin-left: -5px;
                 margin-top: 30px;
-              "><span style="border-color: transparent; user-select: none;" class="material-symbols-rounded">close</span></span>
-        </li>
-        <li><a style="margin-left: 10px; margin-right: 10px" href="/">Home</a></li>
-        <li><a style="margin-left: 10px; margin-right: 10px" href="/community">Community</a></li>
-        <li><a style="margin-left: 10px; margin-right: 10px" href="/blog">Blog</a></li>
-        <li><a style="margin-left: 10px; margin-right: 10px" href="/studios">Studios</a></li>
-      </ul>
+              "
+              ><span
+                style="border-color: transparent; user-select: none"
+                class="material-symbols-rounded"
+                >close</span
+              ></span
+            >
+          </li>
+          <li>
+            <a style="margin-left: 10px; margin-right: 10px" href="/">Home</a>
+          </li>
+          <li>
+            <a style="margin-left: 10px; margin-right: 10px" href="/community"
+              >Community</a
+            >
+          </li>
+          <li>
+            <a style="margin-left: 10px; margin-right: 10px" href="/blog"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a style="margin-left: 10px; margin-right: 10px" href="/studios"
+              >Studios</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
 
-  <div class="body">
-    {{ block "main" . }}
-    {{ end }}
-  </div>
+    <div class="body">{{ block "main" . }} {{ end }}</div>
 
-  <script>
-    var navList = document.getElementById("nav-lists");
+    <script>
+      var navList = document.getElementById("nav-lists");
 
-    function Show() {
-      navList.classList.add("_Menus-show");
-    }
+      function Show() {
+        navList.classList.add("_Menus-show");
+      }
 
-    function Hide() {
-      navList.classList.remove("_Menus-show");
-    }
-  </script>
-</body>
+      function Hide() {
+        navList.classList.remove("_Menus-show");
+      }
+    </script>
+  </body>
 
-<br>
+  <br />
 
-<footer style="user-select: none; background-color: #0e1338; padding: 2em; text-align: center;">
-  {{ with .GitInfo }}<sub style="filter: opacity(75%);"><i>Last updated on {{ .CommitDate.Format "2006-01-02" }}</i></sub>{{ else }}<sub><i>Last build on {{ dateFormat "2006-01-02" now }}</i></sub>{{ end }}
+  <footer
+    style="
+      user-select: none;
+      background-color: #0e1338;
+      padding: 2em;
+      text-align: center;
+    "
+  >
+    {{ with .GitInfo }}<sub style="filter: opacity(75%)"
+      ><i>Last updated on {{ .CommitDate.Format "2006-01-02" }}</i></sub
+    >{{ else }}<sub><i>Last build on {{ dateFormat "2006-01-02" now }}</i></sub
+    >{{ end }}
 
-  <p>
-    <a style="font-size: 12pt; margin-right: 1em;" href="https://github.com/MediaPlay-Discord/website" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">code</span></a>
-    <a style="font-size: 12pt; margin-right: 1em;" href="https://github.com/MediaPlay-Discord/website/commits" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">history</span></a>
-    <a style="font-size: 12pt;" href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">menu_book</span></a>
-  </p>
+    <p>
+      <a
+        style="font-size: 12pt; margin-right: 1em"
+        href="https://github.com/MediaPlay-Discord/website"
+        target="_blank"
+        ><span style="vertical-align: middle" class="material-symbols-rounded"
+          >code</span
+        ></a
+      >
+      <a
+        style="font-size: 12pt; margin-right: 1em"
+        href="https://github.com/MediaPlay-Discord/website/commits"
+        target="_blank"
+        ><span style="vertical-align: middle" class="material-symbols-rounded"
+          >history</span
+        ></a
+      >
+      <a
+        style="font-size: 12pt"
+        href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM"
+        target="_blank"
+        ><span style="vertical-align: middle" class="material-symbols-rounded"
+          >menu_book</span
+        ></a
+      >
+    </p>
 
-  {{ with .GitInfo }}<sub style="filter: opacity(50%);">version <code><a target="_blank" href="https://github.com/MediaPlay-Discord/website/commit/{{ .Hash }}">{{ .AbbreviatedHash }}</a></code></sub>{{ end }}
-</footer>
+    {{ with .GitInfo }}<sub style="filter: opacity(50%)"
+      >version
+      <code
+        ><a
+          target="_blank"
+          href="https://github.com/MediaPlay-Discord/website/commit/{{ .Hash }}"
+          >{{ .AbbreviatedHash }}</a
+        ></code
+      ></sub
+    >{{ end }}
+  </footer>
 </html>

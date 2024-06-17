@@ -1,11 +1,14 @@
 {{ define "main" }}
 
-<h1 style="text-align: center; font-size: 24pt;">{{ .Title }}</h1>
-<p style="text-align: center;"><i>by {{ .Params.Author }} (<code>{{ .Params.discord }}</code>)</i></p>
-<p style="text-align: center; font-size: 12pt;">around {{ .ReadingTime }} {{ cond (eq .ReadingTime 1) "minute" "minutes" }} · published on {{ .Date.Format "2006-01-02" }} · {{ .WordCount }} words</p>
+<h1 style="text-align: center; font-size: 24pt">{{ .Title }}</h1>
+<p style="text-align: center">
+  <i>by {{ .Params.Author }} (<code>{{ .Params.discord }}</code>)</i>
+</p>
+<p style="text-align: center; font-size: 12pt">
+  around {{ .ReadingTime }} {{ cond (eq .ReadingTime 1) "minute" "minutes" }} ·
+  published on {{ .Date.Format "2006-01-02" }} · {{ .WordCount }} words
+</p>
 
-<hr>
+<hr />
 
-{{ .Content }}
-
-{{ end }}
+{{ .Content }} {{ end }}

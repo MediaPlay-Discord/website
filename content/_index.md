@@ -10,4 +10,4 @@ discord: "-"
 
 # Welcome to MediaPlay!
 
-*This website is rebuilt with Hugo. Stay tuned for more updates!*
+_This website is rebuilt with Hugo. Stay tuned for more updates!_

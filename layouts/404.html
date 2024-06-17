@@ -1,18 +1,24 @@
 {{ define "main" }}
 <main>
-  <h1 style="font-size: 24pt; user-select: none;"><a href=".."><span style="color: white; user-select: none; vertical-align: baseline" class="material-symbols-rounded">arrow_back</span></a> <span style="vertical-align: baseline;">{{ .Title }}</span></h1>
-  <br><br>
-    <img
-      style="width: 100%;"
-      src="/svg/404-page-art.svg"
-    />
+  <h1 style="font-size: 24pt; user-select: none">
+    <a href=".."
+      ><span
+        style="color: white; user-select: none; vertical-align: baseline"
+        class="material-symbols-rounded"
+        >arrow_back</span
+      ></a
+    >
+    <span style="vertical-align: baseline">{{ .Title }}</span>
+  </h1>
+  <br /><br />
+  <img style="width: 100%" src="/svg/404-page-art.svg" />
 
-    <p style="text-align: center; font-size: 1.5em">
-      <i>The cubes couldn't find the page you wanted...</i>
-    </p>
+  <p style="text-align: center; font-size: 1.5em">
+    <i>The cubes couldn't find the page you wanted...</i>
+  </p>
 
-    <p style="text-align: center; font-size: 1.25em">
-      <a href="/" target="_self"></a>
-    </p>
-  </main>
+  <p style="text-align: center; font-size: 1.25em">
+    <a href="/" target="_self"></a>
+  </p>
+</main>
 {{end}}

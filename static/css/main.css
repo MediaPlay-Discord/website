@@ -1,82 +1,100 @@
 /* figtree-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Figtree';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/figtree-v5-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/figtree-v5-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* figtree-italic - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Figtree';
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/figtree-v5-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/figtree-v5-latin-italic.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* figtree-700 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Figtree';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/figtree-v5-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/figtree-v5-latin-700.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* figtree-700italic - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Figtree';
   font-style: italic;
   font-weight: 700;
-  src: url('../fonts/figtree-v5-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/figtree-v5-latin-700italic.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* jetbrains-mono-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/jetbrains-mono-v18-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/jetbrains-mono-v18-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* jetbrains-mono-italic - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'JetBrains Mono';
   font-style: italic;
   font-weight: 400;
-  src: url('../fonts/jetbrains-mono-v18-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/jetbrains-mono-v18-latin-italic.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* jetbrains-mono-700 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'JetBrains Mono';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/jetbrains-mono-v18-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/jetbrains-mono-v18-latin-700.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* jetbrains-mono-700italic - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'JetBrains Mono';
   font-style: italic;
   font-weight: 700;
-  src: url('../fonts/jetbrains-mono-v18-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/jetbrains-mono-v18-latin-700italic.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* material-icons-round-regular - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Material Icons Round';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/material-icons-round-v108-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/material-icons-round-v108-latin-regular.woff2') format('woff2');
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 .material-symbols-rounded {
@@ -92,6 +110,7 @@
   word-wrap: normal;
   direction: ltr;
   -moz-font-feature-settings: "liga";
+  font-feature-settings: "liga";
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -107,7 +126,17 @@ code {
   font-family: "JetBrains Mono", monospace;
 }
 
-p, sub, h1, h2, h3, h4, h5, h6, time, ul, li {
+p,
+sub,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+time,
+ul,
+li {
   color: #9fcedf;
 }
 
@@ -115,7 +144,9 @@ a {
   color: #19afe6;
 }
 
-p, ul, li {
+p,
+ul,
+li {
   font-size: 16pt;
 }
 
@@ -146,34 +177,43 @@ table {
   overflow: hidden;
   width: 100%;
 }
+
 th {
   background-color: #273492;
   overflow: hidden;
 }
-th, td {
+
+th,
+td {
   padding: 10px;
   border: 1px solid #326aa482;
   color: #9fcedf;
 }
+
 tr:nth-child(even) {
   background-color: #161e5a;
 }
+
 /* required css to make rounded table (below) */
 tr:first-child th:first-child {
   border-top-left-radius: 10px;
 }
+
 tr:first-child th:last-child {
   border-top-right-radius: 10px;
 }
+
 tr:last-child td:first-child {
   border-bottom-left-radius: 10px;
 }
+
 tr:last-child td:last-child {
   border-bottom-right-radius: 10px;
 }
 
 footer {
-  margin-top: auto; /* Push footer to the bottom */
+  margin-top: auto;
+  /* Push footer to the bottom */
   background-color: #0e1338;
   padding: 2em;
   text-align: center;

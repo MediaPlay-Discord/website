@@ -1,44 +1,73 @@
-{{ define "title" }}Community - MediaPlay{{ end }}
-{{ define "main" }}
+{{ define "title" }}Community - MediaPlay{{ end }} {{ define "main" }}
 <style>
-    a.button {
+  a.button {
     padding: 0.75em 3em;
     border-radius: 100px;
     background-color: #ffffff20;
-    transition: all .05s ease;
+    transition: all 0.05s ease;
     text-decoration: none;
-    }
+  }
 
-    a.button:hover {
-        background: #ffffff60;
-        transition: all .05s ease;
-        transform: scale(2);
-    }
+  a.button:hover {
+    background: #ffffff60;
+    transition: all 0.05s ease;
+    transform: scale(2);
+  }
 </style>
 <h1>Community</h1>
-<p>You can check all communities of MediaPlay and all their activities and events here.</p>
+<p>
+  You can check all communities of MediaPlay and all their activities and events
+  here.
+</p>
 
-<div style="box-shadow: 0 5px 10px #00000015; margin-bottom: 1em; background-image: linear-gradient(#5764F240, #5764F280); border-radius:2rem; padding: 2.25rem; box-shadow: 0px 5px 10px #00000015; user-select: none;">
-    <div style="display:flex;">
-        <div>
-            <h1>MediaPlay Discord</h1>
-            <p>Official Discord server of MediaPlay</p>
-        </div>
-        <div style="margin: auto; margin-right: 2.25em;">
-            <a style="color:#b2b7f5" class="button" href="discord"><b>Go</b></a><br>
-        </div>
+<div
+  style="
+    box-shadow: 0 5px 10px #00000015;
+    margin-bottom: 1em;
+    background-image: linear-gradient(#5764f240, #5764f280);
+    border-radius: 2rem;
+    padding: 2.25rem;
+    box-shadow: 0px 5px 10px #00000015;
+    user-select: none;
+  "
+>
+  <div style="display: flex">
+    <div>
+      <h1>MediaPlay Discord</h1>
+      <p>Official Discord server of MediaPlay</p>
     </div>
+    <div style="margin: auto; margin-right: 2.25em">
+      <a style="color: #b2b7f5" class="button" href="discord"><b>Go</b></a
+      ><br />
+    </div>
+  </div>
 </div>
 
-<div style="box-shadow: 0 5px 10px #00000015; margin-bottom: 1.5em; background-image: linear-gradient(#ff000040, #ff000080); border-radius:2rem; padding: 2.25rem; box-shadow: 0px 5px 10px #00000015; user-select: none;">
-    <div style="display:flex;">
-        <div>
-            <h1>MediaPlay YouTube</h1>
-            <p>Official YouTube channel of MediaPlay</p>
-        </div>
-        <div style="margin: auto; margin-right: 2.25em;">
-            <a style="color:rgb(255, 212, 212)" class="button" target="_blank" href="https://www.youtube.com/@mediaplaydiscordcommunity2946"><b>Go</b></a>
-        </div>
+<div
+  style="
+    box-shadow: 0 5px 10px #00000015;
+    margin-bottom: 1.5em;
+    background-image: linear-gradient(#ff000040, #ff000080);
+    border-radius: 2rem;
+    padding: 2.25rem;
+    box-shadow: 0px 5px 10px #00000015;
+    user-select: none;
+  "
+>
+  <div style="display: flex">
+    <div>
+      <h1>MediaPlay YouTube</h1>
+      <p>Official YouTube channel of MediaPlay</p>
     </div>
+    <div style="margin: auto; margin-right: 2.25em">
+      <a
+        style="color: rgb(255, 212, 212)"
+        class="button"
+        target="_blank"
+        href="https://www.youtube.com/@mediaplaydiscordcommunity2946"
+        ><b>Go</b></a
+      >
+    </div>
+  </div>
 </div>
 {{ end }}

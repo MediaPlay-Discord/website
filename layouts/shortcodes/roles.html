@@ -1,389 +1,692 @@
 <style>
-    .section-header {
-        background-color: #3399FF40 !important;
-        color: white;
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-    .not-obtainable {
-        background-color: #FF000040;
-        color: white;
-    }
-    .moderator-decision {
-        background-color: #ffd90040;
-    }
-    .help-server {
-        background-color: #FFFF0040;
-    }
-    .server-activity {
-        background-color: #FFCC0040;
-    }
-    .buy-store {
-        background-color: #00FF0040;
-    }
-    .default-role {
-        background-color: #FFA50040;
-    }
-    .behavior {
-        background-color: #BB00FF40;
-    }
-    table {
-        user-select: none;
-    }
+  .section-header {
+    background-color: #3399ff40 !important;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .not-obtainable {
+    background-color: #ff000040;
+    color: white;
+  }
+  .moderator-decision {
+    background-color: #ffd90040;
+  }
+  .help-server {
+    background-color: #ffff0040;
+  }
+  .server-activity {
+    background-color: #ffcc0040;
+  }
+  .buy-store {
+    background-color: #00ff0040;
+  }
+  .default-role {
+    background-color: #ffa50040;
+  }
+  .behavior {
+    background-color: #bb00ff40;
+  }
+  table {
+    user-select: none;
+  }
 
-    .legend {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-            border-radius: 100px;
-        }
-        .no-requirements { background-color: #00ff0040; } /* Green */
-        .certain-requirement { background-color: #ffcc0040; } /* Yellow */
-        .moderator-pick { background-color: #800080b0; } /* Purple */
-        .not-obtainable { background-color: #ff000040; } /* Red */
-        .not-available { background-color: #cccccc40; } /* Grey */
-
-        /* Media query for mobile devices */
-@media (max-width: 768px) {
   .legend {
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
   }
-  
   .legend-item {
-    margin-right: 0;
-    margin-bottom: 10px; /* Adjust spacing between legend items */
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
   }
-}
+  .legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 100px;
+  }
+  .no-requirements {
+    background-color: #00ff0040;
+  } /* Green */
+  .certain-requirement {
+    background-color: #ffcc0040;
+  } /* Yellow */
+  .moderator-pick {
+    background-color: #800080b0;
+  } /* Purple */
+  .not-obtainable {
+    background-color: #ff000040;
+  } /* Red */
+  .not-available {
+    background-color: #cccccc40;
+  } /* Grey */
+
+  /* Media query for mobile devices */
+  @media (max-width: 768px) {
+    .legend {
+      flex-direction: column;
+      align-items: flex-start; /* Align items to the left */
+    }
+
+    .legend-item {
+      margin-right: 0;
+      margin-bottom: 10px; /* Adjust spacing between legend items */
+    }
+  }
 </style>
 
 <table>
-    <tr style="text-transform: uppercase;">
-        <th>Name</th>
-        <th>Description</th>
-        <th>How to Obtain</th>
-    </tr>
-    <tr class="section-header">
-        <td colspan="3">Color Roles</td>
-    </tr>
-    <tr>
-        <td><span style="color: #FF9999;">Red</span>, <span style="color: #FFB366;">Orange</span>, <span style="color: #FFFF99;">Yellow</span>, <span style="color: #99FF99;">Green</span>, <span style="color: #99FFFF;">Cyan</span>, <span style="color: #9999FF;">Blue</span>, <span style="color: #CC99FF;">Purple</span>, <span style="color: #FF99FF;">Pink</span>, <span style="color: #D2691E;">Brown</span>, <span style="color: #FF8C00;">Dark Orange</span>, <span style="color: #fff; background-color: #000080;">Night Blue</span>, <span style="color: #5764F2;">Blurple</span>, <span style="color: #FFFFFF;">White</span>, <span style="color: #DDDDDD;">Lighter Gray</span>, <span style="color: #CCCCCC;">Gray</span>, <span style="color: #666666;">Black</span>, <span style="color: #CCFF99;">Lime</span>, <span style="color: #99CCFF;">Light Blue</span></td>
-        <td>Color roles for appearances.</td>
-        <td class="buy-store">Choose one in Channels & Roles.</td>
-    </tr>
-    <tr class="section-header">
-        <td colspan="3">Custom Roles</td>
-    </tr>
-    <tr>
-        <td><abbr title="A custom role is a special role that a member can make to add flair in the server.">Custom Roles</abbr></td>
-        <td>Custom roles are made only for members.</td>
-        <td class="help-server">Boost the server or buy the Custom User Role item in the store.</td>
-    </tr>
-    <tr class="section-header">
-        <td colspan="3">Moderation Roles</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Server Owner.png" width="20" height="20"> <span style="vertical-align: middle;">Server Creator</span></td>
-        <td>The owner of the server.</td>
-        <td class="not-obtainable">You can't obtain this role.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Server Co-Owner.png" width="20" height="20"> <span style="vertical-align: middle;">Server Admin</span></td>
-        <td>The higher moderator role; can manage moderators.</td>
-        <td class="moderator-decision">Requires Moderator, based on server owner's decision.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Staff Team.png" width="20" height="20"> <span style="vertical-align: middle;">Moderator</span></td>
-        <td>The official staff role for the server.</td>
-        <td class="moderator-decision">Requires Jr. Moderator; get better for moderating the server.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - JR. Staff Team.png" width="20" height="20"> <span style="vertical-align: middle;">Jr. Moderator</span></td>
-        <td>The beginner staff role.</td>
-        <td class="help-server">Chat every day; care for this server; help everyone.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD_New_Role_Icon_-_Former_Moderator.png" width="20" height="20"> <span style="vertical-align: middle;">Former Moderator</span></td>
-        <td>The former moderators in this server.</td>
-        <td class="moderator-decision">Requires a moderation role; assigned from moderation.</td>
-    </tr>
-    <tr class="section-header">
-        <td colspan="3">Special Roles</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - MediaNext Bot Developer.png" width="20" height="20"> <span style="vertical-align: middle;">MediaNext Bot Developer</span></td>
-        <td>The developer who makes the MediaNext bot.</td>
-        <td class="help-server">Help with MediaNext development.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Nitro Boosting.png" width="20" height="20"> <span style="vertical-align: middle;">Nitro Booster</span></td>
-        <td>For everyone who boosts the server with their Discord Nitro subscription.</td>
-        <td class="buy-store">Boost the server.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - MPD Sloutions Partner.png" width="20" height="20"> <span style="vertical-align: middle;">MediaPlay Partnership</span></td>
-        <td>For everyone who partnered with our server.</td>
-        <td class="moderator-decision">Meet the partnership requirements.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Events Team.png" width="20" height="20"> <span style="vertical-align: middle;">Game Activities Manager</span></td>
-        <td>For everyone who manages the gaming activities.</td>
-        <td class="server-activity">Based on events manager; care for game news.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Events Team.png" width="20" height="20"> <span style="vertical-align: middle;">Events Manager</span></td>
-        <td>For everyone who hosts events in the server.</td>
-        <td class="server-activity">Care for server events.</td>
-    </tr>
-    <tr>
-        <td>MediaPlay Studios</td>
-        <td>A role for everyone who works in MediaPlay Studios.</td>
-        <td class="moderator-decision">Be signed by an application, or be chosen by a developer.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Trusted.png" width="20" height="20"> <span style="vertical-align: middle;">Trusted</span></td>
-        <td>A trust role for everyone who the creator or moderators choose as they're trusted.</td>
-        <td class="moderator-decision">Only chosen by the creator or the moderators.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - MPD Premium.png" width="20" height="20"> <span style="vertical-align: middle;">MediaPlay Premium</span></td>
-        <td>A special subscription role; gives you extra perks for this server.</td>
-        <td class="buy-store">Buy it in the store.</td>
-    </tr>
-    <tr class="section-header">
-        <td colspan="3">Talent Roles</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - YouTuber.png" width="20" height="20"> <span style="vertical-align: middle;">YouTuber</span></td>
-        <td>A role for everyone who makes YouTube videos.</td>
-        <td class="buy-store">Have at least 200 subscribers on YouTube.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Fan-Level Creator.png" width="20" height="20"> <span style="vertical-align: middle;">Fan-Level Creator</span> </td>
-        <td>A role for everyone who makes fan-made games or levels.</td>
-        <td class="buy-store">Make any fan-made game or project using any game engine.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Artist.png" width="20" height="20"> <span style="vertical-align: middle;">Artist</span></td>
-        <td>A role for everyone who makes art.</td>
-        <td class="buy-store">Make art with a good style.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Coder.png" width="20" height="20"> <span style="vertical-align: middle;">Coder</span></td>
-        <td>A role for everyone who can code using C++, C#, Java, Python, etc.</td>
-        <td class="buy-store">Make any well-organized code.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Musical Producter.png" width="20" height="20"> <span style="vertical-align: middle;">Music Producer</span></td>
-        <td>A role for everyone who can make music.</td>
-        <td class="buy-store">Make any good type of music.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Special Server Bot.png" width="20" height="20"> <span style="vertical-align: middle;">Special Server Bot</span></td>
-        <td>Special bot role for MediaNext.</td>
-        <td class="not-obtainable">You can't obtain this role.</td>
-    </tr>
-    <tr>
-        <td>Server Bot</td>
-        <td>A role specially for the server bots.</td>
-        <td class="not-obtainable">You can't obtain this role.</td>
-    </tr>
-    <tr class="section-header">
-        <td colspan="3">Cubes Roles</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Cubeified Member.png" width="20" height="20"> <span style="vertical-align: middle;">Cubified</span></td>
-        <td>A role for everyone who is cubified.</td>
-        <td class="buy-store">If you have a cube, you can ask for it.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Cubes Artist.png" width="20" height="20"> <span style="vertical-align: middle;">Cubes Artist</span></td>
-        <td>For everyone who makes Cubes.</td>
-        <td class="moderator-decision">Requires Artist; ask for it.</td>
-    </tr>
-    <tr class="section-header">
-        <td colspan="3">Member Roles</td>
-    </tr>
-    <tr>
-        <td>Member</td>
-        <td>A role that everyone has.</td>
-        <td class="default-role">You should have this role upon joining.</td>
-    </tr>
-    <tr>
-        <td>Server 500 Reacher</td>
-        <td>For the person who made the server reach 500 members.</td>
-        <td class="not-obtainable">Currently closed; next target is 600 members.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Muted.png" width="20" height="20"> <span style="vertical-align: middle;">Muted (Legacy)</span></td>
-        <td>A role that will <i>not</i> allow you to access any channel.</td>
-        <td class="not-obtainable">Currently archived; replaced by Discord's timeout feature.</td>
-    </tr>
-    <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Verified.png" width="20" height="20"> <span style="vertical-align: middle;">Verified</span></td>
-        <td>A role for those who are verified by the creator or the moderators.</td>
-        <td class="moderator-decision">Be friends with the creator or the moderators.</td>
-    </tr>
-    <tr class="section-header">
-        <td colspan="3">Level-Up Roles</td>
-    </tr>
-      <tr>
-        <td>Novice (+5)</td>
-        <td rowspan="9">Level-up roles; a reward from your chatting experience.</td>
-        <td class="moderator-decision">Level up to level 5 using MediaNext.</td>
-      </tr>
-      <tr>
-        <td>Social (+10)</td>
-        <td class="moderator-decision">Level up to level 10 using MediaNext.</td>
-      </tr>
-      <tr>
-        <td>Normal (+20)</td>
-        <td class="moderator-decision">Level up to level 20 using MediaNext.</td>
-      </tr>
-      <tr>
-        <td>Normal+ (+30)</td>
-        <td class="moderator-decision">Level up to level 30 using MediaNext.</td>
-      </tr>
-      <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Experts Chatter (+40).png" width="20" height="20"> <span style="vertical-align: middle;">Experts (+40)</span></td>
-        <td class="moderator-decision">Level up to level 40 using MediaNext.</td>
-      </tr>
-      <tr>
-        <td>Legendary (+60)</td>
-        <td class="moderator-decision">Level up to level 60 using MediaNext.</td>
-      </tr>
-      <tr>
-        <td>Master (+80)</td>
-        <td class="moderator-decision">Level up to level 80 using MediaNext.</td>
-      </tr>
-      <tr>
-        <td>Master+ (+100)</td>
-        <td class="moderator-decision">Level up to level 100 using MediaNext.</td>
-      </tr>
-      <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Badge of Legends.png" width="20" height="20"> <span style="vertical-align: middle;">How you Reached this lol? (+200)</span></td>
-        <td class="moderator-decision">Level up to level 200 using MediaNext.</td>
-      </tr>
-      <tr class="section-header">
-        <td colspan="3">Miscellaneous Roles</td>
-      </tr>
-      <tr>
-        <td>Male, Female, They/Them</th>
-        <td>A gender role for everyone to use</th>
-        <td class="buy-store">Choose one of them in Channels & Roles.</th>
-      </tr>
-      <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Badge of Love.png" width="20" height="20"> <span style="vertical-align: middle;">Badge of Love</span></td>
-        <td rowspan="4">A badge role for everyone to choose</td>
-        <td class="behavior">Be lovely.</td>
-      </tr>
-      <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD New Server Roles - Badge of Smartness.png" width="20" height="20"> <span style="vertical-align: middle;">Badge of Smartness</span></td>
-        <td class="behavior">Be smart.</td>
-      </tr>
-        <tr>
-        <td>Badge of Dumbness</td>
-        <td class="behavior">Be dumb.</td>
-      </tr>
-      <tr>
-        <td>Badge of Popularity</td>
-        <td class="behavior">Have so many people.</td>
-      </tr>
-      <tr>
-        <td>Archives</td>
-        <td>An old archive of old server channels.</td>
-        <td class="buy-store">Choose them in Channels & Roles.</td>
-      </tr>
-      <tr>
-        <td>MN Bot Tester (Legacy)</td>
-        <td>A role for everyone who tests MediaNext bot (Coder role required).</td>
-        <td class="not-obtainable">Closed, replaced with the Coder role.</td>
-      </tr>
-      <tr>
-        <td>On Leave of Absence</td>
-        <td>A role for moderators, confirming they're on an absence.</td>
-        <td class="not-obtainable" rowspan="3">Only for moderators.</td>
-      </tr>
-      <tr>
-        <td>Staff Tag</td>
-        <td>A moderator-only role.</td>
-      </tr>
-        <td>Test</td>
-        <td>A test role.</td>
-      </tr>
-      <tr class="section-header">
-        <td colspan="3">Platform Roles</td>
-      </tr>
-      <tr>
-        <td>Windows, macOS, Linux, Android, iOS/iPadOS</td>
-        <td>Platform roles for choosing your preferred platform.</td>
-        <td class="buy-store">Choose them in Channels & Roles.</td>
-      </tr>
-      <tr class="section-header">
-        <td colspan="3">Pingable Roles</td>
-      </tr>
-      <tr>
-        <td>Events, News, Ping, Giveaways, Activities</td>
-        <td>Pingable roles made for various purposes.</td>
-        <td class="buy-store">Choose them in Channels & Roles.</td>
-      </tr>
-      <tr class="section-header">
-        <td colspan="3">Studio Roles</td>
-      </tr>
-      <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD_New_Role_Icon_-_MPS_Beta_Tester.png" width="20" height="20"> <span style="vertical-align: middle;">Beta Testers</span></td>
-        <td>Beta tests in a specific game.</td>
-        <td class="moderator-decision">Depends on the <abbr title="MediaPlay Studios">MPS</abbr> application form.</td>
-      </tr>
-      <tr>
-        <td><img style="vertical-align: middle;" src="/assets/role-icons/MPD_New_Role_Icon_-_MPS.png" width="20" height="20"> <span style="vertical-align: middle;"><abbr title="MediaPlay Studios">MPS</abbr> Game Roles</span></td>
-        <td>A role you select for your preferred <abbr title="MediaPlay Studios">MPS</abbr> game (for news and updates).</td>
-        <td class="buy-store">Choose them in Channels & Roles.</td>
-      </tr>
-      <tr class="section-header">
-        <td colspan="3">Event Roles (Limited)</td>
-      </tr>
-      <tr>
-        <td><abbr title="A specific role in an event.">[event_role]</abbr></td>
-        <td><abbr title="A description for the specific role in an event, depending on the kind of event.">[event_desc]</abbr></td>
-        <td class="buy-store">Choose them in Channels & Roles.</td>
-      </tr>
+  <tr style="text-transform: uppercase">
+    <th>Name</th>
+    <th>Description</th>
+    <th>How to Obtain</th>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Color Roles</td>
+  </tr>
+  <tr>
+    <td>
+      <span style="color: #ff9999">Red</span>,
+      <span style="color: #ffb366">Orange</span>,
+      <span style="color: #ffff99">Yellow</span>,
+      <span style="color: #99ff99">Green</span>,
+      <span style="color: #99ffff">Cyan</span>,
+      <span style="color: #9999ff">Blue</span>,
+      <span style="color: #cc99ff">Purple</span>,
+      <span style="color: #ff99ff">Pink</span>,
+      <span style="color: #d2691e">Brown</span>,
+      <span style="color: #ff8c00">Dark Orange</span>,
+      <span style="color: #fff; background-color: #000080">Night Blue</span>,
+      <span style="color: #5764f2">Blurple</span>,
+      <span style="color: #ffffff">White</span>,
+      <span style="color: #dddddd">Lighter Gray</span>,
+      <span style="color: #cccccc">Gray</span>,
+      <span style="color: #666666">Black</span>,
+      <span style="color: #ccff99">Lime</span>,
+      <span style="color: #99ccff">Light Blue</span>
+    </td>
+    <td>Color roles for appearances.</td>
+    <td class="buy-store">Choose one in Channels & Roles.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Custom Roles</td>
+  </tr>
+  <tr>
+    <td>
+      <abbr
+        title="A custom role is a special role that a member can make to add flair in the server."
+        >Custom Roles</abbr
+      >
+    </td>
+    <td>Custom roles are made only for members.</td>
+    <td class="help-server">
+      Boost the server or buy the Custom User Role item in the store.
+    </td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Moderation Roles</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Server Owner.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Server Creator</span>
+    </td>
+    <td>The owner of the server.</td>
+    <td class="not-obtainable">You can't obtain this role.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Server Co-Owner.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Server Admin</span>
+    </td>
+    <td>The higher moderator role; can manage moderators.</td>
+    <td class="moderator-decision">
+      Requires Moderator, based on server owner's decision.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Staff Team.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Moderator</span>
+    </td>
+    <td>The official staff role for the server.</td>
+    <td class="moderator-decision">
+      Requires Jr. Moderator; get better for moderating the server.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - JR. Staff Team.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Jr. Moderator</span>
+    </td>
+    <td>The beginner staff role.</td>
+    <td class="help-server">
+      Chat every day; care for this server; help everyone.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD_New_Role_Icon_-_Former_Moderator.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Former Moderator</span>
+    </td>
+    <td>The former moderators in this server.</td>
+    <td class="moderator-decision">
+      Requires a moderation role; assigned from moderation.
+    </td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Special Roles</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - MediaNext Bot Developer.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">MediaNext Bot Developer</span>
+    </td>
+    <td>The developer who makes the MediaNext bot.</td>
+    <td class="help-server">Help with MediaNext development.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Nitro Boosting.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Nitro Booster</span>
+    </td>
+    <td>
+      For everyone who boosts the server with their Discord Nitro subscription.
+    </td>
+    <td class="buy-store">Boost the server.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - MPD Sloutions Partner.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">MediaPlay Partnership</span>
+    </td>
+    <td>For everyone who partnered with our server.</td>
+    <td class="moderator-decision">Meet the partnership requirements.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Events Team.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Game Activities Manager</span>
+    </td>
+    <td>For everyone who manages the gaming activities.</td>
+    <td class="server-activity">
+      Based on events manager; care for game news.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Events Team.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Events Manager</span>
+    </td>
+    <td>For everyone who hosts events in the server.</td>
+    <td class="server-activity">Care for server events.</td>
+  </tr>
+  <tr>
+    <td>MediaPlay Studios</td>
+    <td>A role for everyone who works in MediaPlay Studios.</td>
+    <td class="moderator-decision">
+      Be signed by an application, or be chosen by a developer.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Trusted.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Trusted</span>
+    </td>
+    <td>
+      A trust role for everyone who the creator or moderators choose as they're
+      trusted.
+    </td>
+    <td class="moderator-decision">
+      Only chosen by the creator or the moderators.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - MPD Premium.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">MediaPlay Premium</span>
+    </td>
+    <td>A special subscription role; gives you extra perks for this server.</td>
+    <td class="buy-store">Buy it in the store.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Talent Roles</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - YouTuber.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">YouTuber</span>
+    </td>
+    <td>A role for everyone who makes YouTube videos.</td>
+    <td class="buy-store">Have at least 200 subscribers on YouTube.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Fan-Level Creator.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Fan-Level Creator</span>
+    </td>
+    <td>A role for everyone who makes fan-made games or levels.</td>
+    <td class="buy-store">
+      Make any fan-made game or project using any game engine.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Artist.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Artist</span>
+    </td>
+    <td>A role for everyone who makes art.</td>
+    <td class="buy-store">Make art with a good style.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Coder.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Coder</span>
+    </td>
+    <td>A role for everyone who can code using C++, C#, Java, Python, etc.</td>
+    <td class="buy-store">Make any well-organized code.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Musical Producter.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Music Producer</span>
+    </td>
+    <td>A role for everyone who can make music.</td>
+    <td class="buy-store">Make any good type of music.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Special Server Bot.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Special Server Bot</span>
+    </td>
+    <td>Special bot role for MediaNext.</td>
+    <td class="not-obtainable">You can't obtain this role.</td>
+  </tr>
+  <tr>
+    <td>Server Bot</td>
+    <td>A role specially for the server bots.</td>
+    <td class="not-obtainable">You can't obtain this role.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Cubes Roles</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Cubeified Member.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Cubified</span>
+    </td>
+    <td>A role for everyone who is cubified.</td>
+    <td class="buy-store">If you have a cube, you can ask for it.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Cubes Artist.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Cubes Artist</span>
+    </td>
+    <td>For everyone who makes Cubes.</td>
+    <td class="moderator-decision">Requires Artist; ask for it.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Member Roles</td>
+  </tr>
+  <tr>
+    <td>Member</td>
+    <td>A role that everyone has.</td>
+    <td class="default-role">You should have this role upon joining.</td>
+  </tr>
+  <tr>
+    <td>Server 500 Reacher</td>
+    <td>For the person who made the server reach 500 members.</td>
+    <td class="not-obtainable">
+      Currently closed; next target is 600 members.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Muted.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Muted (Legacy)</span>
+    </td>
+    <td>A role that will <i>not</i> allow you to access any channel.</td>
+    <td class="not-obtainable">
+      Currently archived; replaced by Discord's timeout feature.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Verified.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Verified</span>
+    </td>
+    <td>A role for those who are verified by the creator or the moderators.</td>
+    <td class="moderator-decision">
+      Be friends with the creator or the moderators.
+    </td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Level-Up Roles</td>
+  </tr>
+  <tr>
+    <td>Novice (+5)</td>
+    <td rowspan="9">Level-up roles; a reward from your chatting experience.</td>
+    <td class="moderator-decision">Level up to level 5 using MediaNext.</td>
+  </tr>
+  <tr>
+    <td>Social (+10)</td>
+    <td class="moderator-decision">Level up to level 10 using MediaNext.</td>
+  </tr>
+  <tr>
+    <td>Normal (+20)</td>
+    <td class="moderator-decision">Level up to level 20 using MediaNext.</td>
+  </tr>
+  <tr>
+    <td>Normal+ (+30)</td>
+    <td class="moderator-decision">Level up to level 30 using MediaNext.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Experts Chatter (+40).png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Experts (+40)</span>
+    </td>
+    <td class="moderator-decision">Level up to level 40 using MediaNext.</td>
+  </tr>
+  <tr>
+    <td>Legendary (+60)</td>
+    <td class="moderator-decision">Level up to level 60 using MediaNext.</td>
+  </tr>
+  <tr>
+    <td>Master (+80)</td>
+    <td class="moderator-decision">Level up to level 80 using MediaNext.</td>
+  </tr>
+  <tr>
+    <td>Master+ (+100)</td>
+    <td class="moderator-decision">Level up to level 100 using MediaNext.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Badge of Legends.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle"
+        >How you Reached this lol? (+200)</span
+      >
+    </td>
+    <td class="moderator-decision">Level up to level 200 using MediaNext.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Miscellaneous Roles</td>
+  </tr>
+  <tr>
+    <td>Male, Female, They/Them</td>
+    <td>A gender role for everyone to use</td>
+    <td class="buy-store">Choose one of them in Channels & Roles.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Badge of Love.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Badge of Love</span>
+    </td>
+    <td rowspan="4">A badge role for everyone to choose</td>
+    <td class="behavior">Be lovely.</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD New Server Roles - Badge of Smartness.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Badge of Smartness</span>
+    </td>
+    <td class="behavior">Be smart.</td>
+  </tr>
+  <tr>
+    <td>Badge of Dumbness</td>
+    <td class="behavior">Be dumb.</td>
+  </tr>
+  <tr>
+    <td>Badge of Popularity</td>
+    <td class="behavior">Have so many people.</td>
+  </tr>
+  <tr>
+    <td>Archives</td>
+    <td>An old archive of old server channels.</td>
+    <td class="buy-store">Choose them in Channels & Roles.</td>
+  </tr>
+  <tr>
+    <td>MN Bot Tester (Legacy)</td>
+    <td>A role for everyone who tests MediaNext bot (Coder role required).</td>
+    <td class="not-obtainable">Closed, replaced with the Coder role.</td>
+  </tr>
+  <tr>
+    <td>On Leave of Absence</td>
+    <td>A role for moderators, confirming they're on an absence.</td>
+    <td class="not-obtainable" rowspan="3">Only for moderators.</td>
+  </tr>
+  <tr>
+    <td>Staff Tag</td>
+    <td>A moderator-only role.</td>
+  </tr>
+  <tr>
+    <td>Test</td>
+    <td>A test role.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Platform Roles</td>
+  </tr>
+  <tr>
+    <td>Windows, macOS, Linux, Android, iOS/iPadOS</td>
+    <td>Platform roles for choosing your preferred platform.</td>
+    <td class="buy-store">Choose them in Channels & Roles.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Pingable Roles</td>
+  </tr>
+  <tr>
+    <td>Events, News, Ping, Giveaways, Activities</td>
+    <td>Pingable roles made for various purposes.</td>
+    <td class="buy-store">Choose them in Channels & Roles.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Studio Roles</td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD_New_Role_Icon_-_MPS_Beta_Tester.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle">Beta Testers</span>
+    </td>
+    <td>Beta tests in a specific game.</td>
+    <td class="moderator-decision">
+      Depends on the <abbr title="MediaPlay Studios">MPS</abbr> application
+      form.
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img
+        style="vertical-align: middle"
+        src="/assets/role-icons/MPD_New_Role_Icon_-_MPS.png"
+        width="20"
+        height="20"
+      />
+      <span style="vertical-align: middle"
+        ><abbr title="MediaPlay Studios">MPS</abbr> Game Roles</span
+      >
+    </td>
+    <td>
+      A role you select for your preferred
+      <abbr title="MediaPlay Studios">MPS</abbr> game (for news and updates).
+    </td>
+    <td class="buy-store">Choose them in Channels & Roles.</td>
+  </tr>
+  <tr class="section-header">
+    <td colspan="3">Event Roles (Limited)</td>
+  </tr>
+  <tr>
+    <td><abbr title="A specific role in an event.">[event_role]</abbr></td>
+    <td>
+      <abbr
+        title="A description for the specific role in an event, depending on the kind of event."
+        >[event_desc]</abbr
+      >
+    </td>
+    <td class="buy-store">Choose them in Channels & Roles.</td>
+  </tr>
 </table>
 
-<br>
+<br />
 
 <div class="legend">
   <div class="legend-item">
-      <div class="legend-color no-requirements"></div>
-      <sub>No requirements needed</sub>
+    <div class="legend-color no-requirements"></div>
+    <sub>No requirements needed</sub>
   </div>
   <div class="legend-item">
-      <div class="legend-color certain-requirement"></div>
-      <sub>Based on certain requirement</sub>
+    <div class="legend-color certain-requirement"></div>
+    <sub>Based on certain requirement</sub>
   </div>
   <div class="legend-item">
-      <div class="legend-color moderator-pick"></div>
-      <sub>Based on moderator’s pick</sub>
+    <div class="legend-color moderator-pick"></div>
+    <sub>Based on moderator’s pick</sub>
   </div>
   <div class="legend-item">
-      <div class="legend-color not-obtainable"></div>
-      <sub>Not obtainable</sub>
+    <div class="legend-color not-obtainable"></div>
+    <sub>Not obtainable</sub>
   </div>
   <div class="legend-item">
-      <div class="legend-color not-available"></div>
-      <sub>Not available for requirement</sub>
+    <div class="legend-color not-available"></div>
+    <sub>Not available for requirement</sub>
   </div>
 </div>
 
-<br>
+<br />

@@ -7,33 +7,33 @@ backend:
 media_folder: static/assets
 public_folder: /assets
 collections:
-  - name: 'content'
-    label: 'Content'
-    folder: 'content'
+  - name: "content"
+    label: "Content"
+    folder: "content"
     create: true
-    slug: '{{slug}}'
+    slug: "{{slug}}"
     preview_path: /
     editor:
       preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
-      - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Discord Profile', name: 'discord', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Discord Profile", name: "discord", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
     create: true
-    slug: '{{slug}}'
+    slug: "{{slug}}"
     preview_path: blog/{{slug}}
     editor:
       preview: true
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Draft', name: 'draft', widget: 'boolean', default: true }
-      - { label: 'Author', name: 'author', widget: 'string' }
-      - { label: 'Discord Profile', name: 'discord', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: true }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Discord Profile", name: "discord", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }

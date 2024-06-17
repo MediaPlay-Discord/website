@@ -1,26 +1,26 @@
 <style>
   /* General styling for the form container */
-form {
+  form {
     background-color: #090d27; /* Dark blue background */
     color: #b3e0ff; /* Light blue text color */
     padding: 20px;
     border-radius: 1em;
     margin: auto;
     font-family: "Figtree", sans-serif;
-}
+  }
 
-/* Styling for the labels and inputs */
-form label {
+  /* Styling for the labels and inputs */
+  form label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
     user-select: none;
-}
+  }
 
-form input[type="text"],
-form input[type="email"],
-form select,
-form textarea {
+  form input[type="text"],
+  form input[type="email"],
+  form select,
+  form textarea {
     font-family: "Figtree", sans-serif;
     width: 100%;
     padding: 8px;
@@ -30,10 +30,10 @@ form textarea {
     border-radius: 1em;
     background-color: #0d1b34; /* Matching background */
     color: #b3e0ff; /* Light blue text color */
-}
+  }
 
-/* Styling for the send button */
-form button[type="submit"] {
+  /* Styling for the send button */
+  form button[type="submit"] {
     text-transform: uppercase;
     font-family: "Figtree", sans-serif;
     background-color: #1e3c72; /* Dark blue button */
@@ -45,90 +45,94 @@ form button[type="submit"] {
     cursor: pointer;
     font-weight: bold;
     font-size: 12pt;
-}
+  }
 
-form button[type="submit"]:hover {
+  form button[type="submit"]:hover {
     background-color: #365f9c; /* Slightly lighter blue on hover */
-}
+  }
 
-form textarea {
+  form textarea {
     resize: vertical;
-}
-
+  }
 </style>
 
-<div id="message" class="disabled-message" style="display: none;">The form is currently locked because it is outside the allowed submission dates.</div>
+<div id="message" class="disabled-message" style="display: none">
+  The form is currently locked because it is outside the allowed submission
+  dates.
+</div>
 
 <form name="contact" method="POST" data-netlify="true" id="applicationForm">
-        <p>
-          <label>Your Name <input type="text" name="name" required /></label>
-        </p>
-        <p>
-          <label>Your Email <input type="email" name="email" required /></label>
-        </p>
-        <p>
-          <label>Your Role <select name="role[]" multiple required>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-          </select></label>
-        </p>
-        <p>
-          <label>Message <textarea name="message" required></textarea></label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
+  <p>
+    <label>Your Name <input type="text" name="name" required /></label>
+  </p>
+  <p>
+    <label>Your Email <input type="email" name="email" required /></label>
+  </p>
+  <p>
+    <label
+      >Your Role
+      <select name="role[]" multiple required>
+        <option value="leader">Leader</option>
+        <option value="follower">Follower</option>
+      </select></label
+    >
+  </p>
+  <p>
+    <label>Message <textarea name="message" required></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 
-      <script>
-         // Get the start and end dates from the shortcode
-        const startDateStr = '{{ .Get 0 }}';
-        const endDateStr = '{{ .Get 1 }}';
+<script>
+  // Get the start and end dates from the shortcode
+  const startDateStr = "{{ .Get 0 }}";
+  const endDateStr = "{{ .Get 1 }}";
 
-        // Parse the dates
-        const startDate = new Date(startDateStr);
-        const endDate = new Date(endDateStr);
+  // Parse the dates
+  const startDate = new Date(startDateStr);
+  const endDate = new Date(endDateStr);
 
-        // Get the current date
-        const currentDate = new Date();
+  // Get the current date
+  const currentDate = new Date();
 
-        // Get the form element and the message element
-        const form = document.getElementById('myForm');
-        const message = document.getElementById('message');
+  // Get the form element and the message element
+  const form = document.getElementById("myForm");
+  const message = document.getElementById("message");
 
-        // Check if the current date is outside the specified range
-        if (currentDate < startDate || currentDate > endDate) {
-            // Disable the form by adding a class or setting the disabled attribute
-            form.classList.add('disabled');
-            // Alternatively, you can disable individual form elements
-            const elements = form.elements;
-            for (let i = 0; i < elements.length; i++) {
-                elements[i].disabled = true;
-            }
-            // Display the message
-            message.style.display = 'block';
-        }
+  // Check if the current date is outside the specified range
+  if (currentDate < startDate || currentDate > endDate) {
+    // Disable the form by adding a class or setting the disabled attribute
+    form.classList.add("disabled");
+    // Alternatively, you can disable individual form elements
+    const elements = form.elements;
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].disabled = true;
+    }
+    // Display the message
+    message.style.display = "block";
+  }
 
-        const handleSubmit = (event) => {
-            event.preventDefault();
-        
-            const myForm = event.target;
-            const formData = new FormData(myForm);
-            
-            fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString(),
-            })
-            .then(() => {
-                console.log("Form successfully submitted");
-                window.location.href = '../thank-you'; // Redirect after successful submission
-            })
-            .catch((error) => alert(error)); // Display error if submission fails
-        };
-        
-        if (!form.classList.contains('disabled')) {
-            document.querySelector("form").addEventListener("submit", handleSubmit);
-        }
-        </script>
-        
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        console.log("Form successfully submitted");
+        window.location.href = "../thank-you"; // Redirect after successful submission
+      })
+      .catch((error) => alert(error)); // Display error if submission fails
+  };
+
+  if (!form.classList.contains("disabled")) {
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+  }
+</script>
