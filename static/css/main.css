@@ -171,3 +171,18 @@ tr:last-child td:first-child {
 tr:last-child td:last-child {
   border-bottom-right-radius: 10px;
 }
+
+footer {
+  margin-top: auto; /* Push footer to the bottom */
+  background-color: #0e1338;
+  padding: 2em;
+  text-align: center;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}

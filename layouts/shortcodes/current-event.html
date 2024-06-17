@@ -1,6 +1,6 @@
 <style>
     a.button {
-    padding: 0.75em 3em;
+    padding: 0.75em 0.6em;
     border-radius: 100px;
     background-color: #ffffff20;
     transition: all .05s ease;
@@ -21,8 +21,8 @@
             <p style="font-size: 14pt; text-align: justify;"><i>{{ .Get 2 }}</i></p>
             <sub>Started on {{ .Get 3 }}, ends on {{ .Get 4 }}</sub>
         </div>
-        <div style="margin: auto; margin-left: 3em; margin-right: 2.25em;">
-            <a style="color:#ffffff80" class="button" target="_blank" href="{{ .Get 5 }}"><b>Go</b></a><br>
+        <div style="margin: auto; margin-left: 3em;">
+            <a style="color:#ffffff80; vertical-align: middle;" class="button" target="_blank" href="{{ .Get 5 }}"><span style="color: white; user-select: none; vertical-align: middle;" class="material-symbols-rounded">arrow_forward</span></a><br>
         </div>
     </div>
 </div>

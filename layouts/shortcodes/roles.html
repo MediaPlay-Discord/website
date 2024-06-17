@@ -53,6 +53,19 @@
         .moderator-pick { background-color: #800080b0; } /* Purple */
         .not-obtainable { background-color: #ff000040; } /* Red */
         .not-available { background-color: #cccccc40; } /* Grey */
+
+        /* Media query for mobile devices */
+@media (max-width: 768px) {
+  .legend {
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+  }
+  
+  .legend-item {
+    margin-right: 0;
+    margin-bottom: 10px; /* Adjust spacing between legend items */
+  }
+}
 </style>
 
 <table>
@@ -347,6 +360,8 @@
         <td class="buy-store">Choose them in Channels & Roles.</td>
       </tr>
 </table>
+
+<br>
 
 <div class="legend">
   <div class="legend-item">

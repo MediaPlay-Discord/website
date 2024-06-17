@@ -97,30 +97,15 @@
 
 <br>
 
-<footer class="footer" style="user-select: none; background-color: #0e1338; padding: 2em; bottom: 100%; text-align: center;">
-  <sub style="filter: opacity(75%);"><i>Last updated on {{ with .GitInfo }}
-    {{ .CommitDate.Format "2006-01-02" }}
-  {{ end }}</i>
-  </sub>
+<footer style="user-select: none; background-color: #0e1338; padding: 2em; text-align: center;">
+  {{ with .GitInfo }}<sub style="filter: opacity(75%);"><i>Last updated on {{ .CommitDate.Format "2006-01-02" }}</i></sub>{{ else }}<sub><i>Last build on {{ dateFormat "2006-01-02" now }}</i></sub>{{ end }}
+
   <p>
-    <a style="font-size: 12pt; margin-right: 1em;" href="https://github.com/MediaPlay-Discord/website" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">
-      code
-      </span></a>
-    
-    <a style="font-size: 12pt; margin-right: 1em;" href="https://github.com/MediaPlay-Discord/website/commits" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">
-      history
-      </span></a>
-    
-    <a style="font-size: 12pt;" href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM"
-      target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">
-        menu_book
-        </span></a>
+    <a style="font-size: 12pt; margin-right: 1em;" href="https://github.com/MediaPlay-Discord/website" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">code</span></a>
+    <a style="font-size: 12pt; margin-right: 1em;" href="https://github.com/MediaPlay-Discord/website/commits" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">history</span></a>
+    <a style="font-size: 12pt;" href="https://docs.google.com/document/d/1lh1AACqVtivyXc0im6eSgQMX8fzM2MUdoBRpElFASbM" target="_blank"><span style="vertical-align: middle;" class="material-symbols-rounded">menu_book</span></a>
   </p>
 
-  <sub style="filter: opacity(50%);">
-    version <code>{{ with .GitInfo }}
-      {{ .AbbreviatedHash }}
-    {{ end }}</code>
-  </sub>
+  {{ with .GitInfo }}<sub style="filter: opacity(50%);">version <code><a target="_blank" href="https://github.com/MediaPlay-Discord/website/commit/{{ .Hash }}">{{ .AbbreviatedHash }}</a></code></sub>{{ end }}
 </footer>
 </html>
