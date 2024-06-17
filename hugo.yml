@@ -1,6 +1,6 @@
 baseURL: https://mediaplay-discord.netlify.app/
 languageCode: en
-title: "MediaPlay"
+title: MediaPlay
 disableKinds:
   - taxonomy
   - term
@@ -10,4 +10,4 @@ languages:
   en:
     params:
       locale: en
-      description: "The website for the MediaPlay community."
+      description: The website for the MediaPlay community.
