@@ -105,30 +105,36 @@
     max-width: 100%;
   }
   .nav-lists {
-    background-color: #0a0d23;
-    padding: 10px;
-    border-radius: 10px;
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
     display: flex;
     flex-direction: row;
   }
 
-  .nav-lists::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for webkit browsers */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #0a0d23;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 0.75em;
+    padding-top: 15px;
+    padding-bottom: -10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin: -5px;
   }
-  @media (max-width: 600px) {
-    .nav-lists {
-      flex-direction: row;
-      overflow-x: auto;
-    }
 
-    ul li {
-      flex: 0 0 auto;
-      padding: 10px 15px;
-      margin-right: 10px;
-    }
+  .dropdown-content a {
+    text-decoration: none;
+    display: block;
+    color: #fff;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #575c70;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
   }
 </style>
 
@@ -155,47 +161,59 @@
     <span style="vertical-align: baseline">{{ .Title }}</span>
   </h1>
 
-  <ul id="nav-lists">
-    <li>
-      <a href="/"
+  <ul id="nav-lists" class="nav-lists">
+    <li class="dropdown">
+      <a href="#" class="dropbtn"
         >General
         <span
           class="material-symbols-rounded wiki"
           style="vertical-align: middle"
+          >arrow_drop_down</span
         >
-          arrow_drop_down
-        </span></a
-      >
+      </a>
+      <div class="dropdown-content">
+        <a href="/community/discord/roles">Roles List</a>
+        <a href="/community/discord/rules">Rules</a>
+      </div>
     </li>
-    <li>
-      <a style="margin-left: 10px" href="/community"
-        >Events<span
+    <li class="dropdown">
+      <a href="#" class="dropbtn" style="margin-left: 10px"
+        >Events
+        <span
           class="material-symbols-rounded wiki"
           style="vertical-align: middle"
+          >arrow_drop_down</span
         >
-          arrow_drop_down
-        </span></a
-      >
+      </a>
+      <div class="dropdown-content">
+        <a href="#">NXT-24 (Work in Progress)</a>
+      </div>
     </li>
-    <li>
-      <a style="margin-left: 10px" href="/blog"
-        >Members<span
+    <li class="dropdown">
+      <a href="#" class="dropbtn" style="margin-left: 10px"
+        >Members
+        <span
           class="material-symbols-rounded wiki"
           style="vertical-align: middle"
+          >arrow_drop_down</span
         >
-          arrow_drop_down
-        </span></a
-      >
+      </a>
+      <div class="dropdown-content">
+        <a href="#">(Work in Progress)</a>
+      </div>
     </li>
-    <li>
-      <a style="margin-left: 10px" href="/studios"
-        >Extras<span
+    <li class="dropdown">
+      <a href="#" class="dropbtn" style="margin-left: 10px"
+        >Extras
+        <span
           class="material-symbols-rounded wiki"
           style="vertical-align: middle"
+          >arrow_drop_down</span
         >
-          arrow_drop_down
-        </span></a
-      >
+      </a>
+      <div class="dropdown-content">
+        <a href="#">(Work in Progress)</a>
+      </div>
     </li>
   </ul>
 </section>
