@@ -22,8 +22,26 @@
 {{/* Generate opengraph image */}}
 {{- if .IsPage -}}
   {{ $base := resources.Get "opengraph/image.png" }}
-  {{ $font := resources.Get "opengraph/Figtree-Bold.ttf" }}
-  {{ $img := $base.Filter (images.Text .Page.Title (dict "color" "#ffffff" "size" 64 "linespacing" 2 "x" 77 "y" 60 "font" $font )) }}
+  {{ $titleFont := resources.Get "opengraph/Figtree-Bold.ttf"}}
+  {{ $textFont := resources.Get "opengraph/Figtree-Regular.ttf"}}
+  {{ $author := .Params.author | plainify }}
+  {{ $discord := .Params.discord | plainify }}
+  {{ $img := $base.Filter (images.Text .Page.Title (dict
+    "color" "#ffffff"
+    "size" 64
+    "linespacing" 2
+    "x" 77
+    "y" 90
+    "font" $titleFont
+  ))}}
+  {{ $img = $img.Filter (images.Text (printf "%v (%v)" $author $discord) (dict
+    "color" "#9fcedf"
+    "size" 24
+    "linespacing" 2
+    "x" 77
+    "y" 60
+    "font" $textFont
+  ))}}
   {{ $img = resources.Copy (path.Join .Page.RelPermalink "og.png") $img }}
   <meta property="og:image" content="{{ $img.Permalink }}" />
   <meta property="og:image:width" content="{{ $img.Width }}" />
