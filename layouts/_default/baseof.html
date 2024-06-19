@@ -19,9 +19,14 @@
       $title = printf "%s - %s" .Title site.Title }}{{ end }}{{ $title }}{{ end
       }}
     </title>
-    <link rel="stylesheet" href="/css/navbar.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/scrollBar.css" />
+
+    <style>
+      {{- readFile "static/css/main.css" | safeCSS -}}
+      {{- readFile "static/css/navbar.css" | safeCSS -}}
+      {{- readFile "static/css/scrollBar.css" | safeCSS -}}
+    </style>
+    
+    {{ partial "opengraph" . }}
 
     <!--Favicon-->
     <link rel="icon" href="/assets/MediaPlay_Logo.png" type="image/x-icon" />
