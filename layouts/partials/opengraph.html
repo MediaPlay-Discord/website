@@ -34,7 +34,15 @@
     "y" 90
     "font" $titleFont
   ))}}
-  {{ $img = $img.Filter (images.Text (printf "%v (%v)" $author $discord) (dict
+  {{ $text := "" }}
+{{ with $author }}
+  {{ $text = printf "%v" . }}
+{{ end }}
+{{ with $discord }}
+  {{ $text = printf "%v (%v)" $author $discord }}
+{{ end }}
+
+{{ $img = $img.Filter (images.Text $text (dict
     "color" "#9fcedf"
     "size" 24
     "linespacing" 2
@@ -42,6 +50,7 @@
     "y" 60
     "font" $textFont
   ))}}
+
   {{ $img = resources.Copy (path.Join .Page.RelPermalink "og.png") $img }}
   <meta property="og:image" content="{{ $img.Permalink }}" />
   <meta property="og:image:width" content="{{ $img.Width }}" />
