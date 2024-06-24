@@ -54,12 +54,51 @@
   form textarea {
     resize: vertical;
   }
+
+  .disabled-message {
+    background-color: #ffff0040;
+    padding: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    color: #c6f0ff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .locked {
+    margin-right: 10px;
+  }
+
+  #date {
+    background-color: #090d27;
+    padding: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    color: #c6f0ffc2;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    font-size: 14pt;
+    text-align: center;
+    user-select: none;
+  }
 </style>
 
-<div id="message" class="disabled-message" style="display: none">
-  The form is currently locked because it is outside the allowed submission
-  dates.
+
+
+<div id="message" class="disabled-message" style="display: none; user-select: none;">
+  <span style="color:#9fcedf; vertical-align: middle;" class="locked material-symbols-rounded">
+lock_clock
+</span>
+  <span><i>The form is currently locked because it is outside the allowed submission
+  dates.</i></span>
 </div>
+
+<p id="date"></p>
 
 <form name="contact" method="POST" data-netlify="true" id="applicationForm">
   <p>
@@ -98,8 +137,13 @@
   const currentDate = new Date();
 
   // Get the form element and the message element
-  const form = document.getElementById("myForm");
+  const form = document.getElementById("applicationForm");
   const message = document.getElementById("message");
+  const dateText = document.getElementById('date');
+
+  const userLocale = navigator.language || navigator.userLanguage;
+
+  dateText.innerHTML = "Starts on <b>" + Intl.DateTimeFormat(userLocale, {dateStyle: 'medium', timeStyle: 'short'}).format(startDate) + "</b>; ends on <b>" + Intl.DateTimeFormat(userLocale, {dateStyle: 'medium', timeStyle: 'short'}).format(endDate) + "</b>"
 
   // Check if the current date is outside the specified range
   if (currentDate < startDate || currentDate > endDate) {
@@ -109,7 +153,10 @@
     const elements = form.elements;
     for (let i = 0; i < elements.length; i++) {
       elements[i].disabled = true;
+      elements[i].style.filter = "opacity(25%)";
+      elements[i].style.cursor = "not-allowed";
     }
+
     // Display the message
     message.style.display = "block";
   }
