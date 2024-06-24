@@ -7,6 +7,7 @@
   var slideIndex = 1;
   var myTimer;
   var slideshowContainer;
+  var slides = document.getElementsByClassName("mySlides");
 
   window.addEventListener("load", function () {
     showSlides(slideIndex);
@@ -50,7 +51,6 @@
 
   function showSlides(n) {
     var i;
-    var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("dot");
     if (n > slides.length) {
       slideIndex = 1;
@@ -82,7 +82,7 @@
 
 <div class="slideshow-container">
   <div class="slideshow-inner">
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MPD-Family-1-Picture-Compressed.webp"
         style="
@@ -95,7 +95,7 @@
       <div class="text">MPD Family 1</div>
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MPD-Family-2-Picture-Compressed.webp"
         style="
@@ -108,7 +108,7 @@
       <div class="text">MPD Family 2</div>
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MPD-Family-3-Picture-Compressed.webp"
         style="
@@ -121,7 +121,7 @@
       <div class="text">MPD Family 3</div>
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MPD-Family-4-Picture-Compressed.webp"
         style="
@@ -134,7 +134,7 @@
       <div class="text">MPD Family 4</div>
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MPD-Family-5-Main-Picture-Compressed.webp"
         style="
@@ -147,7 +147,7 @@
       <div class="text" style="color: #000">MPD Family 5 - Main</div>
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MPD-NVO-18-Family-Picture-Compressed.webp"
         style="
@@ -160,20 +160,21 @@
       <div class="text">MPD NVO-18 Family — TechNewVideo's 18th Birthday!</div>
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MPD-Family-5-Exclusive-Picture-Compressed.webp"
         style="
           width: 100%;
           border-radius: 2rem;
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.315);
+          background-color: rgb(20, 20, 20);
         "
         alt="MPD Family 5 - Exclusive picture. Contains a Discord app window, with messages coming out from it. The Demon (OfficialAz3)'s message: 'gottem' fam'', Techy's message: 'MPD Family 5 Exclusive Picture releases!', MimiWorld's message: 'Good Morning everyone! Sorry, I forgot talking yesterday, hope y'all had a great day!', KhoaDankstoneMC/GD's message: 'Hmm', DuyCool's message: 'Don't forget me!', JustMonotone's message: 'it is true, the less I know the better', Breado (BreadoDaLoaf)'s message: 'I will devour all your loafs'."
       />
       <div class="text">MPD Family 5 - Exclusive</div>
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MPD-Family-6-Picture.png"
         style="
@@ -186,7 +187,7 @@
       <div class="text" style="color: #000">MPD Family 6</div>
     </div>
 
-    <div class="mySlides fade">
+    <div class="mySlides">
       <img
         src="/assets/MediaPlay-Family-8-Picture.png"
         style="
@@ -203,16 +204,16 @@
   </div>
 
   <img
-    src="/assets/MPD-Button-Left.png"
-    width="15%"
-    height="15%"
+    src="/assets/Website_Button_2.webp"
+    width="20%"
+    height="20%"
     class="prev"
     onclick="plusSlides(-1)"
   />
   <img
-    src="/assets/MPD-Button-Right.png"
-    width="15%"
-    height="15%"
+    src="/assets/Website_Button_1.webp"
+    width="20%"
+    height="20%"
     class="next"
     onclick="plusSlides(1)"
   />
