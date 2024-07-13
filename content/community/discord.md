@@ -8,7 +8,7 @@ discord: "-"
 ---
 *Welcome to the MediaPlay Discord information center!*
 
-You can join the MediaPlay Discord server to get many things, such as downloads, perks, and keeping up with updates too!
+You can join the MediaPlay Discord server to get many things, such as downloads, perks, and keeping up with updates too.
 
 # What is the MediaPlay Discord server?
 
