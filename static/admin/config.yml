@@ -39,7 +39,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "community"
     label: "Community"
-    folder: "content/studios"
+    folder: "content/community"
     create: true
     slug: "{{slug}}"
     preview_path: /
