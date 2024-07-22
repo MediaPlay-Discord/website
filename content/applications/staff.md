@@ -1,6 +1,6 @@
 ---
-title: Staff Application for MediaPlay Discord
+title: MediaPlay Discord Moderator Application
 layout: staticpage
 ---
 
-{{< form "2024-06-11T00:00:00Z" "2024-06-13T00:00:00Z" >}}
+{{< forms/moderator "2024-07-25T00:00:00Z" "2024-08-25T00:00:00Z" >}}

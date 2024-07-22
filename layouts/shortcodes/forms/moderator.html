@@ -1,0 +1,377 @@
+<style>
+  /* General styling for the form container */
+  form {
+    background-color: #090d27; /* Dark blue background */
+    color: #b3e0ff; /* Light blue text color */
+    padding: 20px;
+    border-radius: 1em;
+    margin: auto;
+    font-family: "Figtree", sans-serif;
+  }
+
+  /* Styling for the labels and inputs */
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    user-select: none;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="number"],
+  form input[type="range"],
+  form select,
+  form textarea {
+    font-family: "Figtree", sans-serif;
+    width: 100%;
+    padding: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #1e3c72; /* Darker blue border */
+    border-radius: 1em;
+    background-color: #0d1b34; /* Matching background */
+    color: #b3e0ff; /* Light blue text color */
+  }
+
+  /* Styling for the send button */
+  form button[type="submit"] {
+    text-transform: uppercase;
+    font-family: "Figtree", sans-serif;
+    background-color: #1e3c72; /* Dark blue button */
+    color: #b3e0ff; /* Light blue text color */
+    border: none;
+    border-radius: 1em;
+    width: 100%;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12pt;
+  }
+
+  form button[type="submit"]:hover {
+    background-color: #365f9c; /* Slightly lighter blue on hover */
+  }
+
+  form textarea {
+    resize: vertical;
+  }
+
+  .disabled-message {
+    background-color: #ffff0040;
+    padding: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+    color: #c6f0ff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .locked {
+    margin-right: 10px;
+  }
+
+  #date {
+    background-color: #090d27;
+    padding: 1em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+    color: #c6f0ffc2;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    font-size: 14pt;
+    text-align: center;
+    user-select: none;
+  }
+
+  h2 {
+    font-size: 24pt !important;
+  }
+
+  form label {
+    font-weight: lighter;
+  }
+
+  .slider-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .slider {
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      background: #d3d3d3;
+      outline: none;
+      border-radius: 5px;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #4CAF50;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 2px 0 #555;
+    }
+
+    .slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      background: #6c99ee;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 2px 0 #555;
+    }
+
+    .slider-value {
+      margin-left: 10px;
+    }
+
+    .breakpoints {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 5px;
+    }
+
+    .breakpoints span {
+      display: inline-block;
+      width: 10%;
+      text-align: center;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 250px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%; /* Position above the tooltip icon */
+      left: 50%;
+      margin-left: -125px; /* Center the tooltip */
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: small;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: '';
+      position: absolute;
+      top: 100%; /* Arrow at the bottom */
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+</style>
+
+
+
+<div id="message" class="disabled-message" style="display: none; user-select: none;">
+  <span style="color:#9fcedf; vertical-align: middle;" class="locked material-symbols-rounded">
+lock_clock
+</span>
+  <span><i>The form is currently locked because it is outside the allowed submission
+  dates.</i></span>
+</div>
+
+<p id="date"></p>
+
+<form name="moderatorApplication" method="POST" data-netlify="true" id="applicationForm">
+    <h2>Your Information</h2>
+    <p>
+      <label>Your Name <span class="tooltip"><span class="material-symbols-rounded">
+info
+</span>
+        <span class="tooltiptext">
+          What should we call you?
+        </span>
+      </span><input type="text" name="name" required /></label>
+    </p>
+    <p>
+      <label>Your Discord Username <span class="tooltip"><span class="material-symbols-rounded">
+info
+</span>
+        <span class="tooltiptext">
+          The username that you use on Discord. <b style="font-weight: bold;">Do not include the <code>@</code> symbol.</b>
+        </span>
+      </span> <input type="text" name="discord_username" required /></label>
+    </p>
+    <p>
+      <label>Your Discord ID <span class="tooltip"><span class="material-symbols-rounded">
+help
+</span>
+        <span class="tooltiptext">
+          Your Discord ID can be retrieved by mentioning yourself and adding a backslash at the beginning (<code>\@[username]</code>) in a message, then send the message.<br /><br />It should look like this in the end:<br /><code><@[discord-id]></code>
+        </span>
+      </span><input type="number" name="discord_id" required /></label>
+      
+    </p>
+    <p>
+      <label>Your Age <span class="tooltip"><span class="material-symbols-rounded">
+info
+</span>
+        <span class="tooltiptext">
+          Per <a href="https://discord.com/terms#2" target="_blank">Discord's Terms of Service</a>, you must be <b style="font-weight: bold;">at least 13 years old</b> to become a moderator.
+        </span>
+      </span><input type="number" name="age" required /></label>
+    </p>
+
+    <h2>Reasons & Situations</h2>
+    <p>
+      <label>Why do you want to be a moderator? <textarea name="moderator_reason" required></textarea></label>
+    </p>
+    <p>
+      <label>What will you do if you are a moderator? <textarea name="moderator_plan" required></textarea></label>
+    </p>
+    <p>
+      <label>On a scale from 1 to 10, how active are you? 
+        <div class="slider-container">
+          <input type="range" class="slider" name="activity_level" min="1" max="10" required />
+        </div>
+        <div class="breakpoints">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+        </div>
+      </label>
+    </p>
+    <p>
+      <label>If there's an intense raid happening, what will you do? <textarea name="raid_response" required></textarea></label>
+    </p>
+    <p>
+      <label>
+        What will you do if a member breaks the server rules?
+        <select name="rule_break_response" required>
+          <option value=""></option>
+          <option value="warn">Warn</option>
+          <option value="timeout">Timeout</option>
+          <option value="kick">Kick</option>
+          <option value="ban">Ban</option>
+        </select>
+      </label>
+    </p>
+    <p>
+      <label>
+        Can you handle dramas?
+        <select name="handle_dramas" required>
+          <option value=""></option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </label>
+    </p>
+
+    <h2>Suggestions and Feedback</h2>
+    <p>
+      <label>In your opinion, what do you think about this server?<textarea name="server_opinion" required></textarea></label>
+    </p>
+    <p>
+      <label>On a scale from 1 to 10, rate this server <i>(optional)</i>
+        <div class="slider-container">
+          <input type="range" class="slider" name="server_rating" min="1" max="10" />
+        </div>
+        <div class="breakpoints">
+          <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+        </div>
+      </label>
+    </p>
+    <p>
+      <label>What would you like to see in this server? <i>(optional)</i> <textarea name="server_suggestions"></textarea></label>
+    </p>
+    <p>
+      <label>Any notes? <i>(optional)</i> <textarea name="notes"></textarea></label>
+    </p>
+
+    <i id="consentMessage" style="display: block; filter: opacity(75%); user-select: none;">By clicking <b>SEND</b>, I consent to my data being used for evaluating my application and contacting me. My data will be accessible only to internal staff and the developer for troubleshooting purposes, and will not be shared with third parties.</i>
+
+    <p>
+      <button type="submit">Send</button>
+    </p>
+  </form>
+
+<script>
+  // Get the start and end dates from the shortcode
+  const startDateStr = "{{ .Get 0 }}";
+  const endDateStr = "{{ .Get 1 }}";
+
+  // Parse the dates
+  const startDate = new Date(startDateStr);
+  const endDate = new Date(endDateStr);
+
+  // Get the current date
+  const currentDate = new Date();
+
+  // Get the form element and the message element
+  const form = document.getElementById("applicationForm");
+  const message = document.getElementById("message");
+  const consentMessage = document.getElementById("consentMessage");
+  const dateText = document.getElementById('date');
+
+  const userLocale = navigator.language || navigator.userLanguage;
+
+  dateText.innerHTML = "Starts on <b>" + Intl.DateTimeFormat(userLocale, {dateStyle: 'medium', timeStyle: 'short'}).format(startDate) + "</b>; ends on <b>" + Intl.DateTimeFormat(userLocale, {dateStyle: 'medium', timeStyle: 'short'}).format(endDate) + "</b>"
+
+  // Check if the current date is outside the specified range
+  if (currentDate < startDate || currentDate > endDate) {
+    // Disable the form by adding a class or setting the disabled attribute
+    form.classList.add("disabled");
+    // Alternatively, you can disable individual form elements
+    const elements = form.elements;
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].disabled = true;
+      elements[i].style.filter = "opacity(25%)";
+      elements[i].style.cursor = "not-allowed";
+    }
+
+    // Display the message
+    message.style.display = "block";
+    consentMessage.style.display = "none";
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const myForm = event.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => {
+        console.log("Form successfully submitted");
+        window.location.href = "../thank-you"; // Redirect after successful submission
+      })
+      .catch((error) => alert(error)); // Display error if submission fails
+  };
+
+  if (!form.classList.contains("disabled")) {
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+  }
+</script>
