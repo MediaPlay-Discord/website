@@ -252,8 +252,11 @@ info
     </p>
     <p>
       <label>On a scale from 1 to 10, how active are you? 
+        <div class="breakpoints">
+          <span>Less Active</span><span>More Active</span>
+        </div>
         <div class="slider-container">
-          <input type="range" class="slider" name="activity_level" min="1" max="10" required />
+          <input type="range" class="slider" name="activity_level" min="1" max="10" value="5" required />
         </div>
         <div class="breakpoints">
           <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
@@ -292,8 +295,11 @@ info
     </p>
     <p>
       <label>On a scale from 1 to 10, rate this server <i>(optional)</i>
+        <div class="breakpoints">
+          <span>Worst</span><span>Best</span>
+        </div>
         <div class="slider-container">
-          <input type="range" class="slider" name="server_rating" min="1" max="10" />
+          <input type="range" class="slider" name="server_rating" min="1" max="10" value="5"/>
         </div>
         <div class="breakpoints">
           <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
